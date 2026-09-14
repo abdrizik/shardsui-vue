@@ -1,0 +1,7 @@
+export { default as Control } from './slider-control.vue'
+export { default as Indicator } from './slider-indicator.vue'
+export { default as Label } from './slider-label.vue'
+export { default as Root } from './slider-root.vue'
+export { default as Thumb } from './slider-thumb.vue'
+export { default as Track } from './slider-track.vue'
+export { default as Value } from './slider-value.vue'
