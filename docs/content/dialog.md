@@ -32,7 +32,7 @@ import { Dialog } from '@shardsui/vue/dialog'
 
 ## Usage guidelines
 
-- **Dialog doesn't support gestures**: if you need gestures or snap points, use [Drawer](/vue/drawer). A panel that slides in from the screen edge without gestures is just a positioned Dialog.
+- **Dialog doesn't support gestures**: if you need gestures or snap points, use [Drawer](/drawer). A panel that slides in from the screen edge without gestures is just a positioned Dialog.
 
 ## Examples
 
@@ -185,13 +185,13 @@ Control where focus goes when the dialog opens and closes with the `initialFocus
 
 ### Outside scroll dialog
 
-For long content, make `<Dialog.Viewport>` the outer scrollable container and let `<Dialog.Popup>` extend past the bottom edge. The scrollable area draws custom scrollbars with the [Scroll Area component](/vue/scroll-area).
+For long content, make `<Dialog.Viewport>` the outer scrollable container and let `<Dialog.Popup>` extend past the bottom edge. The scrollable area draws custom scrollbars with the [Scroll Area component](/scroll-area).
 
 :demo{name="dialog/outside-scroll"}
 
 ### Inside scroll dialog
 
-Here the popup stays fully on screen and an inner container scrolls instead. `<Dialog.Viewport>` positions `<Dialog.Popup>`, and the inner scrollable area is built with the [Scroll Area component](/vue/scroll-area).
+Here the popup stays fully on screen and an inner container scrolls instead. `<Dialog.Viewport>` positions `<Dialog.Popup>`, and the inner scrollable area is built with the [Scroll Area component](/scroll-area).
 
 :demo{name="dialog/inside-scroll"}
 

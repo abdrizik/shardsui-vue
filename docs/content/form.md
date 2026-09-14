@@ -6,7 +6,7 @@ A validated form.
 
 ## Anatomy
 
-Pair Form with [Field](/vue/field):
+Pair Form with [Field](/field):
 
 ```vue title="Anatomy"
 <script setup>

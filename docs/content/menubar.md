@@ -54,7 +54,7 @@ import { Menu } from '@shardsui/vue/menu'
 </template>
 ```
 
-Each menu is a full [Menu](/vue/menu) — its parts (`Trigger`, `Positioner`, `Popup`, `Item`, `Group`, `RadioGroup`, `CheckboxItem`, `Viewport`, etc.) share the same props and data attributes documented there.
+Each menu is a full [Menu](/menu) — its parts (`Trigger`, `Positioner`, `Popup`, `Item`, `Group`, `RadioGroup`, `CheckboxItem`, `Viewport`, etc.) share the same props and data attributes documented there.
 
 ## API reference
 

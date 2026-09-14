@@ -179,7 +179,7 @@ import { Menu } from '@shardsui/vue/menu'
 </template>
 ```
 
-To accept exactly the part's props with types, declare them from the part's own prop type. See [TypeScript](/vue/typescript) for typing a wrapper.
+To accept exactly the part's props with types, declare them from the part's own prop type. See [TypeScript](/typescript) for typing a wrapper.
 
 ## Detaching parts with a handle
 
@@ -201,7 +201,7 @@ const settings = Dialog.createHandle()
 </template>
 ```
 
-A handle also drives the component from your own code, no trigger required: `settings.open(triggerId)`, `settings.close()`, and a readonly `settings.isOpen`. `open` takes the `id` of a registered detached trigger so the popup knows what it was opened from. Popover, Menu, Tooltip, and Preview Card throw if no trigger with that id is registered, while Dialog, Alert Dialog, and Drawer also accept `null` for "no trigger" and add `openWithPayload(payload)`. `Dialog.createHandle<Payload>()` types the payload that flows through the trigger and into the root's default slot. See [TypeScript](/vue/typescript) for the details.
+A handle also drives the component from your own code, no trigger required: `settings.open(triggerId)`, `settings.close()`, and a readonly `settings.isOpen`. `open` takes the `id` of a registered detached trigger so the popup knows what it was opened from. Popover, Menu, Tooltip, and Preview Card throw if no trigger with that id is registered, while Dialog, Alert Dialog, and Drawer also accept `null` for "no trigger" and add `openWithPayload(payload)`. `Dialog.createHandle<Payload>()` types the payload that flows through the trigger and into the root's default slot. See [TypeScript](/typescript) for the details.
 
 Handles are available on the overlay components where a detached trigger makes sense: `Dialog`, `AlertDialog`, `Drawer`, `Popover`, `Menu`, `Tooltip`, and `PreviewCard`.
 
@@ -221,6 +221,6 @@ import { DirectionProvider } from '@shardsui/vue/direction-provider'
 </template>
 ```
 
-It changes component behavior only, never the DOM's own text direction. See [Reading direction](/vue/state#reading-direction) for what that leaves you to do.
+It changes component behavior only, never the DOM's own text direction. See [Reading direction](/state#reading-direction) for what that leaves you to do.
 
 Three components ship a provider of their own: `<Tooltip.Provider>` shares one delay across the tooltips inside it, so the next one opens instantly; `<Toast.Provider>` holds the toast queue; and `<Drawer.Provider>` tracks which drawers are open, driving `<Drawer.Indent>` and `<Drawer.IndentBackground>`.

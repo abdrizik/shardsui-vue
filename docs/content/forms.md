@@ -108,7 +108,7 @@ import { Slider } from '@shardsui/vue/slider'
 
 ## Grouping controls under one legend
 
-When a single label covers several controls — a price range with two thumbs, a set of radio options — reach for [Fieldset](/vue/fieldset). `<Fieldset.Root>` renders a `<fieldset>`, and `<Fieldset.Legend>` names it with no `aria-labelledby` to wire up. A `RadioGroup` nested inside adopts that legend as its own accessible name; other composites keep their own label part, so a multi-thumb slider still needs an `aria-label` per `<Slider.Thumb>`:
+When a single label covers several controls — a price range with two thumbs, a set of radio options — reach for [Fieldset](/fieldset). `<Fieldset.Root>` renders a `<fieldset>`, and `<Fieldset.Legend>` names it with no `aria-labelledby` to wire up. A `RadioGroup` nested inside adopts that legend as its own accessible name; other composites keep their own label part, so a multi-thumb slider still needs an `aria-label` per `<Slider.Thumb>`:
 
 ```vue title="A range slider and a radio group, each under a legend"
 <script setup>

@@ -20,7 +20,7 @@ Every part that renders an element accepts these.
 
 ::
 
-`class` and `style` aren't declared props — they fall through to the element, so `:class` and `:style` bindings work on a part exactly as they do on an element. Anything else that isn't one of a part's own props is forwarded the same way, and your event handlers run alongside the part's rather than replacing them. See [Composition](/vue/composition).
+`class` and `style` aren't declared props — they fall through to the element, so `:class` and `:style` bindings work on a part exactly as they do on an element. Anything else that isn't one of a part's own props is forwarded the same way, and your event handlers run alongside the part's rather than replacing them. See [Composition](/composition).
 
 Every part that renders an element exposes it through `$el` on the component instance, populated once the element mounts:
 
@@ -88,7 +88,7 @@ For overlays with open state (dialog, menu, popover, select, …).
 
 ## Detached triggers
 
-Dialog, Alert Dialog, Drawer, Popover, Menu, Tooltip, and Preview Card can link a trigger to a root that isn't its ancestor, through a handle created with the component's `createHandle()`. See [Composition](/vue/composition#detaching-parts-with-a-handle).
+Dialog, Alert Dialog, Drawer, Popover, Menu, Tooltip, and Preview Card can link a trigger to a root that isn't its ancestor, through a handle created with the component's `createHandle()`. See [Composition](/composition#detaching-parts-with-a-handle).
 
 ::table{columns="Prop,Type,Default"}
 
@@ -124,7 +124,7 @@ On the `Positioner` part of floating components (Popover, Menu, Select, Tooltip,
 
 ::
 
-The positioner sets `--anchor-width`, `--anchor-height`, `--available-width`, `--available-height` and `--transform-origin` for the popup to size and animate against. See [Styling](/vue/styling).
+The positioner sets `--anchor-width`, `--anchor-height`, `--available-width`, `--available-height` and `--transform-origin` for the popup to size and animate against. See [Styling](/styling).
 
 ## Mounting
 
@@ -189,11 +189,11 @@ For menus, lists, and composite widgets.
 
 Machinery specific to one component family — a list's `items` / `filter` / `itemToStringValue`, or a range's `min` / `max` / `format` — stays on that component's page.
 
-For the full controlled and uncontrolled patterns, see [State](/vue/state).
+For the full controlled and uncontrolled patterns, see [State](/state).
 
 ## Data attributes
 
-Every part mirrors its live state onto its element as `data-*` attributes, so you style against state instead of tracking it yourself. See [Styling](/vue/styling).
+Every part mirrors its live state onto its element as `data-*` attributes, so you style against state instead of tracking it yourself. See [Styling](/styling).
 
 ### Open and closed
 
@@ -226,7 +226,7 @@ Every part mirrors its live state onto its element as `data-*` attributes, so yo
 
 ### Field validation
 
-Present within a [Field](/vue/field), reflecting the control's validation state.
+Present within a [Field](/field), reflecting the control's validation state.
 
 | Attribute      | Description                                 |
 | :------------- | :------------------------------------------ |
@@ -249,7 +249,7 @@ Present within a [Field](/vue/field), reflecting the control's validation state.
 
 ### Animation
 
-Set the resting styles as the default and the transitional styles behind these attributes. See [Animation](/vue/animation).
+Set the resting styles as the default and the transitional styles behind these attributes. See [Animation](/animation).
 
 | Attribute              | Description                                                                                               |
 | :--------------------- | :-------------------------------------------------------------------------------------------------------- |

@@ -40,7 +40,7 @@ Groups the image and its fallback. Renders a `<span>` element.
 
 Renders an `<img>` element.
 
-The component preloads the image — applying the same `src`, `srcset`, `sizes`, `crossorigin` and `referrerpolicy` — so the loading status is known from the first render. Those five are declared props rather than fallthrough attributes, so changing any of them restarts the preload. The `<img>` mounts only once the image has loaded, which is why it can be animated in with `data-starting-style`; see [Animation](/vue/animation).
+The component preloads the image — applying the same `src`, `srcset`, `sizes`, `crossorigin` and `referrerpolicy` — so the loading status is known from the first render. Those five are declared props rather than fallthrough attributes, so changing any of them restarts the preload. The `<img>` mounts only once the image has loaded, which is why it can be animated in with `data-starting-style`; see [Animation](/animation).
 
 ::table{columns="Prop,Type,Default"}
 

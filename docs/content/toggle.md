@@ -16,7 +16,7 @@ import { Toggle } from '@shardsui/vue/toggle'
 </template>
 ```
 
-To let several toggles share a selection, wrap them in a [Toggle Group](/vue/toggle-group).
+To let several toggles share a selection, wrap them in a [Toggle Group](/toggle-group).
 
 ## API reference
 

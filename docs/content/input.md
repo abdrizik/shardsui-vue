@@ -18,8 +18,8 @@ import { Input } from '@shardsui/vue/input'
 
 ## Usage guidelines
 
-- **Form controls must have an accessible name**: give the input a `<label>` element, or wrap it in the `Field` parts. See the [forms guide](/vue/forms).
-- **`Input` is `Field.Control`** under a shorter import: inside a `<Field.Root>` it picks up the label association, validation state and error bindings documented in [Field](/vue/field). Outside one it is a plain `<input>`.
+- **Form controls must have an accessible name**: give the input a `<label>` element, or wrap it in the `Field` parts. See the [forms guide](/forms).
+- **`Input` is `Field.Control`** under a shorter import: inside a `<Field.Root>` it picks up the label association, validation state and error bindings documented in [Field](/field). Outside one it is a plain `<input>`.
 
 ## API reference
 

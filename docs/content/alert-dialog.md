@@ -94,7 +94,7 @@ Veto the close by controlling `open` and deciding in the `@update:open` handler.
 
 Style the parent dialog through the `[data-nested-dialog-open]` selector and the `var(--nested-dialogs)` CSS variable. Child dialogs render their own backdrop, marked with `data-nested`. Hide it with `[data-nested] { opacity: 0 }` to keep the parent visible behind the one on top.
 
-The demo below uses [Dialog](/vue/dialog). The same pattern applies to AlertDialog.
+The demo below uses [Dialog](/dialog). The same pattern applies to AlertDialog.
 
 :demo{name="dialog/close-confirmation"}
 

@@ -27,7 +27,7 @@ import { Slider } from '@shardsui/vue/slider'
 
 ## Usage guidelines
 
-- **Form controls must have an accessible name**: a `<Slider.Label>` usually does the job; when the design has no visible label, give each `<Slider.Thumb>` its own `aria-label` instead. See [Labeling a slider](#examples-labeling-a-slider) and the [forms guide](/vue/forms).
+- **Form controls must have an accessible name**: a `<Slider.Label>` usually does the job; when the design has no visible label, give each `<Slider.Thumb>` its own `aria-label` instead. See [Labeling a slider](#examples-labeling-a-slider) and the [forms guide](/forms).
 
 ## Examples
 
@@ -142,7 +142,7 @@ Give `<Slider.Root>` a `name` and its value is submitted with the surrounding fo
 </template>
 ```
 
-For a grouped multi-thumb range slider in a form, nest it in a [Fieldset](/vue/fieldset): the legend names the group while each thumb keeps its own `aria-label`:
+For a grouped multi-thumb range slider in a form, nest it in a [Fieldset](/fieldset): the legend names the group while each thumb keeps its own `aria-label`:
 
 ```vue title="Using Fieldset with a multi-thumb slider"
 <template>

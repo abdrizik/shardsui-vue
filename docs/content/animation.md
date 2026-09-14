@@ -77,7 +77,7 @@ When you want a motion a transition can't express — a spin, a multi-step ease,
 
 ## Animating size
 
-Components that expand and collapse — [Collapsible](/vue/collapsible) and [Accordion](/vue/accordion) — can't transition to `height: auto`; the browser won't interpolate to an intrinsic size. So they measure the content for you and publish it as a CSS variable on the panel, giving you a concrete pixel target to animate between:
+Components that expand and collapse — [Collapsible](/collapsible) and [Accordion](/accordion) — can't transition to `height: auto`; the browser won't interpolate to an intrinsic size. So they measure the content for you and publish it as a CSS variable on the panel, giving you a concrete pixel target to animate between:
 
 - `--collapsible-panel-height` / `--collapsible-panel-width` on `<Collapsible.Panel>`.
 - `--accordion-panel-height` / `--accordion-panel-width` on `<Accordion.Panel>`.

@@ -58,14 +58,14 @@ body {
 
 ## Compose a component
 
-Parts ship behavior and accessibility; you assemble them and bring the styles. Nest a [Popover](/vue/popover)'s parts and style them with Tailwind, plain CSS, or a global stylesheet:
+Parts ship behavior and accessibility; you assemble them and bring the styles. Nest a [Popover](/popover)'s parts and style them with Tailwind, plain CSS, or a global stylesheet:
 
 :demo{name="popover/hero"}
 
 ## Wrap the parts once
 
-Rather than repeat the same classes at every call site, [wrap each part once](/vue/composition#wrapping-a-part-in-your-own-component) in a component of your own and import that instead.
+Rather than repeat the same classes at every call site, [wrap each part once](/composition#wrapping-a-part-in-your-own-component) in a component of your own and import that instead.
 
 ## Next steps
 
-The [Styling](/vue/styling), [Animation](/vue/animation), and [Composition](/vue/composition) guides cover appearance and structure. Or jump straight to a [component](/vue/accordion).
+The [Styling](/styling), [Animation](/animation), and [Composition](/composition) guides cover appearance and structure. Or jump straight to a [component](/accordion).

@@ -20,7 +20,7 @@ import { Switch } from '@shardsui/vue/switch'
 
 ## Usage guidelines
 
-- **Form controls must have an accessible name**: provide a wrapping `<label>` (recommended), an `aria-label`, or use the [Field](/vue/field) component. See [Labeling a switch](#examples-labeling-a-switch).
+- **Form controls must have an accessible name**: provide a wrapping `<label>` (recommended), an `aria-label`, or use the [Field](/field) component. See [Labeling a switch](#examples-labeling-a-switch).
 
 ## Examples
 
@@ -60,7 +60,7 @@ When you point a separate label at the switch with `for`/`id` instead of wrappin
 
 ### Form integration
 
-[Field](/vue/field) wires the label and form association:
+[Field](/field) wires the label and form association:
 
 ```vue title="Using Switch in a form"
 <template>

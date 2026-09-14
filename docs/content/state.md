@@ -2,7 +2,7 @@
 
 Controlled state, direction, disabled, and read-only.
 
-Every component manages its own state by default. Props let you take over when you need to: hold the state yourself, set the reading direction, or take parts out of play. Appearance lives on the [Styling](/vue/styling) page.
+Every component manages its own state by default. Props let you take over when you need to: hold the state yourself, set the reading direction, or take parts out of play. Appearance lives on the [Styling](/styling) page.
 
 ## Uncontrolled by default
 
@@ -71,7 +71,7 @@ const value = shallowRef<string[]>([])
 
 Pairing the state prop with its event — `:open` plus `@update:open` — is one-way control, an alternative to `v-model` when you'd rather own the write. Nothing changes until your listener updates the ref.
 
-Components with a popup add an `openChangeComplete` event — bound as `@open-change-complete` — which fires once the open or close [animation](/vue/animation) has finished.
+Components with a popup add an `openChangeComplete` event — bound as `@open-change-complete` — which fires once the open or close [animation](/animation) has finished.
 
 ## Vetoing a change
 
@@ -119,15 +119,15 @@ It changes component behavior only: which arrow key moves focus, which side a po
 
 :demo{name="direction-provider/hero"}
 
-Popups render through a portal, outside your app root and beyond the reach of a surrounding `dir` attribute. To pick up the active direction there, read it with `getDirection()` and apply it where the portal lands. See [Direction Provider](/vue/direction-provider) for the full API.
+Popups render through a portal, outside your app root and beyond the reach of a surrounding `dir` attribute. To pick up the active direction there, read it with `getDirection()` and apply it where the portal lands. See [Direction Provider](/direction-provider) for the full API.
 
 ## Disabling and read-only
 
 Two ways to take a control out of play, with different intent.
 
-**`disabled`** removes it from the interaction entirely: no pointer, no focus, out of the tab order, and in a form its value isn't submitted. It's on every interactive component, and on individual parts too: disable a single `Accordion.Item` or `Menu.Item` while the rest stay live. Where losing focus would be disorienting — an item inside a [Toolbar](/vue/toolbar)'s single tab stop, a [Menu](/vue/menu), [Select](/vue/select) or [Combobox](/vue/combobox) item, a [Tabs](/vue/tabs) tab, an [Accordion](/vue/accordion), [Collapsible](/vue/collapsible) or [Navigation Menu](/vue/navigation-menu) trigger — the part swaps the native `disabled` for `aria-disabled` so it stays reachable.
+**`disabled`** removes it from the interaction entirely: no pointer, no focus, out of the tab order, and in a form its value isn't submitted. It's on every interactive component, and on individual parts too: disable a single `Accordion.Item` or `Menu.Item` while the rest stay live. Where losing focus would be disorienting — an item inside a [Toolbar](/toolbar)'s single tab stop, a [Menu](/menu), [Select](/select) or [Combobox](/combobox) item, a [Tabs](/tabs) tab, an [Accordion](/accordion), [Collapsible](/collapsible) or [Navigation Menu](/navigation-menu) trigger — the part swaps the native `disabled` for `aria-disabled` so it stays reachable.
 
-**`readOnly`** keeps the control focusable and its value visible and submittable, but blocks edits. Use it for a value the user should see in context but can't change yet. It's on the editable controls: [Checkbox](/vue/checkbox), [Switch](/vue/switch), [Radio](/vue/radio) and Radio Group, [Select](/vue/select), [Combobox](/vue/combobox), and [Autocomplete](/vue/autocomplete).
+**`readOnly`** keeps the control focusable and its value visible and submittable, but blocks edits. Use it for a value the user should see in context but can't change yet. It's on the editable controls: [Checkbox](/checkbox), [Switch](/switch), [Radio](/radio) and Radio Group, [Select](/select), [Combobox](/combobox), and [Autocomplete](/autocomplete).
 
 Both reflect as data attributes on the parts — `[data-disabled]`, `[data-readonly]` — so you can style each state, and both set the right accessibility semantics (a native `disabled`, an `aria-readonly`) so assistive tech announces it.
 
@@ -142,9 +142,9 @@ Both reflect as data attributes on the parts — `[data-disabled]`, `[data-reado
 
 Beyond the shared props, each component exposes props for the behavior only it has:
 
-- **`loopFocus`** on list components ([Menu](/vue/menu), [Menubar](/vue/menubar), [Tabs](/vue/tabs), [Toolbar](/vue/toolbar), [Toggle Group](/vue/toggle-group), [Combobox](/vue/combobox)): whether arrow-key navigation wraps from the last item back to the first. On by default.
+- **`loopFocus`** on list components ([Menu](/menu), [Menubar](/menubar), [Tabs](/tabs), [Toolbar](/toolbar), [Toggle Group](/toggle-group), [Combobox](/combobox)): whether arrow-key navigation wraps from the last item back to the first. On by default.
 - **`orientation`**: `'horizontal'` or `'vertical'`; decides which arrow keys move focus, and reflects as `data-orientation` on the parts whose layout depends on it.
 - **`modal`** on overlays: whether opening uses a **focus trap** and blocks the page behind it.
-- **`openOnHover`** on a [Menu](/vue/menu) or [Popover](/vue/popover) trigger: open on pointer hover instead of click (submenu triggers hover-open by default). **`delay`** and **`closeDelay`** on the same trigger set how long the pointer must rest before it opens and how long it lingers after the pointer leaves. A [Tooltip](/vue/tooltip) is hover-driven by nature: its **`delay`** sits on `Tooltip.Trigger`, and `Tooltip.Provider` supplies a shared one for a group.
+- **`openOnHover`** on a [Menu](/menu) or [Popover](/popover) trigger: open on pointer hover instead of click (submenu triggers hover-open by default). **`delay`** and **`closeDelay`** on the same trigger set how long the pointer must rest before it opens and how long it lingers after the pointer leaves. A [Tooltip](/tooltip) is hover-driven by nature: its **`delay`** sits on `Tooltip.Trigger`, and `Tooltip.Provider` supplies a shared one for a group.
 
 The complete set for each component lives in its API reference.

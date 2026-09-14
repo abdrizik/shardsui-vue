@@ -46,15 +46,15 @@ import { Select } from '@shardsui/vue/select'
 
 ## Usage guidelines
 
-- **Prefer Combobox for large lists**: Select has no filtering beyond typeahead (typing jumps to the matching item). Once the list grows long enough to need filtering, switch to [Combobox](/vue/combobox).
-- **Positioning**: the popup anchors to the trigger through `<Select.Positioner>`. Set `side`, `align` and the offsets there, and size the popup against the anchor CSS variables it publishes (see [Styling](/vue/styling)).
-- **Give the control an accessible name**: add a `<Select.Label>`, or set an `aria-label` on `<Select.Trigger>` when there's no visible label. See the [forms guide](/vue/forms).
+- **Prefer Combobox for large lists**: Select has no filtering beyond typeahead (typing jumps to the matching item). Once the list grows long enough to need filtering, switch to [Combobox](/combobox).
+- **Positioning**: the popup anchors to the trigger through `<Select.Positioner>`. Set `side`, `align` and the offsets there, and size the popup against the anchor CSS variables it publishes (see [Styling](/styling)).
+- **Give the control an accessible name**: add a `<Select.Label>`, or set an `aria-label` on `<Select.Trigger>` when there's no visible label. See the [forms guide](/forms).
 
 ## TypeScript
 
 `<Select.Root>` infers its item type from the `value` prop, so every `<Select.Item>`'s `value` (and each entry in the `items` array) must share that type. Adding `multiple` flips that type to an array.
 
-See the [TypeScript guide](/vue/typescript#value-types-for-generic-parts) for generic roots, typed wrappers, and template ref patterns.
+See the [TypeScript guide](/typescript#value-types-for-generic-parts) for generic roots, typed wrappers, and template ref patterns.
 
 ## Examples
 

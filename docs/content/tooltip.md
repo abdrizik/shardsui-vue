@@ -41,15 +41,15 @@ Without a hover-capable pointer, there's no discoverable way to surface a toolti
 
 ### Infotips
 
-For content that opens when hovering an info icon, use [Popover](/vue/popover) with `openOnHover` on the trigger instead; that keeps the content reachable for touch and screen reader users. The test: when opening the overlay is the trigger's whole job, it's a popover; when the trigger does something else and the overlay is incidental, it's a tooltip.
+For content that opens when hovering an info icon, use [Popover](/popover) with `openOnHover` on the trigger instead; that keeps the content reachable for touch and screen reader users. The test: when opening the overlay is the trigger's whole job, it's a popover; when the trigger does something else and the overlay is incidental, it's a tooltip.
 
 ### Description text
 
-When a description is essential to understanding an element, keep it out of a tooltip: put it in inline text, or in a [Popover](/vue/popover) when space is tight, so everyone can read it. Save tooltips for non-essential hints, and make icon-only triggers legible on their own, especially on mobile where the tooltip's text label never shows.
+When a description is essential to understanding an element, keep it out of a tooltip: put it in inline text, or in a [Popover](/popover) when space is tight, so everyone can read it. Save tooltips for non-essential hints, and make icon-only triggers legible on their own, especially on mobile where the tooltip's text label never shows.
 
 ### Contextual feedback messages
 
-For feedback tied to a specific control, use [Toast](/vue/toast) and its anchoring. It announces the message to screen readers and handles richer content.
+For feedback tied to a specific control, use [Toast](/toast) and its anchoring. It announces the message to screen readers and handles richer content.
 
 ## Examples
 

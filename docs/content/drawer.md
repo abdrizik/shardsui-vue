@@ -42,7 +42,7 @@ In Chromium on Android, the system back gesture closes the topmost open drawer.
 
 ## Usage guidelines
 
-- **Drawer extends [Dialog](/vue/dialog)**: it adds gesture support, snap points, and indent effects. If you don't need these, a slide-in panel is just a positioned Dialog, so use Dialog instead.
+- **Drawer extends [Dialog](/dialog)**: it adds gesture support, snap points, and indent effects. If you don't need these, a slide-in panel is just a positioned Dialog, so use Dialog instead.
 
 ## Examples
 

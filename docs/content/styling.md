@@ -31,7 +31,7 @@ Parts are components, but `class` and `style` fall through to the element a part
 
 Each part mirrors its state onto the element as `data-*` attributes. Write one static class and style against the attribute.
 
-[Switch](/vue/switch) publishes `[data-checked]` and `[data-unchecked]`:
+[Switch](/switch) publishes `[data-checked]` and `[data-unchecked]`:
 
 ```css title="switch.css"
 .switch-thumb {
@@ -48,7 +48,7 @@ The attributes are consistent across the library:
 
 - **On/off state**: `[data-open]` / `[data-closed]`, `[data-checked]` / `[data-unchecked]`, `[data-disabled]`, `[data-selected]`, and `[data-highlighted]` for the item the keyboard or pointer has highlighted in a list.
 - **Resolved position**: `[data-side]` and `[data-align]` on a positioner and popup carry where a floating element landed _after_ collision handling, so a popup can style the edge nearest its trigger.
-- **Enter and exit**: `[data-starting-style]` marks an element the frame it mounts; `[data-ending-style]` the moment before it unmounts. Set resting styles as the default and transitional styles behind these two attributes, and mount/unmount animate with a plain transition. See [Animation](/vue/animation).
+- **Enter and exit**: `[data-starting-style]` marks an element the frame it mounts; `[data-ending-style]` the moment before it unmounts. Set resting styles as the default and transitional styles behind these two attributes, and mount/unmount animate with a plain transition. See [Animation](/animation).
 
 Each component's API reference lists what its own parts expose.
 
@@ -56,7 +56,7 @@ Each component's API reference lists what its own parts expose.
 
 Where an attribute can't carry a number, a part sets a CSS variable for sizing or transform math. It updates as the layout changes.
 
-[Accordion](/vue/accordion) measures its panel and exposes `--accordion-panel-height`, which animates a height from `auto`:
+[Accordion](/accordion) measures its panel and exposes `--accordion-panel-height`, which animates a height from `auto`:
 
 ```css title="accordion.css"
 .accordion-panel {
@@ -71,7 +71,7 @@ Where an attribute can't carry a number, a part sets a CSS variable for sizing o
 }
 ```
 
-Floating parts publish measurements the same way. A [Select](/vue/select) or [Popover](/vue/popover) positioner sets `--anchor-width` / `--anchor-height` (the trigger's size), `--available-width` / `--available-height` (room before the viewport edge), and `--transform-origin` (the point nearest the anchor). They sit on the positioner and inherit down, so the popup can read them:
+Floating parts publish measurements the same way. A [Select](/select) or [Popover](/popover) positioner sets `--anchor-width` / `--anchor-height` (the trigger's size), `--available-width` / `--available-height` (room before the viewport edge), and `--transform-origin` (the point nearest the anchor). They sit on the positioner and inherit down, so the popup can read them:
 
 ```css title="select.css"
 .select-popup {
@@ -81,7 +81,7 @@ Floating parts publish measurements the same way. A [Select](/vue/select) or [Po
 }
 ```
 
-Every [Dialog](/vue/dialog) popup sets `--nested-dialogs` — how many dialogs are open inside it — paired with `[data-nested-dialog-open]`, so a parent can shrink or dim as children stack on top.
+Every [Dialog](/dialog) popup sets `--nested-dialogs` — how many dialogs are open inside it — paired with `[data-nested-dialog-open]`, so a parent can shrink or dim as children stack on top.
 
 ## Tailwind
 

@@ -76,7 +76,7 @@ useSeoMeta({
       <div>
         <section v-for="{ slug, title, demo } in components" :key="slug">
           <h2>
-            <NuxtLink :to="`/vue/${slug}`">{{ title }}</NuxtLink>
+            <NuxtLink :to="`/${slug}`">{{ title }}</NuxtLink>
           </h2>
           <div>
             <component :is="demo" v-if="demo" />

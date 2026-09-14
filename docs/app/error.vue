@@ -28,7 +28,7 @@ useSeoMeta({ title: () => String(error.status) })
         <p>Something went wrong</p>
         <p>{{ error.message || 'An unexpected error occurred.' }}</p>
       </template>
-      <NuxtLink to="/vue/quick-start" @click="clearError()">Back to docs</NuxtLink>
+      <NuxtLink to="/quick-start" @click="clearError()">Back to docs</NuxtLink>
     </main>
 
     <Ornaments />

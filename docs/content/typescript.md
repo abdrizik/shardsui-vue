@@ -136,7 +136,7 @@ const props = defineProps<InstanceType<typeof Combobox.Root<Item>>['$props']>()
 </template>
 ```
 
-`Form` is generic over the values object it collects, defaulting to `Record<string, unknown>` keyed by each field's `name`. It can't infer what your fields hold, so annotate the `formSubmit` handler's parameter and the type flows back into the component — or skip the annotation and parse the values instead (see the [Zod example](/vue/forms#schema-validation-with-zod), where the schema is what produces the typed object):
+`Form` is generic over the values object it collects, defaulting to `Record<string, unknown>` keyed by each field's `name`. It can't infer what your fields hold, so annotate the `formSubmit` handler's parameter and the type flows back into the component — or skip the annotation and parse the values instead (see the [Zod example](/forms#schema-validation-with-zod), where the schema is what produces the typed object):
 
 ```vue title="Typing the submitted values"
 <script setup lang="ts">
@@ -197,7 +197,7 @@ function onValueChange(value: string) {
 }
 ```
 
-The component reports the new value; with `v-model` it is committed for you, so there is nothing to cancel in the listener. To veto a change, bind the prop and the event separately and decline to write the ref (see [State](/vue/state#vetoing-a-change)).
+The component reports the new value; with `v-model` it is committed for you, so there is nothing to cancel in the listener. To veto a change, bind the prop and the event separately and decline to write the ref (see [State](/state#vetoing-a-change)).
 
 Native DOM events reach you through ordinary listeners and keep their standard DOM types:
 
@@ -313,6 +313,6 @@ A slot that takes nothing is `default(): any`; one that receives a payload objec
 
 ## Other exported types
 
-The toast object your toast content receives carries its `id`, `title`, `description`, `priority`, transition status and your own `data`; it is `ToastObject<Data>`, exported from `@shardsui/vue/toast` along with `ToastManagerAddOptions`, `ToastManagerUpdateOptions` and `ToastManagerPromiseOptions` for the `Toast.Manager` queue. See [Toast](/vue/toast).
+The toast object your toast content receives carries its `id`, `title`, `description`, `priority`, transition status and your own `data`; it is `ToastObject<Data>`, exported from `@shardsui/vue/toast` along with `ToastManagerAddOptions`, `ToastManagerUpdateOptions` and `ToastManagerPromiseOptions` for the `Toast.Manager` queue. See [Toast](/toast).
 
-`Combobox.createFilter` returns a `ComboboxFilter` and takes `ComboboxFilterOptions`, both exported from `@shardsui/vue/combobox`. See [Combobox](/vue/combobox).
+`Combobox.createFilter` returns a `ComboboxFilter` and takes `ComboboxFilterOptions`, both exported from `@shardsui/vue/combobox`. See [Combobox](/combobox).

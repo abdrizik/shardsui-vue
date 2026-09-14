@@ -60,7 +60,7 @@ const { copied, copy } = useClipboard()
             </span>
           </span>
         </button>
-        <NuxtLink to="/vue/quick-start">Get started</NuxtLink>
+        <NuxtLink to="/quick-start">Get started</NuxtLink>
       </div>
     </div>
 

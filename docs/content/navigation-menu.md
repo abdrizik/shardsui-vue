@@ -100,7 +100,7 @@ That only works if the content can compress. When it can't, let it scroll:
 }
 ```
 
-Native scrollbars stay visible while the panel transitions, so [Scroll Area](/vue/scroll-area) is the better fit here. It keeps the scrollbars hidden and lets the `Arrow` stay centered.
+Native scrollbars stay visible while the panel transitions, so [Scroll Area](/scroll-area) is the better fit here. It keeps the scrollbars hidden and lets the `Arrow` stay centered.
 
 ## API reference
 

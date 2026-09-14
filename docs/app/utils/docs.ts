@@ -232,7 +232,7 @@ export const docs = {
 export type ComponentDoc = (typeof docs.component)[number]
 
 const toNavLinks = (items: readonly { title: string; slug: string }[]) =>
-  items.map((c) => ({ title: c.title, href: `/vue/${c.slug}` }))
+  items.map((c) => ({ title: c.title, href: `/${c.slug}` }))
 
 export const links = [
   { heading: 'overview', links: toNavLinks(docs.overview) },

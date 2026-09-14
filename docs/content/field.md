@@ -217,8 +217,8 @@ Doesn't render its own HTML element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                                                       | Default | Description                                                                                                                      |
-| :-------- | :------------------------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------- |
-| `default` | `Slot<{ validity, error, errors, value, initialValue, transitionStatus }>` | —       | Required. Content; receives the field validity state. See [Showing the error](/vue/forms#showing-the-error) for a usage example. |
+| Prop      | Type                                                                       | Default | Description                                                                                                                  |
+| :-------- | :------------------------------------------------------------------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------- |
+| `default` | `Slot<{ validity, error, errors, value, initialValue, transitionStatus }>` | —       | Required. Content; receives the field validity state. See [Showing the error](/forms#showing-the-error) for a usage example. |
 
 ::

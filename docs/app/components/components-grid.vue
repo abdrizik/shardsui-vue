@@ -21,7 +21,7 @@ const groups = computed(() =>
         <h3>{{ letter }}</h3>
         <ul role="list">
           <li v-for="component in items" :key="component.slug">
-            <NuxtLink :to="`/vue/${component.slug}`">
+            <NuxtLink :to="`/${component.slug}`">
               <CategoryThumbnail :slug="component.slug" />
               <span>{{ component.title }}</span>
             </NuxtLink>

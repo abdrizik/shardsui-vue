@@ -6,7 +6,7 @@ Toggle buttons sharing a selection.
 
 ## Anatomy
 
-A Toggle Group wraps a set of [Toggle](/vue/toggle) parts:
+A Toggle Group wraps a set of [Toggle](/toggle) parts:
 
 ```vue title="Anatomy"
 <script setup>
@@ -33,7 +33,7 @@ Set the `multiple` prop to let more than one toggle stay pressed at once.
 
 ### Inside a toolbar
 
-A group nested in a [Toolbar](/vue/toolbar) joins the toolbar's arrow-key navigation and its single tab stop. The toolbar's `orientation` and `loopFocus` apply instead of the group's, and `Home` / `End` no longer move focus. `Toolbar.Root` / `Toolbar.Group` also cascade their `disabled` down to the toggles.
+A group nested in a [Toolbar](/toolbar) joins the toolbar's arrow-key navigation and its single tab stop. The toolbar's `orientation` and `loopFocus` apply instead of the group's, and `Home` / `End` no longer move focus. `Toolbar.Root` / `Toolbar.Group` also cascade their `disabled` down to the toggles.
 
 ```vue title="Toggle Group in a toolbar"
 <template>

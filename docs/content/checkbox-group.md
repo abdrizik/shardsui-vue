@@ -6,7 +6,7 @@ Checkboxes sharing one value.
 
 ## Anatomy
 
-A Checkbox Group wraps a set of [Checkbox](/vue/checkbox) parts. Import both and nest the checkboxes inside the group:
+A Checkbox Group wraps a set of [Checkbox](/checkbox) parts. Import both and nest the checkboxes inside the group:
 
 ```vue title="Anatomy"
 <script setup>

@@ -43,7 +43,7 @@ import { ContextMenu } from '@shardsui/vue/context-menu'
 </template>
 ```
 
-Most parts (`Backdrop`, `Popup`, `Item`, etc.) are re-exported from the [Menu](/vue/menu) component, so they share the same props and data attributes. `Positioner` is the exception: its `align`, offset, `arrowPadding` and `positionMethod` defaults follow the pointer instead of a trigger element, and are documented below.
+Most parts (`Backdrop`, `Popup`, `Item`, etc.) are re-exported from the [Menu](/menu) component, so they share the same props and data attributes. `Positioner` is the exception: its `align`, offset, `arrowPadding` and `positionMethod` defaults follow the pointer instead of a trigger element, and are documented below.
 
 ## Usage guidelines
 
@@ -51,7 +51,7 @@ Most parts (`Backdrop`, `Popup`, `Item`, etc.) are re-exported from the [Menu](/
 
 ## Examples
 
-The [Menu](/vue/menu#examples) page has more demos, and most of its patterns carry over to the context menu.
+The [Menu](/menu#examples) page has more demos, and most of its patterns carry over to the context menu.
 
 ### Using with Menu
 
@@ -156,4 +156,4 @@ Renders a `<div>` element.
 
 ### Other parts
 
-`Portal`, `Backdrop`, `Popup`, `Arrow`, `Item`, `LinkItem`, `Group`, `GroupLabel`, `RadioGroup`, `RadioItem`, `RadioItemIndicator`, `CheckboxItem`, `CheckboxItemIndicator`, `SubmenuRoot`, `SubmenuTrigger`, `Separator` — see [Menu](/vue/menu) for their props and data attributes.
+`Portal`, `Backdrop`, `Popup`, `Arrow`, `Item`, `LinkItem`, `Group`, `GroupLabel`, `RadioGroup`, `RadioItem`, `RadioItemIndicator`, `CheckboxItem`, `CheckboxItemIndicator`, `SubmenuRoot`, `SubmenuTrigger`, `Separator` — see [Menu](/menu) for their props and data attributes.

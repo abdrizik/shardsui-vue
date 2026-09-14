@@ -34,7 +34,7 @@ import { Toolbar } from '@shardsui/vue/toolbar'
 
 ### Using with Select
 
-Mount `<Select.Root>` inside the toolbar and let its own trigger be the control. `<Select.Trigger>` detects the surrounding toolbar and registers itself as a toolbar item, so it joins the arrow-key navigation and shares the toolbar's single tab stop. [Toggle Group](/vue/toggle-group) integrates the same way, and its toggles become the toolbar's items.
+Mount `<Select.Root>` inside the toolbar and let its own trigger be the control. `<Select.Trigger>` detects the surrounding toolbar and registers itself as a toolbar item, so it joins the arrow-key navigation and shares the toolbar's single tab stop. [Toggle Group](/toggle-group) integrates the same way, and its toggles become the toolbar's items.
 
 ```vue title="Using Select with toolbar"
 <template>
@@ -202,7 +202,7 @@ Renders a `<div>` element with `role="group"`.
 
 ### Separator
 
-A [Separator](/vue/separator) oriented perpendicular to the toolbar.
+A [Separator](/separator) oriented perpendicular to the toolbar.
 Renders a `<div>` element with `role="separator"`.
 
 ::table{columns="Prop,Type,Default"}

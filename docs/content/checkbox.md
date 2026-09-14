@@ -62,7 +62,7 @@ When you point a separate label at the checkbox with `for`/`id` instead of wrapp
 
 ### Form integration
 
-[Field](/vue/field) wires the label and form association:
+[Field](/field) wires the label and form association:
 
 ```vue title="Using Checkbox in a form"
 <template>

@@ -47,16 +47,16 @@ import { Autocomplete } from '@shardsui/vue/autocomplete'
 
 ## Usage guidelines
 
-- **Autocomplete vs Combobox**: use Autocomplete for free-form text input with suggestions. Use [Combobox](/vue/combobox) when the input is restricted to a predefined set of items.
+- **Autocomplete vs Combobox**: use Autocomplete for free-form text input with suggestions. Use [Combobox](/combobox) when the input is restricted to a predefined set of items.
 - **The value is a string**: unlike Combobox, the autocomplete's value is the input string itself.
 - **Pass `items` for built-in filtering**: the autocomplete filters as the user types; render matches with `<Autocomplete.Collection>` inside `<Autocomplete.List>`. See [Filtering](#filtering) for async or custom filtering.
-- **Give the input an accessible name**: associate a native `<label>` with `<Autocomplete.Input>`, or wrap the autocomplete in the `Field` parts and label it there. See the [forms guide](/vue/forms).
+- **Give the input an accessible name**: associate a native `<label>` with `<Autocomplete.Input>`, or wrap the autocomplete in the `Field` parts and label it there. See the [forms guide](/forms).
 
 ## TypeScript
 
 `<Autocomplete.Root>` is generic over its item type, but nothing infers it: `items` is typed `NoInfer<Value>[]`, so the type has to come from a typed wrapper. `<Autocomplete.Item>` is not generic. Its `value` is `unknown`.
 
-See the [TypeScript guide](/vue/typescript#value-types-for-generic-parts) for generic roots, typed wrappers, and template-ref patterns.
+See the [TypeScript guide](/typescript#value-types-for-generic-parts) for generic roots, typed wrappers, and template-ref patterns.
 
 ## Filtering
 
@@ -201,7 +201,7 @@ Doesn't render its own HTML element, but renders a hidden `<input>` beside.
 
 ### Other parts
 
-`Input`, `InputGroup`, `Trigger`, `Icon`, `Clear`, `Portal`, `Backdrop`, `Positioner`, `Popup`, `Arrow`, `List`, `Collection`, `Group`, `GroupLabel`, `Empty`, `Status` and `Row` are the [Combobox](/vue/combobox) parts. See that page for their props and data attributes. `InputGroup` and `Trigger` are the exception: autocomplete never holds a selection, so their `placeholder` state and `data-placeholder` attribute never apply. `Separator` is a visual divider rendered as `role="presentation"`, because `role="separator"` is not valid inside a `listbox`.
+`Input`, `InputGroup`, `Trigger`, `Icon`, `Clear`, `Portal`, `Backdrop`, `Positioner`, `Popup`, `Arrow`, `List`, `Collection`, `Group`, `GroupLabel`, `Empty`, `Status` and `Row` are the [Combobox](/combobox) parts. See that page for their props and data attributes. `InputGroup` and `Trigger` are the exception: autocomplete never holds a selection, so their `placeholder` state and `data-placeholder` attribute never apply. `Separator` is a visual divider rendered as `role="presentation"`, because `role="separator"` is not valid inside a `listbox`.
 
 ### Item
 
@@ -243,7 +243,7 @@ Doesn't render its own HTML element.
 
 ## createFilter
 
-A locale-aware filter helper returning `contains` / `startsWith` / `endsWith` predicates built around `Intl.Collator`. See the [Combobox createFilter docs](/vue/combobox#createfilter). It takes `AutocompleteFilterOptions` — `Intl.CollatorOptions` plus `locale` — and returns an `AutocompleteFilter`. The `multiple` and `value` options are Combobox-only, since an autocomplete has no selected item.
+A locale-aware filter helper returning `contains` / `startsWith` / `endsWith` predicates built around `Intl.Collator`. See the [Combobox createFilter docs](/combobox#createfilter). It takes `AutocompleteFilterOptions` — `Intl.CollatorOptions` plus `locale` — and returns an `AutocompleteFilter`. The `multiple` and `value` options are Combobox-only, since an autocomplete has no selected item.
 
 ```vue title="Using createFilter"
 <script setup>
