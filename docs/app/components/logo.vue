@@ -16,7 +16,6 @@ const squircle =
 
 const host = useTemplateRef<HTMLElement>('host')
 
-// hover lives on the stable wrapper (never transforms) so the mark can't flicker
 watchPostEffect(() => {
   const element = host.value
   if (!element) return
@@ -26,7 +25,6 @@ watchPostEffect(() => {
     .timeline({ paused: true, defaults: { duration, ease: 'expo.inOut' } })
     .to(
       [...element.querySelectorAll('path')],
-      // rotational interpolation keeps the smooth anchors from kinking mid-morph
       { morphSVG: { shape: squircle, type: 'rotational' } },
       0
     )
@@ -57,13 +55,10 @@ watchPostEffect(() => {
 span {
   display: inline-flex;
   color: var(--color-vue);
-  /* fixed box, so the hit area never depends on the animating child */
   inline-size: calc(var(--spacing) * 8);
   block-size: calc(var(--spacing) * 8);
 
   svg {
-    /* the rotating svg overflows the wrapper mid-spin; hit-testing it would move the
-       hover region with the animation and flicker between enter and leave */
     pointer-events: none;
   }
 }

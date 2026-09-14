@@ -45,7 +45,6 @@
 
   --color-blue-800: light-dark(oklch(0.524 0.171 255), oklch(0.805 0.108 255));
 
-  /* Vue brand green, #41b883 */
   --color-vue: oklch(0.702 0.132 160.5);
 
   --tracking-tight: -0.025em;

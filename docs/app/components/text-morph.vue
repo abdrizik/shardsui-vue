@@ -74,7 +74,6 @@ function shift(glyph: HTMLElement, offset: number) {
 }
 
 function dismiss(glyph: HTMLElement, offset: number) {
-  // Single keyframes, so both animations start from where `detach` pinned the glyph.
   glyph.animate(
     { transform: `translateX(${offset}px) scale(${SCALE})`, offset: 1 },
     { duration: DURATION, easing: EASING, fill: 'both' }
@@ -148,7 +147,6 @@ function createGlyph({ id, text }: Segment) {
   const glyph = document.createElement('span')
   glyph.setAttribute('data-morph-id', id)
   glyph.textContent = text
-  // A collapsible space in an inline-block glyph has zero width.
   Object.assign(glyph.style, { display: 'inline-block', whiteSpace: 'pre' })
   return glyph
 }
@@ -193,7 +191,6 @@ function measure(root: HTMLElement) {
 function detach(root: HTMLElement, exiting: HTMLElement[]) {
   const origin = root.getBoundingClientRect()
 
-  // Every rect is read before any style is written, or each write forces a reflow.
   const snapshots = exiting.map((glyph) => ({
     glyph,
     rect: glyph.getBoundingClientRect(),
@@ -215,7 +212,6 @@ function detach(root: HTMLElement, exiting: HTMLElement[]) {
 
 function reconcile(root: HTMLElement, segments: Segment[]) {
   const reusable = new Map(liveGlyphs(root).map((glyph) => [idOf(glyph), glyph]))
-  // Appending an already-attached glyph moves it, so this both reorders and inserts.
   root.append(...segments.map((segment) => reusable.get(segment.id) ?? createGlyph(segment)))
 }
 </script>

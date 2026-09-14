@@ -96,7 +96,6 @@ button:has(> span) {
     background-color 150ms var(--ease-out),
     scale 150ms var(--ease-out);
 
-  /* 32px box, 44px target. */
   &::before {
     content: '';
     position: absolute;
@@ -172,8 +171,6 @@ div:has(> div > div > nav) {
     align-items: stretch;
     justify-content: flex-start;
 
-    /* Padding is the inset; the panel re-enables hits so taps in the gap
-       fall through to the backdrop. */
     > div {
       --inset: calc(var(--spacing) * 3);
 
@@ -244,7 +241,6 @@ div:has(> div > div > nav) {
           background-color 150ms var(--ease-out),
           scale 150ms var(--ease-out);
 
-        /* 32px box, 44px target. */
         &::before {
           content: '';
           position: absolute;

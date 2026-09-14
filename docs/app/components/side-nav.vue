@@ -149,9 +149,6 @@ nav {
       }
     }
 
-    /* Active indicator, centered in the left gutter — slides to the active link.
-       It mounts already at position (transitions never fire on first render),
-       so only later moves animate; @starting-style handles the initial fade-in. */
     > span,
     a::before {
       position: absolute;

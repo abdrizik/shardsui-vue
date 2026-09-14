@@ -42,9 +42,6 @@ const { columns, rows } = defineProps<{ columns?: string[]; rows?: ReferenceRow[
 </template>
 
 <style scoped>
-/* `Collapsible` parts in the reference rows carry this scope, so selectors reach
-   them; nested under `.table-scroll` to beat the specificity of the shared `td`
-   rules in prose.css. */
 .table-scroll tbody {
   > tr:first-child {
     /* Safari ignores max-inline-size on cells in auto table layout; there the
