@@ -1,0 +1,49 @@
+import { SHARDSUI_PORTAL_ATTRIBUTE } from '@/internal/constants'
+import { contains, getTarget, isElement } from '@/internal/dom'
+import type { DialogRoot } from './dialog'
+
+export function outsidePressEvent(
+  dialog: DialogRoot
+): 'intentional' | { mouse: 'sloppy' | 'intentional'; touch: 'sloppy' } {
+  if (dialog.internalBackdropElement.value || dialog.backdropElement.value) return 'intentional'
+  return {
+    mouse: dialog.modal.value === 'trap-focus' ? 'sloppy' : 'intentional',
+    touch: 'sloppy'
+  }
+}
+
+/**
+ * Whether an outside press dismisses this dialog: `false` disables dismissal, otherwise a predicate
+ * that only accepts presses on the dialog's own backdrop so stacked, non-nested modals stay open.
+ */
+export function outsidePress(
+  dialog: DialogRoot,
+  popupElement: HTMLElement | null
+): false | ((event: MouseEvent | TouchEvent) => boolean) {
+  if (dialog.disablePointerDismissal.value) return false
+  if (dialog.nestedOpenCount.value !== 0) return false
+  return (event) => {
+    if (!dialog.outsidePressEnabled.value) return false
+    if ('button' in event && event.button !== 0) return false
+    if ('touches' in event) {
+      if (event.type === 'touchend') {
+        if (event.changedTouches.length !== 1 || event.touches.length !== 0) return false
+      } else if (event.touches.length !== 1) {
+        return false
+      }
+    }
+    if (!dialog.modal.value) return true
+
+    const target = getTarget(event)
+    const internalBackdrop = dialog.internalBackdropElement.value
+    const backdrop = dialog.backdropElement.value
+    if (!internalBackdrop && !backdrop) return true
+    return (
+      target === internalBackdrop ||
+      target === backdrop ||
+      (isElement(target) &&
+        contains(target, popupElement) &&
+        !target.hasAttribute(SHARDSUI_PORTAL_ATTRIBUTE))
+    )
+  }
+}
