@@ -1,0 +1,24 @@
+<script setup lang="ts">
+import { Combobox } from '@/components/combobox'
+
+const { statusText = 'Searching...' } = defineProps<{ statusText?: string }>()
+
+const open = defineModel<boolean>('open')
+</script>
+
+<template>
+  <Combobox.Root v-model:open="open">
+    <Combobox.Input data-testid="input" placeholder="Search..." />
+    <Combobox.Portal>
+      <Combobox.Positioner>
+        <Combobox.Popup data-testid="popup">
+          <Combobox.Status data-testid="status">{{ statusText }}</Combobox.Status>
+          <Combobox.List data-testid="list">
+            <Combobox.Item value="apple">Apple</Combobox.Item>
+            <Combobox.Item value="banana">Banana</Combobox.Item>
+          </Combobox.List>
+        </Combobox.Popup>
+      </Combobox.Positioner>
+    </Combobox.Portal>
+  </Combobox.Root>
+</template>

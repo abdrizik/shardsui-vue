@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import { PreviewCard } from '@/components/preview-card'
+import type { PreviewCardHandle } from '@/components/preview-card/handle'
+
+const { handle, triggerId } = defineProps<{
+  handle?: PreviewCardHandle<number>
+  triggerId?: string | null
+}>()
+
+const open = defineModel<boolean>('open', { default: false })
+</script>
+
+<template>
+  <PreviewCard.Root
+    v-slot="{ payload }"
+    v-model:open="open"
+    :handle="handle"
+    :trigger-id="triggerId"
+  >
+    <PreviewCard.Trigger href="#" id="trigger-1" :payload="1" data-testid="trigger-1">
+      Trigger 1
+    </PreviewCard.Trigger>
+    <PreviewCard.Trigger href="#" id="trigger-2" :payload="2" data-testid="trigger-2">
+      Trigger 2
+    </PreviewCard.Trigger>
+
+    <PreviewCard.Portal>
+      <PreviewCard.Positioner data-testid="positioner">
+        <PreviewCard.Popup data-testid="popup">
+          <span data-testid="content">{{ payload }}</span>
+        </PreviewCard.Popup>
+      </PreviewCard.Positioner>
+    </PreviewCard.Portal>
+  </PreviewCard.Root>
+</template>

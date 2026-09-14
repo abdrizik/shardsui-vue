@@ -1,0 +1,15 @@
+<script setup lang="ts">
+import { AlertDialog } from '@/components/alert-dialog'
+
+const { handle } = defineProps<{ handle: AlertDialog.Handle }>()
+</script>
+
+<template>
+  <AlertDialog.Trigger :handle="handle" id="trigger">Open</AlertDialog.Trigger>
+
+  <AlertDialog.Root :handle="handle" open trigger-id="trigger">
+    <AlertDialog.Portal>
+      <AlertDialog.Popup>Dialog</AlertDialog.Popup>
+    </AlertDialog.Portal>
+  </AlertDialog.Root>
+</template>

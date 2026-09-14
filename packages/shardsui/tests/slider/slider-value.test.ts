@@ -1,0 +1,61 @@
+import { render, screen } from '@testing-library/vue'
+import { expect } from 'vitest'
+import { nextTick } from 'vue'
+import BasicSlider from './fixtures/basic-slider.vue'
+import MultiThumbSlider from './fixtures/multi-thumb-slider.vue'
+import RangeSlider from './fixtures/range-slider.vue'
+import ValueSlot from './fixtures/value-slot.vue'
+
+describe('<Slider.Value />', () => {
+  it('renders single value text', () => {
+    render(BasicSlider, { props: { value: 40 } })
+    expect(screen.getByTestId('value')).toHaveTextContent('40')
+  })
+
+  it('renders range values joined with an en dash', () => {
+    render(RangeSlider, { props: { value: [40, 65] } })
+    expect(screen.getByTestId('value')).toHaveTextContent('40 – 65')
+  })
+
+  it('associates the output with every thumb input', async () => {
+    render(RangeSlider, { props: { value: [40, 65] } })
+    await nextTick()
+
+    const thumbIds = screen.getAllByRole('slider').map((thumb) => thumb.id)
+
+    expect(thumbIds).not.toContain('')
+    expect(new Set(thumbIds).size).toBe(thumbIds.length)
+    expect(screen.getByTestId('value')).toHaveAttribute('for', thumbIds.join(' '))
+  })
+
+  it('recomputes the formatted output when the format option changes', async () => {
+    const format: Intl.NumberFormatOptions = { style: 'currency', currency: 'USD' }
+    const { rerender } = render(BasicSlider, { props: { value: 40 } })
+
+    expect(screen.getByTestId('value')).toHaveTextContent('40')
+
+    await rerender({ value: 40, format })
+
+    expect(screen.getByTestId('value')).toHaveTextContent(
+      new Intl.NumberFormat(undefined, format).format(40)
+    )
+  })
+
+  describe('multiple thumbs', () => {
+    it('renders all thumb values joined with an en dash', () => {
+      render(MultiThumbSlider, { props: { value: [40, 60, 80, 95] } })
+      expect(screen.getByTestId('value')).toHaveTextContent('40 – 60 – 80 – 95')
+    })
+  })
+
+  describe('default slot', () => {
+    it('accepts a default slot receiving formattedValues and values', () => {
+      const format: Intl.NumberFormatOptions = { style: 'currency', currency: 'USD' }
+      const fmt = (v: number) => new Intl.NumberFormat(undefined, format).format(v)
+      render(ValueSlot, { props: { value: [40, 60], format } })
+
+      expect(JSON.parse(screen.getByTestId('formatted').textContent!)).toEqual([fmt(40), fmt(60)])
+      expect(JSON.parse(screen.getByTestId('raw').textContent!)).toEqual([40, 60])
+    })
+  })
+})
