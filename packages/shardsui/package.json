@@ -1,0 +1,90 @@
+{
+  "name": "@shardsui/vue",
+  "version": "0.1.0-beta.0",
+  "description": "Headless, accessible UI components for Vue 3.",
+  "license": "MIT",
+  "author": "abdrizik",
+  "homepage": "https://shardsui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdrizik/shardsui-vue.git",
+    "directory": "packages/shardsui"
+  },
+  "bugs": "https://github.com/abdrizik/shardsui-vue/issues",
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui",
+    "components",
+    "headless",
+    "unstyled",
+    "accessible",
+    "wai-aria",
+    "primitives"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/node_modules"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dist/components/*/index.d.ts",
+      "default": "./dist/components/*/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown && publint",
+    "prepack": "pnpm build",
+    "check": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:jsdom": "VITEST_ENV=jsdom vitest run",
+    "test:chromium": "VITEST_ENV=chromium vitest run",
+    "test:firefox": "VITEST_ENV=firefox vitest run",
+    "test:webkit": "VITEST_ENV=webkit vitest run",
+    "test:package": "pnpm build && publint --pack pnpm",
+    "test:package:types": "pnpm build && attw --pack . --profile esm-only"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "@floating-ui/utils": "^0.2.12",
+    "esm-env": "^1.2.2"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/user-event": "^14.6.4",
+    "@testing-library/vue": "^8.1.0",
+    "@types/node": "^24.13.4",
+    "@vitejs/plugin-vue": "catalog:dev",
+    "@vitest/browser": "^5.0.0",
+    "@vitest/browser-playwright": "^5.0.0",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.62.1",
+    "publint": "^0.3.23",
+    "tsdown": "^0.23.0",
+    "typescript": "catalog:dev",
+    "unplugin-vue": "^7.2.0",
+    "vite": "catalog:dev",
+    "vitest": "^5.0.0",
+    "vue": "catalog:dev",
+    "vue-tsc": "catalog:dev"
+  },
+  "browserslist": [
+    "chrome >= 121",
+    "edge >= 121",
+    "firefox >= 97",
+    "safari >= 18.2",
+    "ios_saf >= 18.2"
+  ]
+}
