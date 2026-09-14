@@ -1,0 +1,5 @@
+export { default as Indicator } from './tabs-indicator.vue'
+export { default as List } from './tabs-list.vue'
+export { default as Panel } from './tabs-panel.vue'
+export { default as Root } from './tabs-root.vue'
+export { default as Tab } from './tabs-tab.vue'
