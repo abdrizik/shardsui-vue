@@ -1,17 +1,25 @@
 {
-  "name": "shardsui-vue",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "pnpm --filter @shardsui/vue build && pnpm --filter docs dev",
+    "dev:watch": "pnpm --filter @shardsui/vue build && pnpm --filter \"@shardsui/vue\" --filter docs --parallel run dev",
+    "build": "pnpm --filter @shardsui/vue build && pnpm --filter docs build",
+    "preview": "pnpm --filter docs preview",
+    "check": "pnpm --filter @shardsui/vue build && pnpm --filter @shardsui/vue check && pnpm --filter docs check",
+    "test": "pnpm --filter @shardsui/vue test",
+    "test:jsdom": "pnpm --filter @shardsui/vue test:jsdom",
+    "test:chromium": "pnpm --filter @shardsui/vue test:chromium",
+    "test:firefox": "pnpm --filter @shardsui/vue test:firefox",
+    "test:webkit": "pnpm --filter @shardsui/vue test:webkit",
+    "lint": "oxlint && oxfmt --check .",
+    "format": "oxfmt .",
+    "test:package": "pnpm --filter @shardsui/vue test:package",
+    "test:package:types": "pnpm --filter @shardsui/vue test:package:types"
   },
-  "dependencies": {
-    "nuxt": "npm:nuxt-nightly@5x",
-    "vue": "^3.5.42",
-    "vue-router": "^5.3.1"
+  "devDependencies": {
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
+    "typescript": "catalog:dev"
   }
 }

@@ -1,75 +1,48 @@
-# Nuxt Minimal Starter
+![](docs/public/favicon.svg)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# @shardsui/vue
 
-## Setup
+Headless, accessible UI components for **Vue 3**.
 
-Make sure to install dependencies:
+Unstyled, composable component parts with full ARIA, keyboard, and focus management.
 
-```bash
-# npm
-npm install
+[Documentation](https://vue.shardsui.com)
 
-# pnpm
-pnpm install
+## Install
 
-# yarn
-yarn install
-
-# bun
-bun install
+```sh
+npm i @shardsui/vue
 ```
 
-## Development Server
+Requires `vue@^3.5`
 
-Start the development server on `http://localhost:3000`:
+## Usage
 
-```bash
-# npm
-npm run dev
+```vue
+<script setup>
+import { Dialog } from '@shardsui/vue/dialog'
+</script>
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+<template>
+  <Dialog.Root>
+    <Dialog.Trigger>Open</Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Backdrop />
+      <Dialog.Popup>
+        <Dialog.Title>Title</Dialog.Title>
+        <Dialog.Close>Close</Dialog.Close>
+      </Dialog.Popup>
+    </Dialog.Portal>
+  </Dialog.Root>
+</template>
 ```
 
-## Production
+## Browser support
 
-Build the application for production:
+Chrome and Edge 121, Firefox 97, and Safari 18.2 or later.
 
-```bash
-# npm
-npm run build
+## License
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+MIT — see [LICENSE](./LICENSE). Adapted from [Base UI](https://base-ui.com) (MIT © Material-UI SAS)
+and rebuilt on the Composition API with a Vue-native API; `internal/floating/` derives from
+[Floating UI](https://floating-ui.com) (MIT © Floating UI contributors).

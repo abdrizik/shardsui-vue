@@ -1,24 +1,37 @@
-# Nuxt dev/build outputs
+node_modules
+
+# Output
 .output
 .data
 .nuxt
 .nitro
 .cache
+.vercel
+.netlify
+.wrangler
+build
 dist
 
-# Node dependencies
-node_modules
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 logs
 *.log
 
-# Misc
-.DS_Store
-.fleet
-.idea
-
-# Local env files
+# Env
 .env
 .env.*
 !.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# vitest browser-mode artifacts
+__screenshots__/
+.vitest-attachments/
+
+.claude
