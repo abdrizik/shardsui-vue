@@ -77,7 +77,7 @@ jobs:
 
       - run: >-
           pnpm --filter @shardsui/vue publish
-          --no-git-checks --provenance
+          --no-git-checks
           --tag ${{ steps.meta.outputs.dist_tag }}
           ${{ inputs.dry-run && '--dry-run' || '' }}
 
