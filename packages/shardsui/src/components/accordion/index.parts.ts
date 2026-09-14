@@ -1,0 +1,5 @@
+export { default as Header } from './accordion-header.vue'
+export { default as Item } from './accordion-item.vue'
+export { default as Panel } from './accordion-panel.vue'
+export { default as Root } from './accordion-root.vue'
+export { default as Trigger } from './accordion-trigger.vue'
