@@ -11,7 +11,6 @@ const content = import.meta.glob<string>('../../content/*.md', {
   eager: true
 })
 
-/** Content files whose demos live under a different slug. */
 const slugFor: Record<string, string> = { forms: 'form' }
 
 const demos: { name: string; title: string; demo: Component }[] = []

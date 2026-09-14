@@ -121,10 +121,7 @@ aside {
         }
 
         svg {
-          /* Tailwind's preflight makes every svg display: block, which breaks the line */
           display: inline-block;
-          /* an svg with no width attribute defaults to 100%; auto lets the viewBox's
-             ratio size it against the height instead */
           inline-size: auto;
           block-size: 0.9em;
           vertical-align: -0.08em;
@@ -178,7 +175,6 @@ aside {
         white-space: nowrap;
       }
 
-      /* 36px of shell, 44px of target — block-only so the two never overlap */
       button::before,
       a::before {
         content: '';
@@ -189,7 +185,6 @@ aside {
 
       button {
         flex-grow: 1;
-        /* trailing icon: 2px less on its side reads as even */
         padding-inline-end: calc(var(--spacing) * 3);
         border-color: var(--color-gray-950);
         background-color: var(--color-gray-950);
