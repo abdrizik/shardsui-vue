@@ -1,0 +1,5 @@
+export { default as Indicator } from './progress-indicator.vue'
+export { default as Label } from './progress-label.vue'
+export { default as Root } from './progress-root.vue'
+export { default as Track } from './progress-track.vue'
+export { default as Value } from './progress-value.vue'
