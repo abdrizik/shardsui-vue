@@ -1,0 +1,6 @@
+export { default as Content } from './scroll-area-content.vue'
+export { default as Corner } from './scroll-area-corner.vue'
+export { default as Root } from './scroll-area-root.vue'
+export { default as Scrollbar } from './scroll-area-scrollbar.vue'
+export { default as Thumb } from './scroll-area-thumb.vue'
+export { default as Viewport } from './scroll-area-viewport.vue'
