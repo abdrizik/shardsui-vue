@@ -1,0 +1,7 @@
+export { default as Control } from './field-control.vue'
+export { default as Description } from './field-description.vue'
+export { default as Error } from './field-error.vue'
+export { default as Item } from './field-item.vue'
+export { default as Label } from './field-label.vue'
+export { default as Root } from './field-root.vue'
+export { default as Validity } from './field-validity.vue'
