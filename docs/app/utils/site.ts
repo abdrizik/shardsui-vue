@@ -1,0 +1,5 @@
+export const siteUrl = 'https://vue.shardsui.com'
+export const siteName = 'ShardsUI'
+export const github = 'https://github.com/abdrizik/shardsui-vue'
+export const npm = 'https://www.npmjs.com/package/@shardsui/vue'
+export const installCommand = 'npm i @shardsui/vue'
