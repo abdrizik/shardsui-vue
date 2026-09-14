@@ -4,6 +4,7 @@ packages:
 
 allowBuilds:
   esbuild: true
+  workerd: true
 
 catalogs:
   dev:
@@ -20,3 +21,4 @@ minimumReleaseAgeExclude:
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
+  - workerd

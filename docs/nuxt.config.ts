@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
+    preset: 'cloudflare_module',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/gallery']
