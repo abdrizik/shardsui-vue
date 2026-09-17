@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import type { MenuCheckableItemContext, MenuItemIndicatorState } from './context'
 
@@ -16,7 +17,7 @@ const { as = 'span', item, keepMounted = false } = defineProps<Props>()
 
 defineSlots<{ default?: (state: MenuItemIndicatorState) => any }>()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const indicator = useItemIndicator({
   keepMounted: () => keepMounted,

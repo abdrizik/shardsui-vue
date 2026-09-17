@@ -2,6 +2,8 @@
 import { computed, mergeProps } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { ToastContext, type ToastActionState } from './context'
 
@@ -48,9 +50,12 @@ const actionAttrs = computed(() => {
   return attrs
 })
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => chain(toastRoot.toast.value.actionProps?.onClick, onClick),
   onMousedown: () => chain(toastRoot.toast.value.actionProps?.onMousedown, onMousedown),
   onKeydown: () => chain(toastRoot.toast.value.actionProps?.onKeydown, onKeydown),
@@ -66,6 +71,7 @@ const ownAttrs = computed(() => ({ 'data-type': toastRoot.toast.value.type }))
 <template>
   <component
     :is="as"
+    ref="element"
     v-if="shouldRender"
     v-bind="mergeProps(button.attrs.value, ownAttrs, actionAttrs, $attrs)"
   >

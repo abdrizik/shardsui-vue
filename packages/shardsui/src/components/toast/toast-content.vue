@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watch } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watch } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ToastContext, ToastProviderContext, type ToastContentState } from './context'
 
@@ -13,7 +14,7 @@ defineSlots<{ default?: (state: ToastContentState) => any }>()
 const toastRoot = ToastContext.get()
 const provider = ToastProviderContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   element,

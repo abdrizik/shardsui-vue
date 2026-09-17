@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext } from './context'
 import type { ScrollAreaRootState } from './scroll-area'
@@ -14,7 +15,7 @@ defineSlots<{ default?: (state: ScrollAreaRootState) => any }>()
 
 const scrollArea = ScrollAreaContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const hadMeasuredAtMount = scrollArea.hasMeasured.value
 

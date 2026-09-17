@@ -2,6 +2,8 @@
 import { mergeProps, onScopeDispose } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import { PopoverClosePartContext, PopoverContext } from './context'
@@ -32,9 +34,12 @@ defineSlots<{ default?: () => any }>()
 const popover = PopoverContext.get()
 const closePart = PopoverClosePartContext.getOr()
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => chain(onClick, closeOnClick),
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,
@@ -51,7 +56,7 @@ function closeOnClick(event: MouseEvent) {
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, $attrs)">
+  <component :is="as" ref="element" v-bind="mergeProps(button.attrs.value, $attrs)">
     <slot />
   </component>
 </template>

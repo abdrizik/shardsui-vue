@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef, watch } from 'vue'
+import { computed, mergeProps, watch } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext } from './context'
 import { useInitialLiveRegionTextMutation } from './initial-live-region-text-mutation'
@@ -14,7 +15,7 @@ defineSlots<{ default?: () => any }>()
 
 const combobox = ComboboxContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   () => element.value,

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watch, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watch, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
 import { useTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext } from './context'
@@ -33,7 +34,7 @@ defineSlots<{ default?: (state: ScrollAreaRootState) => any }>()
 
 const scrollArea = ScrollAreaContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 let isProgrammaticScroll = true
 const scrollEndTimeout = useTimeout()

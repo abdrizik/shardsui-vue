@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="Value = unknown">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldAriaInvalid, getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { FieldsetContext } from '@/components/fieldset/context'
@@ -7,6 +7,7 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { RadioGroupContext, type RadioGroupState } from './context'
 import { useRadioGroupRoot } from './radio-group'
@@ -50,7 +51,7 @@ const field = FieldContext.getOr()
 const fieldset = FieldsetContext.getOr()
 const labelable = LabelableContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const radioGroup = useRadioGroupRoot<Value>({
   uid,

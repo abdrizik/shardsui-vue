@@ -3,7 +3,8 @@
   lang="ts"
   generic="Value extends number | readonly number[] = number | readonly number[]"
 >
-import { computed, mergeProps, shallowRef, useId, useTemplateRef, watchSyncEffect } from 'vue'
+import { computed, mergeProps, shallowRef, useId, watchSyncEffect } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { SliderContext } from './context'
 import { useSliderRoot, type SliderState, type SliderValue } from './slider'
@@ -60,7 +61,7 @@ defineSlots<{ default?: (state: SliderState) => any }>()
 
 const uid = useId()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const localValue = shallowRef<Value | undefined>(valueProp)
 

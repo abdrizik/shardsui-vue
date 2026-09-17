@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useId,
-  useTemplateRef,
-  watch,
-  watchEffect
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, useId, watch, watchEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains } from '@/internal/dom'
 import { useCompositeItem } from '@/internal/floating/composite'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { TabsContext, TabsListContext, type TabsTabState } from './context'
 import type { TabMeta, TabsValue } from './tabs'
@@ -52,7 +46,9 @@ const id = computed(() => idProp ?? uid)
 const tabs = TabsContext.get()
 const list = TabsListContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 let isPressing = false
 let isMainButton = false
@@ -134,7 +130,7 @@ const button = useButton({
   disabled: () => disabled,
   focusableWhenDisabled: true,
   composite: true,
-  as: () => as,
+  as: tag,
   onClick: () =>
     chain(onClick, (event) => {
       if (active.value || disabled || event.button !== 0) return

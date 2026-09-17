@@ -4,7 +4,6 @@ import {
   mergeProps,
   onWatcherCleanup,
   useId,
-  useTemplateRef,
   watchPostEffect,
   watchSyncEffect
 } from 'vue'
@@ -14,6 +13,7 @@ import { COMPOSITE_KEYS } from '@/internal/composite'
 import { dataAttrs } from '@/internal/data-attrs'
 import { listen } from '@/internal/dom'
 import type { FocusTarget } from '@/internal/floating/focus-manager'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DrawerContext, DrawerViewportContext, type DrawerPopupState } from './context'
 import { useDrawerPopup } from './popup'
@@ -45,7 +45,7 @@ const dialog = DialogContext.get()
 const portal = DialogPortalContext.getOr()
 const viewport = DrawerViewportContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   dialog.popupElement.value = element.value

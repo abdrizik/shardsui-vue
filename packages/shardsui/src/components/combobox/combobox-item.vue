@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { isElement } from '@floating-ui/utils/dom'
-import { computed, mergeProps, nextTick, useTemplateRef, watch, watchPostEffect } from 'vue'
+import { computed, mergeProps, nextTick, watch, watchPostEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { getTarget } from '@/internal/dom'
 import { findItemIndex } from '@/internal/item-equality'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import { stringifyAsLabel } from '@/internal/resolve-value-label'
 import type { PartProps } from '@/internal/types'
@@ -56,7 +58,9 @@ const isInRow = ComboboxRowContext.get()
 const isDisabled = computed(() => disabled || combobox.disabled.value)
 let didPointerDown = false
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'div', element })
 
 watchPostEffect(() => {
   if (!combobox.open.value) didPointerDown = false
@@ -189,7 +193,7 @@ function selectOnMouseUp(event: MouseEvent) {
 const button = useButton({
   disabled: isDisabled,
   focusableWhenDisabled: true,
-  as: () => as,
+  as: tag,
   composite: true,
   onClick: () => chain(onClick, selectOnClick),
   onMousedown: () => chain(onMousedown, preventFocusLoss),

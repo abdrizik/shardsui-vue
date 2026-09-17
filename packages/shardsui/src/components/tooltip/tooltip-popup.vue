@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { TooltipContext, TooltipPositionerContext, type TooltipPopupState } from './context'
 
@@ -17,7 +18,7 @@ defineSlots<{ default?: (state: TooltipPopupState) => any }>()
 const tooltip = TooltipContext.get()
 const positioner = TooltipPositionerContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   tooltip.popupElement.value = element.value

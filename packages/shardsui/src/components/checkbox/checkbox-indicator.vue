@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { usePartElement } from '@/internal/part-element'
 import type { TransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'
 import { CheckboxContext, type CheckboxState } from './context'
@@ -19,7 +20,7 @@ defineSlots<{
 
 const checkbox = CheckboxContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const indicator = useItemIndicator({
   keepMounted: () => keepMounted,

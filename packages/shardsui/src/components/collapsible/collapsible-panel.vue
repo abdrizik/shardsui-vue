@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, useTemplateRef, watchEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, useId, watchEffect } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { usePanelController } from '@/internal/panel-controller'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import type { CollapsibleState } from './collapsible'
 import { CollapsibleContext } from './context'
@@ -28,7 +29,7 @@ const id = computed(() => idProp ?? uid)
 
 const collapsible = CollapsibleContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchEffect(() => {
   collapsible.panelId.value = id.value

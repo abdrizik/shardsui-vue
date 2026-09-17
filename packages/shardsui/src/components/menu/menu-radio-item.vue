@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { MenuRadioGroupContext, MenuRadioItemContext, type MenuCheckableItemState } from './context'
 import { useMenuItemBase } from './item-base'
@@ -50,7 +52,9 @@ const group = MenuRadioGroupContext.get()
 const checked = computed(() => group.value.value === value)
 const disabled = computed(() => disabledProp || group.disabled.value)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'div', element })
 
 const item = useMenuItemBase({
   disabled,
@@ -66,7 +70,7 @@ function selectOnClick(event: MouseEvent) {
 const button = useButton({
   disabled: item.disabled,
   focusableWhenDisabled: true,
-  as: () => as,
+  as: tag,
   composite: true,
   onClick: () => chain(onClick, selectOnClick),
   onMousedown: () => onMousedown,

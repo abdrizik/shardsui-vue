@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onWatcherCleanup, useTemplateRef, watchPostEffect, type CSSProperties } from 'vue'
+import { onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext } from './context'
 
@@ -13,7 +14,7 @@ defineSlots<{ default?: () => any }>()
 
 const scrollArea = ScrollAreaContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   const node = element.value

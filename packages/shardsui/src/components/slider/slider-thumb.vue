@@ -8,6 +8,7 @@ import { DirectionContext } from '@/internal/direction-context'
 import { formatNumber } from '@/internal/format-number'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { visuallyHidden } from '@/internal/visually-hidden'
 import { SliderContext } from './context'
@@ -56,7 +57,7 @@ const labelable = LabelableContext.get()
 const direction = DirectionContext.get()
 const rtl = computed(() => direction.direction.value === 'rtl')
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 const input = useTemplateRef<HTMLInputElement>('input')
 
 const thumb = useSliderThumb(slider, {

@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  shallowRef,
-  useTemplateRef,
-  watchPostEffect
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, shallowRef, watchPostEffect } from 'vue'
 import { cancelAnimationFrameTick, requestAnimationFrameTick } from '@/internal/animation-frame'
 import { createAnimationsFinished } from '@/internal/animations-finished'
 import { chain } from '@/internal/chain'
@@ -15,6 +8,7 @@ import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, isElement } from '@/internal/dom'
 import { useCompositeRoot } from '@/internal/floating/composite'
 import { portalTo } from '@/internal/floating/portal'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {
   NavigationMenuCompositeContext,
@@ -40,7 +34,7 @@ defineSlots<{ default?: (state: NavigationMenuContentState) => any }>()
 const navigationMenu = NavigationMenuContext.get()
 const item = NavigationMenuItemContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const composite = useCompositeRoot({
   orientation: 'both',

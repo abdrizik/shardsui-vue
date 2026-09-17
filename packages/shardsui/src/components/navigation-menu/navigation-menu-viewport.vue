@@ -18,6 +18,7 @@ import {
   isOutsideEvent
 } from '@/internal/floating/tabbable'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { NavigationMenuContext, NavigationMenuPositionerContext } from './context'
 
@@ -40,7 +41,7 @@ const positioner = NavigationMenuPositionerContext.getOr()
 
 const hasPositioner = positioner != null
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 const viewportTarget = useTemplateRef<HTMLElement>('viewportTarget')
 const beforeGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('beforeGuard')
 const afterGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('afterGuard')

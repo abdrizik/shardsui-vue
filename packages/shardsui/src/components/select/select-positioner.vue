@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useTemplateRef,
-  watchEffect,
-  watchPostEffect
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchEffect, watchPostEffect } from 'vue'
 import { anchoredPositionerAttrs } from '@/internal/anchored-state'
 import { DROPDOWN_COLLISION_AVOIDANCE } from '@/internal/constants'
 import {
@@ -16,6 +9,7 @@ import {
 import { useAnchoredPopupScrollLock } from '@/internal/floating/anchored-popup-scroll-lock'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
 import InternalBackdrop from '@/internal/internal-backdrop.vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { SelectContext, SelectPositionerContext, type SelectPositionerState } from './context'
 
@@ -43,7 +37,7 @@ defineSlots<{ default?: (state: SelectPositionerState) => any }>()
 
 const select = SelectContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   select.positionerElement.value = element.value

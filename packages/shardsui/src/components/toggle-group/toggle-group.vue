@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="Value extends string = string">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { ToolbarContext, ToolbarGroupContext } from '@/components/toolbar/context'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeRoot } from '@/internal/floating/composite'
+import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { ToggleGroupContext, type ToggleGroupState } from './context'
 
@@ -33,7 +34,7 @@ defineSlots<{ default?: (state: ToggleGroupState) => any }>()
 const toolbar = ToolbarContext.getOr()
 const toolbarGroup = ToolbarGroupContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const composite =
   toolbar?.composite ??

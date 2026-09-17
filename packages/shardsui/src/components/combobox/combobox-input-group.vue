@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef, watch } from 'vue'
+import { computed, mergeProps, watch } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains } from '@/internal/dom'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext, type ComboboxInputGroupState } from './context'
 import { focusInputOnPress } from './focus-input-on-press'
@@ -22,7 +23,7 @@ defineSlots<{ default?: (state: ComboboxInputGroupState) => any }>()
 const combobox = ComboboxContext.get()
 const field = FieldContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   () => element.value,

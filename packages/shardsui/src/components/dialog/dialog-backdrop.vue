@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
 import type { AnchoredBackdropState } from '@/internal/anchored-state'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DialogContext } from './context'
 
@@ -12,7 +13,7 @@ defineSlots<{ default?: (state: AnchoredBackdropState) => any }>()
 
 const dialog = DialogContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   dialog.backdropElement.value = element.value

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, useTemplateRef, watchSyncEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, useId, watchSyncEffect } from 'vue'
 import { ToolbarContext } from '@/components/toolbar/context'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { chain } from '@/internal/chain'
@@ -7,6 +7,7 @@ import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { listen } from '@/internal/dom'
 import type { FocusTarget } from '@/internal/floating/focus-manager'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { MenuContext, MenuPositionerContext, type MenuPopupState } from './context'
 import { useMenuPopup } from './popup'
@@ -44,7 +45,7 @@ const positioner = MenuPositionerContext.getOr()
 const insideToolbar = ToolbarContext.getOr() != null
 const direction = DirectionContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const popup = useMenuPopup(menu, positioner, direction, insideToolbar, {
   ref: element,

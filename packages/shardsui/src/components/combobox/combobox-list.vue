@@ -4,7 +4,6 @@ import {
   mergeProps,
   onWatcherCleanup,
   useId,
-  useTemplateRef,
   watch,
   watchEffect,
   watchSyncEffect
@@ -13,6 +12,7 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { listen } from '@/internal/dom'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext, ComboboxPositionerContext, type ComboboxListState } from './context'
 
@@ -38,7 +38,7 @@ const forwardArrowKey = computed(() =>
   direction.direction.value === 'rtl' ? 'ArrowLeft' : 'ArrowRight'
 )
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   () => element.value,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, useTemplateRef, watchEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, useId, watchEffect } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { useTransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'
 import { TabsContext, type TabsPanelState } from './context'
@@ -24,7 +25,7 @@ const id = computed(() => idProp ?? uid)
 
 const tabs = TabsContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const open = computed(() => value === tabs.value.value)
 

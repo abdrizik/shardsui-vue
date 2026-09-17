@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { MenubarContext } from './context'
 import { useMenubarRoot } from './menubar'
@@ -38,7 +39,7 @@ defineSlots<{ default?: (state: MenubarState) => any }>()
 const uid = useId()
 const id = computed(() => idProp ?? uid)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const menubar = useMenubarRoot({
   id,

@@ -4,7 +4,6 @@ import {
   mergeProps,
   onWatcherCleanup,
   useId,
-  useTemplateRef,
   watchEffect,
   watchPostEffect,
   watchSyncEffect
@@ -14,6 +13,7 @@ import { listen } from '@/internal/dom'
 import { COMPOSITE_KEYS } from '@/internal/composite'
 import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-manager'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import { DialogContext, DialogPortalContext, type DialogPopupState } from './context'
@@ -44,7 +44,7 @@ const id = computed(() => idProp ?? uid)
 const dialog = DialogContext.get()
 const portal = DialogPortalContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const initialFocusTarget = computed<FocusTarget>(
   () =>

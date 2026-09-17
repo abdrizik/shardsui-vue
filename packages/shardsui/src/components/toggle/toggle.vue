@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { ToggleGroupContext } from '@/components/toggle-group/context'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeItem } from '@/internal/floating/composite'
 import { error } from '@/internal/log'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 
 export type ToggleState = {
@@ -58,7 +60,9 @@ const pressed = computed(() =>
 )
 const disabled = computed(() => group?.disabled.value || disabledProp)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 const item = group
   ? useCompositeItem({
@@ -89,7 +93,7 @@ function toggle() {
 
 const button = useButton({
   disabled,
-  as: () => as,
+  as: tag,
   composite: () => !!group,
   tabindex: () => tabindex,
   onClick: () => chain(onClick, toggle),

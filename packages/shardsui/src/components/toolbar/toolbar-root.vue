@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeRoot } from '@/internal/floating/composite'
+import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { ToolbarContext, type ToolbarRootState } from './context'
 
@@ -27,7 +28,7 @@ const {
 
 defineSlots<{ default?: (state: ToolbarRootState) => any }>()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const composite = useCompositeRoot({
   orientation: () => orientation,

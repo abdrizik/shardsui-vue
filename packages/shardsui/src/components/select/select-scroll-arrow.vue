@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onScopeDispose, useTemplateRef } from 'vue'
+import { computed, mergeProps, onScopeDispose } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { openChangeComplete } from '@/internal/open-change-complete'
@@ -8,6 +8,7 @@ import {
   normalizeScrollOffset,
   SCROLL_EDGE_TOLERANCE_PX
 } from '@/internal/scroll-edges'
+import { usePartElement } from '@/internal/part-element'
 import { createTimeout } from '@/internal/timeout'
 import { useTransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'
@@ -85,7 +86,7 @@ const select = SelectContext.get()
 const registry = select.itemRegistry
 const positioner = SelectPositionerContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const scrollTimeout = createTimeout()
 onScopeDispose(scrollTimeout.clear)

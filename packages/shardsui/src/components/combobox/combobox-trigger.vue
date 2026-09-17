@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onScopeDispose, useTemplateRef, watch } from 'vue'
+import { computed, mergeProps, onScopeDispose, watch } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldAriaInvalid, getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { useButton } from '@/internal/button'
@@ -8,6 +8,8 @@ import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, listen } from '@/internal/dom'
 import { createTypeahead } from '@/internal/floating/typeahead'
 import { LabelableContext } from '@/internal/labelable-context'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { isMouseWithinBounds } from '@/internal/pseudo-element-bounds'
 import { REASONS } from '@/internal/reasons'
 import { createTimeout } from '@/internal/timeout'
@@ -51,7 +53,9 @@ const combobox = ComboboxContext.get()
 const field = FieldContext.getOr()
 const labelable = LabelableContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 watch(
   () => element.value,
@@ -190,7 +194,7 @@ function openOnKey(event: KeyboardEvent) {
 
 const button = useButton({
   disabled: isDisabled,
-  as: () => as,
+  as: tag,
   tabindex: () => (combobox.inputInsidePopup.value ? 0 : -1),
   onClick: () => chain(onClick, toggleOpen),
   onMousedown: () => chain(onMousedown, focusInputFromTrigger),

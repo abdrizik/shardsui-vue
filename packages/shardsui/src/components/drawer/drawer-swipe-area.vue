@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { DialogContext } from '@/components/dialog/context'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DrawerContext, DrawerProviderContext, type DrawerSwipeAreaState } from './context'
 import type { DrawerSwipeDirection } from './drawer'
@@ -26,7 +27,7 @@ const drawer = DrawerContext.get()
 const dialog = DialogContext.get()
 const provider = DrawerProviderContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const area = useDrawerSwipeArea(dialog, drawer, provider, {
   element,
