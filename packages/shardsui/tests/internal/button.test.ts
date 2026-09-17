@@ -1,7 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/vue'
+import { fireEvent, render, screen, waitFor } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { expect, vi } from 'vitest'
 import { settleListeners } from '../test-utils'
+import ButtonStub from '../stubs/button.vue'
+import SectionStub from '../stubs/section.vue'
 import ButtonFixture from './fixtures/button-fixture.vue'
 import ButtonInForm from './fixtures/button-in-form.vue'
 
@@ -431,6 +433,43 @@ describe('button', () => {
 
       fireEvent.keyDown(btn, { key: ' ' })
       expect(onReset).toHaveBeenCalledOnce()
+    })
+  })
+
+  describe('a component in `as`', () => {
+    it('warns when the component renders an element the part does not expect', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      try {
+        render(ButtonFixture, { props: { as: SectionStub, defaultTag: 'button' } })
+
+        await waitFor(() =>
+          expect(warn).toHaveBeenCalledWith(
+            'ShardsUI: `as` renders <section>, but this part applies the semantics of <button>. Pass the tag to `as` instead when those semantics matter.'
+          )
+        )
+      } finally {
+        warn.mockRestore()
+      }
+    })
+
+    it('keeps the native button semantics when the part renders a button', () => {
+      render(ButtonFixture, { props: { as: ButtonStub, defaultTag: 'button' } })
+
+      const button = screen.getByTestId('button')
+      expect(button.tagName.toLowerCase()).toBe('button')
+      expect(button).toHaveAttribute('type', 'button')
+      expect(button).not.toHaveAttribute('role')
+    })
+
+    it('applies the button role and tabindex when the part renders something else', () => {
+      render(ButtonFixture, { props: { as: SectionStub, defaultTag: 'section' } })
+
+      const button = screen.getByTestId('button')
+      expect(button.tagName.toLowerCase()).toBe('section')
+      expect(button).not.toHaveAttribute('type')
+      expect(button).toHaveAttribute('role', 'button')
+      expect(button).toHaveAttribute('tabindex', '0')
     })
   })
 })

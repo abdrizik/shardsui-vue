@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/vue'
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import { NavigationMenu } from '@/components/navigation-menu'
+import SectionStub from '../stubs/section.vue'
 import ConfigurableNavigationMenu from './fixtures/configurable-navigation-menu.vue'
 import MissingOwner from './fixtures/missing-owner.vue'
 
@@ -28,6 +29,20 @@ describe('<NavigationMenu /> conformance', () => {
     render(ConfigurableNavigationMenu, { props: { [prop]: customTag } })
     await nextTick()
     expect(screen.getByTestId(name).tagName.toLowerCase()).toBe(customTag)
+  })
+
+  it.each(parts)('$name renders a component given to `as`', async ({ name, prop }) => {
+    const warn = silenceWarn()
+
+    try {
+      render(ConfigurableNavigationMenu, { props: { [prop]: SectionStub } })
+      await nextTick()
+
+      const part = screen.getByTestId(name)
+      expect(part.tagName.toLowerCase()).toBe('section')
+    } finally {
+      warn.mockRestore()
+    }
   })
 
   it('List throws a descriptive error when rendered outside <NavigationMenu.Root>', () => {
