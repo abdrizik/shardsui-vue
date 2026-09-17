@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Component } from 'vue'
 import { NavigationMenu } from '@/components/navigation-menu'
 
 const {
@@ -14,17 +15,17 @@ const {
   arrowAs,
   backdropAs
 } = defineProps<{
-  rootAs?: keyof HTMLElementTagNameMap
-  listAs?: keyof HTMLElementTagNameMap
-  itemAs?: keyof HTMLElementTagNameMap
-  triggerAs?: keyof HTMLElementTagNameMap
-  iconAs?: keyof HTMLElementTagNameMap
-  linkAs?: keyof HTMLElementTagNameMap
-  positionerAs?: keyof HTMLElementTagNameMap
-  popupAs?: keyof HTMLElementTagNameMap
-  viewportAs?: keyof HTMLElementTagNameMap
-  arrowAs?: keyof HTMLElementTagNameMap
-  backdropAs?: keyof HTMLElementTagNameMap
+  rootAs?: keyof HTMLElementTagNameMap | Component
+  listAs?: keyof HTMLElementTagNameMap | Component
+  itemAs?: keyof HTMLElementTagNameMap | Component
+  triggerAs?: keyof HTMLElementTagNameMap | Component
+  iconAs?: keyof HTMLElementTagNameMap | Component
+  linkAs?: keyof HTMLElementTagNameMap | Component
+  positionerAs?: keyof HTMLElementTagNameMap | Component
+  popupAs?: keyof HTMLElementTagNameMap | Component
+  viewportAs?: keyof HTMLElementTagNameMap | Component
+  arrowAs?: keyof HTMLElementTagNameMap | Component
+  backdropAs?: keyof HTMLElementTagNameMap | Component
 }>()
 </script>
 

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed, mergeProps, type Component } from 'vue'
 import { useButton } from '@/internal/button'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 
 type PreventableKeyboardEvent = KeyboardEvent & { preventShardsUIHandler(): void }
 
 const {
   as = 'span',
+  defaultTag = 'button',
   disabled = false,
   focusableWhenDisabled = false,
   composite = false,
@@ -19,7 +22,8 @@ const {
   onFocus = undefined,
   onBlur = undefined
 } = defineProps<{
-  as?: keyof HTMLElementTagNameMap
+  as?: keyof HTMLElementTagNameMap | Component
+  defaultTag?: keyof HTMLElementTagNameMap
   disabled?: boolean
   focusableWhenDisabled?: boolean
   composite?: boolean
@@ -34,8 +38,11 @@ const {
   onBlur?: (event: FocusEvent) => void
 }>()
 
+const element = usePartElement()
+const tag = usePartTag({ as: () => as, defaultTag, element })
+
 const button = useButton({
-  as: () => as,
+  as: tag,
   disabled: () => disabled,
   focusableWhenDisabled: () => focusableWhenDisabled,
   composite: () => composite,
@@ -57,5 +64,5 @@ const ownAttrs = computed(() => ({
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, ownAttrs)" />
+  <component :is="as" ref="element" v-bind="mergeProps(button.attrs.value, ownAttrs)" />
 </template>
