@@ -2,6 +2,8 @@
 import { computed, mergeProps } from 'vue'
 import { useButton } from '@/internal/button'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 
 type Props = PartProps & {
@@ -27,9 +29,12 @@ const {
 
 defineSlots<{ default?: (state: { disabled: boolean }) => any }>()
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => onClick,
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,
@@ -41,7 +46,7 @@ const stateAttrs = computed(() => dataAttrs({ disabled }))
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, stateAttrs, $attrs)">
+  <component :is="as" ref="element" v-bind="mergeProps(button.attrs.value, stateAttrs, $attrs)">
     <slot :disabled="disabled" />
   </component>
 </template>

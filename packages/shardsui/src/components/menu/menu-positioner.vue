@@ -7,6 +7,7 @@ import type { AnchorPositioningProps } from '@/internal/floating/anchor-position
 import { FloatingNodeContext } from '@/internal/floating/floating-tree'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
 import InternalBackdrop from '@/internal/internal-backdrop.vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { MenuContext, MenuPositionerContext, type MenuPositionerState } from './context'
 import { useMenuPositioner } from './positioner'
@@ -42,7 +43,7 @@ FloatingNodeContext.set({
   }
 })
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 const backdrop = useTemplateRef<{ element: HTMLElement | null }>('backdrop')
 
 watchPostEffect(() => {

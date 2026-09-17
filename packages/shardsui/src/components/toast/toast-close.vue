@@ -2,6 +2,8 @@
 import { computed, mergeProps, shallowRef } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { ToastContext, ToastProviderContext, type ToastCloseState } from './context'
 
@@ -39,9 +41,12 @@ const hasFocus = shallowRef(false)
 
 const ariaHidden = computed(() => !provider.expanded.value && !hasFocus.value)
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => chain(onClick, () => provider.close(toastRoot.toast.value.id)),
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,
@@ -64,7 +69,7 @@ const ownAttrs = computed(() => ({
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, ownAttrs, $attrs)">
+  <component :is="as" ref="element" v-bind="mergeProps(button.attrs.value, ownAttrs, $attrs)">
     <slot v-bind="toastState" />
   </component>
 </template>

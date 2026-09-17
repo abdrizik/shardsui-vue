@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, useId, watchPostEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {
   NavigationMenuContext,
@@ -28,7 +29,7 @@ const navigationMenu = NavigationMenuContext.get()
 const positioner = NavigationMenuPositionerContext.get()
 const direction = DirectionContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   navigationMenu.popupElement.value = element.value

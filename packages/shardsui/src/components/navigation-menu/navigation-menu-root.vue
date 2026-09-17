@@ -1,6 +1,7 @@
 <script setup lang="ts" generic="Value = unknown">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {
   NavigationMenuContext,
@@ -31,7 +32,7 @@ const parent = NavigationMenuContext.getOr()
 
 const tag = computed(() => as ?? (parent ? 'div' : 'nav'))
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const navigationMenu = useNavigationMenuRoot({
   value,

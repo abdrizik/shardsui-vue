@@ -1,11 +1,12 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, useId, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, useId, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { createFocusReference } from '@/internal/floating/focus-reference'
 import { getDelay } from '@/internal/floating/hover/predicates'
 import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { safePolygon } from '@/internal/floating/safe-polygon'
+import { usePartElement } from '@/internal/part-element'
 import { useTriggerRegistration } from '@/internal/trigger-registration'
 import type { PartProps } from '@/internal/types'
 import { TooltipContext, TooltipProviderContext, type TooltipTriggerState } from './context'
@@ -60,7 +61,7 @@ const id = computed(() => idProp ?? uid)
 const tooltip: TooltipRoot = handle ? (handle.state as TooltipRoot) : TooltipContext.get()
 const provider = TooltipProviderContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const disabled = computed(() => disabledProp ?? tooltip.disabled.value)
 

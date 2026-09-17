@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watch, watchEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watch, watchEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
@@ -9,6 +9,7 @@ import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-man
 import { isTypeableCombobox } from '@/internal/floating/tabbable'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import ComboboxInternalDismissButton from './combobox-internal-dismiss-button.vue'
@@ -36,7 +37,7 @@ defineSlots<{ default?: (state: ComboboxPopupState) => any }>()
 const combobox = ComboboxContext.get()
 const positioner = ComboboxPositionerContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   () => element.value,

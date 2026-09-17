@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useTemplateRef,
-  watchPostEffect,
-  type CSSProperties
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import type { Align, Side } from '@/internal/floating/anchor-positioning'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import type { Ref } from 'vue'
 
@@ -41,7 +35,7 @@ const { as = 'div', positioner, open = undefined, instant } = defineProps<Props>
 
 defineSlots<{ default?: (state: ArrowState) => any }>()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   const el = element.value

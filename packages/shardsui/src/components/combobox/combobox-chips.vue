@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, shallowRef, useTemplateRef, watch, watchEffect } from 'vue'
+import { computed, mergeProps, shallowRef, watch, watchEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { observeDocumentOrder } from '@/internal/document-order'
 import { sortByDocumentPosition } from '@/internal/document-position'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxChipsContext, ComboboxContext } from './context'
 import { focusInputOnPress } from './focus-input-on-press'
@@ -19,7 +20,7 @@ defineSlots<{ default?: () => any }>()
 
 const combobox = ComboboxContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watch(
   () => element.value,

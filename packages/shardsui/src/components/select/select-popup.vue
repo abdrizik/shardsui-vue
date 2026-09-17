@@ -4,7 +4,6 @@ import {
   mergeProps,
   onScopeDispose,
   onWatcherCleanup,
-  useTemplateRef,
   watchEffect,
   watchPostEffect,
   watchSyncEffect
@@ -19,6 +18,7 @@ import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-man
 import { createTypeahead } from '@/internal/floating/typeahead'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import { isStationaryWebKitPointer } from '@/internal/stationary-pointer'
 import type { PartProps } from '@/internal/types'
@@ -51,7 +51,7 @@ const insideToolbar = ToolbarContext.getOr() != null
 
 const positioner = SelectPositionerContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const hasList = computed(() => select.listElement.value !== null)
 const id = computed(() => idProp ?? (hasList.value ? undefined : `${select.rootId.value}-list`))

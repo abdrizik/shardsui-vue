@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { useDismiss } from '@/internal/floating/dismiss'
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {
   PreviewCardContext,
@@ -22,7 +23,7 @@ defineSlots<{ default?: (state: PreviewCardPopupState) => any }>()
 const previewCard = PreviewCardContext.get()
 const positioner = PreviewCardPositionerContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 watchPostEffect(() => {
   previewCard.popupElement.value = element.value

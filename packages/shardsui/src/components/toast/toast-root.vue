@@ -3,7 +3,6 @@ import {
   computed,
   mergeProps,
   onWatcherCleanup,
-  useTemplateRef,
   watch,
   watchEffect,
   watchPostEffect,
@@ -13,6 +12,7 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, listen } from '@/internal/dom'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import type { SwipeDirection } from '@/internal/swipe-dismiss'
 import type { PartProps } from '@/internal/types'
 import { ToastContext, ToastProviderContext, type ToastRootState } from './context'
@@ -47,7 +47,7 @@ defineSlots<{ default?: (state: ToastRootState) => any }>()
 
 const provider = ToastProviderContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const toastRoot = useToastRoot({ toast: () => toast, ref: element })
 ToastContext.set(toastRoot)

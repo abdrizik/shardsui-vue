@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { MenuCheckboxItemContext, type MenuCheckableItemState } from './context'
 import { useMenuItemBase } from './item-base'
@@ -45,7 +47,9 @@ defineSlots<{ default?: (state: MenuCheckableItemState) => any }>()
 const uid = useId()
 const id = computed(() => idProp ?? uid)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'div', element })
 
 const item = useMenuItemBase({
   disabled: () => disabled,
@@ -61,7 +65,7 @@ function toggleOnClick(event: MouseEvent) {
 const button = useButton({
   disabled: item.disabled,
   focusableWhenDisabled: true,
-  as: () => as,
+  as: tag,
   composite: true,
   onClick: () => chain(onClick, toggleOnClick),
   onMousedown: () => onMousedown,

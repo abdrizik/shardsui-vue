@@ -1,11 +1,12 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { createFocusReference } from '@/internal/floating/focus-reference'
 import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { getInlineRectCoords } from '@/internal/floating/inline-rect'
 import { safePolygon } from '@/internal/floating/safe-polygon'
+import { usePartElement } from '@/internal/part-element'
 import { useTriggerRegistration } from '@/internal/trigger-registration'
 import type { PartProps } from '@/internal/types'
 import { PreviewCardContext, type PreviewCardTriggerState } from './context'
@@ -50,7 +51,7 @@ const previewCard: PreviewCardRoot = handle
   ? (handle.state as PreviewCardRoot)
   : PreviewCardContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const focus = createFocusReference({
   open: previewCard.open,

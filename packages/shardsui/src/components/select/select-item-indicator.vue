@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { SelectItemContext, type SelectItemIndicatorState } from './context'
 
@@ -16,7 +17,7 @@ const { as = 'span', keepMounted = false } = defineProps<Props>()
 const slots = defineSlots<{ default?: (state: SelectItemIndicatorState) => any }>()
 
 const item = SelectItemContext.get()
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const indicator = useItemIndicator({
   keepMounted: () => keepMounted,

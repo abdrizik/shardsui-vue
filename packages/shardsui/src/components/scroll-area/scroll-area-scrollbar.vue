@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useTemplateRef,
-  watchPostEffect,
-  type CSSProperties
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
 import { chain } from '@/internal/chain'
 import { clamp } from '@/internal/clamp'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { contains, getTarget } from '@/internal/dom'
+import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import {
   ScrollAreaContext,
@@ -44,7 +38,7 @@ defineSlots<{ default?: (state: ScrollAreaScrollbarState) => any }>()
 const scrollArea = ScrollAreaContext.get()
 const direction = DirectionContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const vertical = computed(() => orientation === 'vertical')
 

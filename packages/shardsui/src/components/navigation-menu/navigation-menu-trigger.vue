@@ -13,6 +13,8 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { ownerVisuallyHidden } from '@/internal/visually-hidden'
 import {
@@ -63,7 +65,9 @@ const item = NavigationMenuItemContext.get()
 const composite = NavigationMenuCompositeContext.getOr()
 const direction = DirectionContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const beforeGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('beforeGuard')
 const afterGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('afterGuard')
 
@@ -71,7 +75,7 @@ const trigger = useNavigationMenuTrigger(navigationMenu, item, composite, direct
   ref: element,
   triggerId: uid,
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => onClick,
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext, ScrollAreaScrollbarContext, type ScrollAreaThumbState } from './context'
 
@@ -27,7 +28,7 @@ defineSlots<{ default?: (state: ScrollAreaThumbState) => any }>()
 const scrollArea = ScrollAreaContext.get()
 const scrollbar = ScrollAreaScrollbarContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const vertical = computed(() => scrollbar.orientation.value === 'vertical')
 const scrolling = computed(() =>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { SliderContext } from './context'
 import { useSliderControl } from './control'
@@ -18,7 +19,7 @@ defineSlots<{ default?: (state: SliderState) => any }>()
 
 const slider = SliderContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const control = useSliderControl(slider)
 

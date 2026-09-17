@@ -8,6 +8,8 @@ import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { safePolygon } from '@/internal/floating/safe-polygon'
 import { createTriggerFocusGuards } from '@/internal/floating/trigger-focus-guards'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import { useTriggerRegistration } from '@/internal/trigger-registration'
 import type { PartProps } from '@/internal/types'
@@ -55,7 +57,9 @@ const id = computed(() => idProp ?? uid)
 
 const popover: PopoverRoot = handle ? (handle.state as PopoverRoot) : PopoverContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const preGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('preGuard')
 const afterGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('afterGuard')
 
@@ -109,7 +113,7 @@ hoverReferenceInteraction(popover, {
 
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => chain(onClick, toggleOpen),
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,

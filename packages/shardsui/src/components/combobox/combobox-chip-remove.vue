@@ -3,6 +3,8 @@ import { computed, mergeProps } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { ComboboxChipContext, ComboboxContext, type ComboboxChipRemoveState } from './context'
 
@@ -66,10 +68,13 @@ function removeOnKey(event: KeyboardEvent) {
   }
 }
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled: buttonDisabled,
   focusableWhenDisabled: true,
-  as: () => as,
+  as: tag,
   tabindex: -1,
   onClick: () => chain(onClick, removeOnClick),
   onMousedown: () => chain(onMousedown, preventFocusLoss),
@@ -84,7 +89,7 @@ const stateAttrs = computed(() => dataAttrs(comboboxState.value))
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, stateAttrs, $attrs)">
+  <component :is="as" ref="element" v-bind="mergeProps(button.attrs.value, stateAttrs, $attrs)">
     <slot v-bind="comboboxState" />
   </component>
 </template>

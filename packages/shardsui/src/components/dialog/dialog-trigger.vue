@@ -1,8 +1,10 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, useId, useTemplateRef, watch, watchPostEffect } from 'vue'
+import { computed, mergeProps, useId, watch, watchPostEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import { DialogContext, type DialogTriggerState } from './context'
@@ -46,7 +48,9 @@ const dialog = computed<DialogRoot>(
   () => (handle?.state as DialogRoot | undefined) ?? resolvedDialog!
 )
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 const isMountedByThisTrigger = computed(
   () => dialog.value.activeTriggerId.value === id.value && dialog.value.mounted.value
@@ -88,7 +92,7 @@ watchPostEffect(() => {
 
 const button = useButton({
   disabled: () => disabled,
-  as: () => as,
+  as: tag,
   onClick: () => chain(onClick, toggleOpen),
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,

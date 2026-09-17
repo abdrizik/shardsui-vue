@@ -5,7 +5,6 @@ import {
   onWatcherCleanup,
   shallowRef,
   useId,
-  useTemplateRef,
   watchEffect,
   watchPostEffect,
   watchSyncEffect
@@ -21,6 +20,7 @@ import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import {
@@ -56,7 +56,7 @@ const popover = PopoverContext.get()
 const positioner = PopoverPositionerContext.get()
 const insideToolbar = ToolbarContext.getOr() != null
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const lastCloseEvent = shallowRef<Event | null>(null)
 

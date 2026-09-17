@@ -5,7 +5,6 @@ import {
   onWatcherCleanup,
   shallowRef,
   useId,
-  useTemplateRef,
   watch,
   watchEffect,
   watchPostEffect
@@ -18,6 +17,8 @@ import { DirectionContext } from '@/internal/direction-context'
 import { isVirtualPointerEvent } from '@/internal/floating/event'
 import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { safePolygon } from '@/internal/floating/safe-polygon'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import { MenuContext, type MenuSubmenuTriggerState } from './context'
@@ -68,7 +69,9 @@ const direction = DirectionContext.get()
 
 const parentMenu = menu.parent
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'div', element })
 
 let pointerType: string | undefined
 const openedByKeyboard = shallowRef(false)
@@ -170,7 +173,7 @@ function clearHighlightOnBlur() {
 const button = useButton({
   disabled,
   focusableWhenDisabled: true,
-  as: () => as,
+  as: tag,
   composite: true,
   onPointerdown: () => chain(onPointerdown, trackPointerType),
   onClick: () => chain(onClick, openOnClick),

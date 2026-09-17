@@ -21,6 +21,8 @@ import { createTypeahead } from '@/internal/floating/typeahead'
 import FocusGuard from '@/internal/focus-guard.vue'
 import { LabelableContext } from '@/internal/labelable-context'
 import { mergeDescribedBy } from '@/internal/labelable'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import { createTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'
@@ -69,7 +71,9 @@ const registry = select.itemRegistry
 const field = FieldContext.getOr()
 const labelable = LabelableContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const afterGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('afterGuard')
 
 const id = computed(() => idProp ?? select.rootId.value)
@@ -214,7 +218,7 @@ const guards = createTriggerFocusGuards({
 
 const button = useButton({
   disabled: isDisabled,
-  as: () => as,
+  as: tag,
   composite: () => !!toolbar,
   tabindex: () => tabindexProp,
   onClick: () => chain(onClick, toggleOpen),

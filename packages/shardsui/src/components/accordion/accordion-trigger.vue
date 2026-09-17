@@ -3,6 +3,8 @@ import { computed, mergeProps, onWatcherCleanup, useId, watchEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import type { AccordionItemState } from './accordion'
 import { AccordionItemContext } from './context'
@@ -46,9 +48,12 @@ watchEffect(() => {
 
 const disabled = computed(() => disabledProp || item.disabled.value)
 
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const button = useButton({
   disabled,
-  as: () => as,
+  as: tag,
   focusableWhenDisabled: true,
   onClick: () => chain(onClick, item.collapsible.toggle),
   onMousedown: () => onMousedown,
@@ -73,7 +78,11 @@ const ownAttrs = computed(() => ({
 </script>
 
 <template>
-  <component :is="as" v-bind="mergeProps(button.attrs.value, stateAttrs, ownAttrs, $attrs)">
+  <component
+    :is="as"
+    ref="element"
+    v-bind="mergeProps(button.attrs.value, stateAttrs, ownAttrs, $attrs)"
+  >
     <slot v-bind="item.state.value" />
   </component>
 </template>

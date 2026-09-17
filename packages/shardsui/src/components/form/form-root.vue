@@ -3,7 +3,8 @@
   lang="ts"
   generic="FormValues extends Record<string, unknown> = Record<string, unknown>"
 >
-import { computed, getCurrentInstance, mergeProps, useTemplateRef } from 'vue'
+import { computed, getCurrentInstance, mergeProps } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { FormContext } from './context'
 import { useFormRoot, type FormErrors, type FormValidationMode } from './form'
@@ -37,7 +38,7 @@ const formSubmitListener = (): typeof emitFormSubmit | undefined => {
 
 defineSlots<{ default?: () => any }>()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const form = useFormRoot({
   validationMode: () => validationMode,

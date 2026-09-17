@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeItem } from '@/internal/floating/composite'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import {
@@ -35,7 +36,7 @@ defineSlots<{ default?: (state: NavigationMenuLinkState) => any }>()
 const navigationMenu = NavigationMenuContext.get()
 const composite = NavigationMenuCompositeContext.getOr()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const item = composite ? useCompositeItem({ composite, ref: element, disabled: false }) : null
 

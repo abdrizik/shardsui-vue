@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { POPUP_COLLISION_AVOIDANCE } from '@/internal/constants'
 import { dataAttrs } from '@/internal/data-attrs'
 import {
@@ -9,6 +9,7 @@ import {
   type Side
 } from '@/internal/floating/anchor-positioning'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ToastPositionerContext, ToastProviderContext, type ToastPositionerState } from './context'
 import type { ToastObject } from './types'
@@ -42,7 +43,7 @@ defineSlots<{ default?: (state: ToastPositionerState) => any }>()
 
 const provider = ToastProviderContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const posProps = computed(() => toast.positionerProps ?? {})
 const anchor = computed<Element | null>(

@@ -5,12 +5,12 @@ import {
   onScopeDispose,
   onWatcherCleanup,
   shallowRef,
-  useTemplateRef,
   watch,
   watchEffect
 } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
 import { useTransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'
 import { AvatarContext, type ImageLoadingStatus } from './context'
@@ -31,7 +31,7 @@ const emit = defineEmits<{ loadingStatusChange: [status: ImageLoadingStatus] }>(
 
 const avatar = AvatarContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const loadingStatus = shallowRef<ImageLoadingStatus>('idle')
 

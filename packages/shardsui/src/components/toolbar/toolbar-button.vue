@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeItem } from '@/internal/floating/composite'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { ToolbarContext, ToolbarGroupContext, type ToolbarRootState } from './context'
 
@@ -37,7 +39,9 @@ const group = ToolbarGroupContext.getOr()
 
 const disabled = computed(() => toolbar.disabled.value || group?.disabled.value || disabledProp)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 const item = useCompositeItem({
   composite: toolbar.composite,
@@ -49,7 +53,7 @@ const button = useButton({
   disabled,
   focusableWhenDisabled: true,
   composite: true,
-  as: () => as,
+  as: tag,
   onClick: () => onClick,
   onMousedown: () => onMousedown,
   onKeydown: () => onKeydown,

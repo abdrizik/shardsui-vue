@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import type { MenuLinkItemState } from './context'
 import { useMenuItemBase } from './item-base'
@@ -41,7 +43,9 @@ defineSlots<{ default?: (state: MenuLinkItemState) => any }>()
 const uid = useId()
 const id = computed(() => idProp ?? uid)
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'a', element })
 
 const item = useMenuItemBase({
   disabled: false,
@@ -50,7 +54,7 @@ const item = useMenuItemBase({
 })
 
 const button = useButton({
-  as: () => as,
+  as: tag,
   composite: true,
   onClick: () => chain(onClick, item.onClick),
   onMousedown: () => onMousedown,

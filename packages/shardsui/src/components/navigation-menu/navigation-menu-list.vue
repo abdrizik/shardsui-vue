@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget } from '@/internal/dom'
 import { useCompositeRoot } from '@/internal/floating/composite'
 import { useDismiss } from '@/internal/floating/dismiss'
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
+import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'
 import {
@@ -26,7 +27,7 @@ defineSlots<{ default?: (state: NavigationMenuListState) => any }>()
 
 const navigationMenu = NavigationMenuContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 hoverFloatingInteraction(navigationMenu, {
   enabled: navigationMenu.hoverInteractionsEnabled,

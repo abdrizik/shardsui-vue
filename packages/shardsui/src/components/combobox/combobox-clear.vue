@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef, watch } from 'vue'
+import { computed, mergeProps, watch } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { openChangeComplete } from '@/internal/open-change-complete'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'
 import { useTransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'
@@ -37,7 +39,9 @@ const slots = defineSlots<{ default?: (state: ComboboxClearState) => any }>()
 const combobox = ComboboxContext.get()
 const registry = combobox.itemRegistry
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 
 watch(
   () => element.value,
@@ -87,7 +91,7 @@ function preventFocusLoss(event: MouseEvent) {
 
 const button = useButton({
   disabled: isDisabled,
-  as: () => as,
+  as: tag,
   tabindex: -1,
   onClick: () => chain(onClick, clearValue),
   onMousedown: () => chain(onMousedown, preventFocusLoss),

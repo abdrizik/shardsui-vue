@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxItemContext, type ComboboxItemIndicatorState } from './context'
 
@@ -17,7 +18,7 @@ const slots = defineSlots<{ default?: (state: ComboboxItemIndicatorState) => any
 
 const item = ComboboxItemContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const indicator = useItemIndicator({
   keepMounted: () => keepMounted,

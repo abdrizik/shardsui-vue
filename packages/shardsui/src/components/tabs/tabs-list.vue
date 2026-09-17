@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { chain } from '@/internal/chain'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { TabsContext, TabsListContext } from './context'
 import { useTabsList } from './list'
@@ -20,7 +21,7 @@ defineSlots<{ default?: (state: TabsState) => any }>()
 
 const tabs = TabsContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const list = useTabsList({
   orientation: tabs.orientation,

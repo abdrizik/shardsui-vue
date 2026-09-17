@@ -4,7 +4,6 @@ import {
   mergeProps,
   onWatcherCleanup,
   shallowRef,
-  useTemplateRef,
   watchPostEffect,
   watchSyncEffect
 } from 'vue'
@@ -20,6 +19,7 @@ import {
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { disableFocusInside, enableFocusInside, isOutsideEvent } from '@/internal/floating/tabbable'
+import { usePartElement } from '@/internal/part-element'
 import { useTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'
 import {
@@ -53,7 +53,7 @@ defineSlots<{ default?: (state: NavigationMenuPositionerState) => any }>()
 const navigationMenu = NavigationMenuContext.get()
 AnchoredPortalContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const initialInstantTimeout = useTimeout()
 const resizeTimeout = useTimeout()

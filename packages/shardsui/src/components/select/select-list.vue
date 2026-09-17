@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useTemplateRef,
-  watchEffect,
-  watchPostEffect
-} from 'vue'
+import { computed, mergeProps, onWatcherCleanup, watchEffect, watchPostEffect } from 'vue'
 import { listen } from '@/internal/dom'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { SelectContext } from './context'
 
@@ -23,7 +17,7 @@ defineSlots<{ default?: () => any }>()
 
 const select = SelectContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 const id = computed(() => idProp ?? `${select.rootId.value}-list`)
 

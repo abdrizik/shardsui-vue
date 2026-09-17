@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, mergeProps, useId } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { focusElementWithVisible, labelInteraction } from '@/internal/label-interaction'
 import { LabelableContext } from '@/internal/labelable-context'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import { registerLabelId } from '@/internal/register-label-id'
 import type { PartProps } from '@/internal/types'
 import { FieldContext, FieldItemContext, type FieldRootState } from './context'
@@ -29,9 +31,11 @@ const field = FieldContext.get()
 const item = FieldItemContext.getOr()
 const labelable = LabelableContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
-const native = computed(() => as === 'label')
+const tag = usePartTag({ as: () => as, defaultTag: 'label', element })
+
+const native = computed(() => tag.value === 'label')
 const disabled = computed(() => field.disabled.value || (item?.disabled.value ?? false))
 
 const interaction = labelInteraction({

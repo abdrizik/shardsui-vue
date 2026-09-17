@@ -5,6 +5,8 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { usePartElement } from '@/internal/part-element'
+import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'
 import { MenuContext, type MenuTriggerState } from './context'
 import type { MenuHandle } from './handle'
@@ -57,14 +59,16 @@ const menu: MenuRoot = handle ? (handle.state as MenuRoot) : MenuContext.get()
 const menubar = MenubarContext.getOr()
 const direction = DirectionContext.get()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
+
+const tag = usePartTag({ as: () => as, defaultTag: 'button', element })
 const preGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('preGuard')
 const afterGuard = useTemplateRef<InstanceType<typeof FocusGuard>>('afterGuard')
 
 const trigger = useMenuTrigger<Payload>(menu, menubar, {
   ref: element,
   id,
-  as: () => as,
+  as: tag,
   rtl: () => direction.direction.value === 'rtl',
   disabled: () => disabledProp,
   openOnHover: () => openOnHover,

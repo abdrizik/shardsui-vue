@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { mergeProps, useTemplateRef } from 'vue'
+import { mergeProps } from 'vue'
+import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { useInitialLiveRegionTextMutation } from './initial-live-region-text-mutation'
 
@@ -11,7 +12,7 @@ const { as = 'div' } = defineProps<Props>()
 
 defineSlots<{ default?: () => any }>()
 
-const element = useTemplateRef<HTMLElement>('element')
+const element = usePartElement()
 
 useInitialLiveRegionTextMutation(() => element.value)
 
