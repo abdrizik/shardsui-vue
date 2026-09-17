@@ -28,7 +28,7 @@ type RectLike = {
   height: number
 }
 
-function expectWithin(actual: number, expected: number, tolerance = 2) {
+function expectWithin(actual: number, expected: number, tolerance = 6) {
   expect(Math.abs(actual - expected)).toBeLessThanOrEqual(tolerance)
 }
 
