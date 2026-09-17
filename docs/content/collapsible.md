@@ -30,7 +30,7 @@ Renders a `<div>` element.
 
 | Prop          | Type                                         | Default | Description                                                           |
 | :------------ | :------------------------------------------- | :------ | :-------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                | `'div'` | HTML element to render.                                               |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`   | `'div'` | HTML element to render.                                               |
 | `class`       | `string`                                     | —       | CSS class applied to the element.                                     |
 | `style`       | `string`                                     | —       | Inline style applied to the element.                                  |
 | `open`        | `boolean`                                    | `false` | Whether the collapsible panel is currently open (use `v-model:open`). |
@@ -57,7 +57,7 @@ Renders a `<button>` element.
 
 | Prop       | Type                                         | Default    | Description                                         |
 | :--------- | :------------------------------------------- | :--------- | :-------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`                | `'button'` | HTML element to render.                             |
+| `as`       | `keyof HTMLElementTagNameMap \| Component`   | `'button'` | HTML element to render.                             |
 | `class`    | `string`                                     | —          | CSS class applied to the element.                   |
 | `style`    | `string`                                     | —          | Inline style applied to the element.                |
 | `disabled` | `boolean`                                    | —          | Overrides Root's `disabled`. Disables this trigger. |
@@ -81,7 +81,7 @@ Renders a `<div>` element.
 
 | Prop               | Type                                         | Default | Description                                                                                                                                                                                             |
 | :----------------- | :------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `as`               | `keyof HTMLElementTagNameMap`                | `'div'` | HTML element to render.                                                                                                                                                                                 |
+| `as`               | `keyof HTMLElementTagNameMap \| Component`   | `'div'` | HTML element to render.                                                                                                                                                                                 |
 | `class`            | `string`                                     | —       | CSS class applied to the element.                                                                                                                                                                       |
 | `style`            | `string`                                     | —       | Inline style applied to the element.                                                                                                                                                                    |
 | `id`               | `string`                                     | auto    | Custom element ID. Referenced by the trigger's `aria-controls`.                                                                                                                                         |

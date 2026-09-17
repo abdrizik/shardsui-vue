@@ -88,15 +88,15 @@ Renders a `<div>` element with `role="toolbar"`.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                              | Default        | Description                                                                         |
-| :------------ | :-------------------------------- | :------------- | :---------------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`     | `'div'`        | HTML element to render.                                                             |
-| `class`       | `string`                          | —              | CSS class applied to the element.                                                   |
-| `style`       | `string`                          | —              | Inline style applied to the element.                                                |
-| `loopFocus`   | `boolean`                         | `true`         | Whether arrow-key focus wraps from the last item back to the first, and back again. |
-| `disabled`    | `boolean`                         | `false`        | Disables every button, input and group in the toolbar. Links are unaffected.        |
-| `orientation` | `'horizontal' \| 'vertical'`      | `'horizontal'` | Which arrow keys move focus between items. Also sets `aria-orientation`.            |
-| `default`     | `Slot<{ disabled, orientation }>` | —              | Toolbar content; receives the toolbar's `disabled` and `orientation` state.         |
+| Prop          | Type                                       | Default        | Description                                                                         |
+| :------------ | :----------------------------------------- | :------------- | :---------------------------------------------------------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'`        | HTML element to render.                                                             |
+| `class`       | `string`                                   | —              | CSS class applied to the element.                                                   |
+| `style`       | `string`                                   | —              | Inline style applied to the element.                                                |
+| `loopFocus`   | `boolean`                                  | `true`         | Whether arrow-key focus wraps from the last item back to the first, and back again. |
+| `disabled`    | `boolean`                                  | `false`        | Disables every button, input and group in the toolbar. Links are unaffected.        |
+| `orientation` | `'horizontal' \| 'vertical'`               | `'horizontal'` | Which arrow keys move focus between items. Also sets `aria-orientation`.            |
+| `default`     | `Slot<{ disabled, orientation }>`          | —              | Toolbar content; receives the toolbar's `disabled` and `orientation` state.         |
 
 ::
 
@@ -121,13 +121,13 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                              | Default    | Description                                                                 |
-| :--------- | :-------------------------------- | :--------- | :-------------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`     | `'button'` | HTML element to render.                                                     |
-| `class`    | `string`                          | —          | CSS class applied to the element.                                           |
-| `style`    | `string`                          | —          | Inline style applied to the element.                                        |
-| `disabled` | `boolean`                         | `false`    | Disables the button. Also cascades from `Toolbar.Root` and `Toolbar.Group`. |
-| `default`  | `Slot<{ disabled, orientation }>` | —          | Button content; receives the button's `disabled` and `orientation` state.   |
+| Prop       | Type                                       | Default    | Description                                                                 |
+| :--------- | :----------------------------------------- | :--------- | :-------------------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                                                     |
+| `class`    | `string`                                   | —          | CSS class applied to the element.                                           |
+| `style`    | `string`                                   | —          | Inline style applied to the element.                                        |
+| `disabled` | `boolean`                                  | `false`    | Disables the button. Also cascades from `Toolbar.Root` and `Toolbar.Group`. |
+| `default`  | `Slot<{ disabled, orientation }>`          | —          | Button content; receives the button's `disabled` and `orientation` state.   |
 
 ::
 
@@ -143,13 +143,13 @@ Renders an `<a>` element. Toolbar and group `disabled` never reach it.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'a'`   | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `href`    | `string`                      | —       | URL the link points to.              |
-| `default` | `Slot<{ orientation }>`       | —       | Content; receives the link state.    |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'a'`   | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `href`    | `string`                                   | —       | URL the link points to.              |
+| `default` | `Slot<{ orientation }>`                    | —       | Content; receives the link state.    |
 
 ::
 
@@ -185,13 +185,13 @@ Renders a `<div>` element with `role="group"`.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                              | Default | Description                                                             |
-| :--------- | :-------------------------------- | :------ | :---------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`     | `'div'` | HTML element to render.                                                 |
-| `class`    | `string`                          | —       | CSS class applied to the element.                                       |
-| `style`    | `string`                          | —       | Inline style applied to the element.                                    |
-| `disabled` | `boolean`                         | `false` | Disables every button and input in the group.                           |
-| `default`  | `Slot<{ disabled, orientation }>` | —       | Group content; receives the group's `disabled` and `orientation` state. |
+| Prop       | Type                                       | Default | Description                                                             |
+| :--------- | :----------------------------------------- | :------ | :---------------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                 |
+| `class`    | `string`                                   | —       | CSS class applied to the element.                                       |
+| `style`    | `string`                                   | —       | Inline style applied to the element.                                    |
+| `disabled` | `boolean`                                  | `false` | Disables every button and input in the group.                           |
+| `default`  | `Slot<{ disabled, orientation }>`          | —       | Group content; receives the group's `disabled` and `orientation` state. |
 
 ::
 
@@ -207,12 +207,12 @@ Renders a `<div>` element with `role="separator"`.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                          | Default | Description                                                                   |
-| :------------ | :---------------------------- | :------ | :---------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                                       |
-| `class`       | `string`                      | —       | CSS class applied to the element.                                             |
-| `style`       | `string`                      | —       | Inline style applied to the element.                                          |
-| `orientation` | `'horizontal' \| 'vertical'`  | —       | Overrides the orientation, which is otherwise perpendicular to the toolbar's. |
+| Prop          | Type                                       | Default | Description                                                                   |
+| :------------ | :----------------------------------------- | :------ | :---------------------------------------------------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                       |
+| `class`       | `string`                                   | —       | CSS class applied to the element.                                             |
+| `style`       | `string`                                   | —       | Inline style applied to the element.                                          |
+| `orientation` | `'horizontal' \| 'vertical'`               | —       | Overrides the orientation, which is otherwise perpendicular to the toolbar's. |
 
 ::
 

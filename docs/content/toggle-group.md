@@ -54,7 +54,7 @@ A group nested in a [Toolbar](/toolbar) joins the toolbar's arrow-key navigation
 
 | Prop           | Type                                        | Default        | Description                                                                                                  |
 | :------------- | :------------------------------------------ | :------------- | :----------------------------------------------------------------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap`               | `'div'`        | HTML element to render.                                                                                      |
+| `as`           | `keyof HTMLElementTagNameMap \| Component`  | `'div'`        | HTML element to render.                                                                                      |
 | `class`        | `string`                                    | —              | CSS class applied to the element.                                                                            |
 | `style`        | `string`                                    | —              | Inline style applied to the element.                                                                         |
 | `value`        | `readonly string[]`                         | —              | Values of the pressed toggles. Pass an initial array for uncontrolled use, or `v-model:value` to control it. |

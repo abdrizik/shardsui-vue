@@ -295,12 +295,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                           |
-| :-------- | :---------------------------- | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.               |
-| `class`   | `string`                      | —       | CSS class applied to the element.     |
-| `style`   | `string`                      | —       | Inline style applied to the element.  |
-| `default` | `Slot<{ expanded }>`          | —       | Content; receives the viewport state. |
+| Prop      | Type                                       | Default | Description                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.     |
+| `style`   | `string`                                   | —       | Inline style applied to the element.  |
+| `default` | `Slot<{ expanded }>`                       | —       | Content; receives the viewport state. |
 
 ::
 
@@ -321,7 +321,7 @@ Renders a `<div>` element.
 
 | Prop             | Type                                                                             | Default             | Description                                               |
 | :--------------- | :------------------------------------------------------------------------------- | :------------------ | :-------------------------------------------------------- |
-| `as`             | `keyof HTMLElementTagNameMap`                                                    | `'div'`             | HTML element to render.                                   |
+| `as`             | `keyof HTMLElementTagNameMap \| Component`                                       | `'div'`             | HTML element to render.                                   |
 | `class`          | `string`                                                                         | —                   | CSS class applied to the element.                         |
 | `style`          | `string`                                                                         | —                   | Inline style applied to the element.                      |
 | `toast`          | `ToastObject`                                                                    | —                   | Required. The toast object to render.                     |
@@ -355,12 +355,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `default` | `Slot<{ expanded, behind }>`  | —       | Content; receives the content state. |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ expanded, behind }>`               | —       | Content; receives the content state. |
 
 ::
 
@@ -376,13 +376,13 @@ Renders an `<h2>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'h2'`  | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `id`      | `string`                      | auto    | Custom element ID.                   |
-| `default` | `Slot<{ type }>`              | —       | Content; receives the toast `type`.  |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'h2'`  | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `id`      | `string`                                   | auto    | Custom element ID.                   |
+| `default` | `Slot<{ type }>`                           | —       | Content; receives the toast `type`.  |
 
 ::
 
@@ -398,13 +398,13 @@ Renders a `<p>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'p'`   | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `id`      | `string`                      | auto    | Custom element ID.                   |
-| `default` | `Slot<{ type }>`              | —       | Content; receives the toast `type`.  |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'p'`   | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `id`      | `string`                                   | auto    | Custom element ID.                   |
+| `default` | `Slot<{ type }>`                           | —       | Content; receives the toast `type`.  |
 
 ::
 
@@ -419,13 +419,13 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                          | Default    | Description                                |
-| :--------- | :---------------------------- | :--------- | :----------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap` | `'button'` | HTML element to render.                    |
-| `class`    | `string`                      | —          | CSS class applied to the element.          |
-| `style`    | `string`                      | —          | Inline style applied to the element.       |
-| `disabled` | `boolean`                     | `false`    | Whether the button is disabled.            |
-| `default`  | `Slot<{ type }>`              | —          | Button content; receives the toast `type`. |
+| Prop       | Type                                       | Default    | Description                                |
+| :--------- | :----------------------------------------- | :--------- | :----------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                    |
+| `class`    | `string`                                   | —          | CSS class applied to the element.          |
+| `style`    | `string`                                   | —          | Inline style applied to the element.       |
+| `disabled` | `boolean`                                  | `false`    | Whether the button is disabled.            |
+| `default`  | `Slot<{ type }>`                           | —          | Button content; receives the toast `type`. |
 
 ::
 
@@ -440,13 +440,13 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                          | Default    | Description                                |
-| :--------- | :---------------------------- | :--------- | :----------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap` | `'button'` | HTML element to render.                    |
-| `class`    | `string`                      | —          | CSS class applied to the element.          |
-| `style`    | `string`                      | —          | Inline style applied to the element.       |
-| `disabled` | `boolean`                     | `false`    | Whether the button is disabled.            |
-| `default`  | `Slot<{ type }>`              | —          | Button content; receives the toast `type`. |
+| Prop       | Type                                       | Default    | Description                                |
+| :--------- | :----------------------------------------- | :--------- | :----------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                    |
+| `class`    | `string`                                   | —          | CSS class applied to the element.          |
+| `style`    | `string`                                   | —          | Inline style applied to the element.       |
+| `disabled` | `boolean`                                  | `false`    | Whether the button is disabled.            |
+| `default`  | `Slot<{ type }>`                           | —          | Button content; receives the toast `type`. |
 
 ::
 
@@ -463,7 +463,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                       | Description                                                                    |
 | :---------------------- | :------------------------------------------------------------------------- | :---------------------------- | :----------------------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                       | HTML element to render.                                                        |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                       | HTML element to render.                                                        |
 | `class`                 | `string`                                                                   | —                             | CSS class applied to the element.                                              |
 | `style`                 | `string`                                                                   | —                             | Inline style applied to the element.                                           |
 | `toast`                 | `ToastObject`                                                              | —                             | Required. The toast object (reads `positionerProps` from it).                  |
@@ -507,12 +507,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                | Default | Description                          |
-| :-------- | :---------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`       | `'div'` | HTML element to render.              |
-| `class`   | `string`                            | —       | CSS class applied to the element.    |
-| `style`   | `string`                            | —       | Inline style applied to the element. |
-| `default` | `Slot<{ side, align, uncentered }>` | —       | Content; receives the arrow state.   |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ side, align, uncentered }>`        | —       | Content; receives the arrow state.   |
 
 ::
 

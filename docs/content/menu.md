@@ -338,19 +338,19 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                          | Default    | Description                                                                                                 |
-| :------------ | :---------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap` | `'button'` | HTML element to render.                                                                                     |
-| `class`       | `string`                      | —          | CSS class applied to the element.                                                                           |
-| `style`       | `string`                      | —          | Inline style applied to the element.                                                                        |
-| `disabled`    | `boolean`                     | `false`    | Whether the trigger is disabled.                                                                            |
-| `openOnHover` | `boolean`                     | `false`    | Whether the menu opens on hover. Inside a `<Menubar>` with a sibling menu already open, defaults to `true`. |
-| `delay`       | `number`                      | `100`      | Delay in ms before opening on hover.                                                                        |
-| `closeDelay`  | `number`                      | `0`        | Delay in ms before closing on hover.                                                                        |
-| `handle`      | `Menu.Handle`                 | —          | Handle for detached triggers (trigger lives outside Root).                                                  |
-| `payload`     | `Payload`                     | —          | Data passed to the `<Menu.Root>` default slot when this trigger opens the menu.                             |
-| `id`          | `string`                      | auto       | Custom element ID.                                                                                          |
-| `default`     | `Slot<{ disabled, open }>`    | —          | Trigger content; receives the trigger's state.                                                              |
+| Prop          | Type                                       | Default    | Description                                                                                                 |
+| :------------ | :----------------------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                                                                                     |
+| `class`       | `string`                                   | —          | CSS class applied to the element.                                                                           |
+| `style`       | `string`                                   | —          | Inline style applied to the element.                                                                        |
+| `disabled`    | `boolean`                                  | `false`    | Whether the trigger is disabled.                                                                            |
+| `openOnHover` | `boolean`                                  | `false`    | Whether the menu opens on hover. Inside a `<Menubar>` with a sibling menu already open, defaults to `true`. |
+| `delay`       | `number`                                   | `100`      | Delay in ms before opening on hover.                                                                        |
+| `closeDelay`  | `number`                                   | `0`        | Delay in ms before closing on hover.                                                                        |
+| `handle`      | `Menu.Handle`                              | —          | Handle for detached triggers (trigger lives outside Root).                                                  |
+| `payload`     | `Payload`                                  | —          | Data passed to the `<Menu.Root>` default slot when this trigger opens the menu.                             |
+| `id`          | `string`                                   | auto       | Custom element ID.                                                                                          |
+| `default`     | `Slot<{ disabled, open }>`                 | —          | Trigger content; receives the trigger's state.                                                              |
 
 ::
 
@@ -367,12 +367,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                               | Default | Description                           |
-| :-------- | :--------------------------------- | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`      | `'div'` | HTML element to render.               |
-| `class`   | `string`                           | —       | CSS class applied to the element.     |
-| `style`   | `string`                           | —       | Inline style applied to the element.  |
-| `default` | `Slot<{ open, transitionStatus }>` | —       | Content; receives the backdrop state. |
+| Prop      | Type                                       | Default | Description                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.     |
+| `style`   | `string`                                   | —       | Inline style applied to the element.  |
+| `default` | `Slot<{ open, transitionStatus }>`         | —       | Content; receives the backdrop state. |
 
 ::
 
@@ -406,7 +406,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                                              | Description                                                       |
 | :---------------------- | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                                              | HTML element to render.                                           |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                                              | HTML element to render.                                           |
 | `class`                 | `string`                                                                   | —                                                                                    | CSS class applied to the element.                                 |
 | `style`                 | `string`                                                                   | —                                                                                    | Inline style applied to the element.                              |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'bottom'`, or `'inline-end'` in a submenu or vertical menubar                       | Side to position the popup on.                                    |
@@ -454,7 +454,7 @@ Renders a `<div>` element.
 
 | Prop         | Type                                                                                   | Default | Description                                                                                                                    |
 | :----------- | :------------------------------------------------------------------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------- |
-| `as`         | `keyof HTMLElementTagNameMap`                                                          | `'div'` | HTML element to render.                                                                                                        |
+| `as`         | `keyof HTMLElementTagNameMap \| Component`                                             | `'div'` | HTML element to render.                                                                                                        |
 | `class`      | `string`                                                                               | —       | CSS class applied to the element.                                                                                              |
 | `style`      | `string`                                                                               | —       | Inline style applied to the element.                                                                                           |
 | `finalFocus` | `boolean \| HTMLElement \| ((type: string) => HTMLElement \| boolean \| null \| void)` | —       | Element to focus when the menu closes, or a function receiving the interaction type. `false` to skip; defaults to the trigger. |
@@ -490,7 +490,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                    | Default | Description                           |
 | :-------- | :------------------------------------------------------ | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`                           | `'div'` | HTML element to render.               |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`              | `'div'` | HTML element to render.               |
 | `class`   | `string`                                                | —       | CSS class applied to the element.     |
 | `style`   | `string`                                                | —       | Inline style applied to the element.  |
 | `default` | `Slot<{ activationDirection, transitioning, instant }>` | —       | Content; receives the viewport state. |
@@ -519,12 +519,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                      | Default | Description                          |
-| :-------- | :---------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`             | `'div'` | HTML element to render.              |
-| `class`   | `string`                                  | —       | CSS class applied to the element.    |
-| `style`   | `string`                                  | —       | Inline style applied to the element. |
-| `default` | `Slot<{ open, side, align, uncentered }>` | —       | Content; receives the arrow state.   |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ open, side, align, uncentered }>`  | —       | Content; receives the arrow state.   |
 
 ::
 
@@ -543,15 +543,15 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop           | Type                              | Default | Description                                        |
-| :------------- | :-------------------------------- | :------ | :------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap`     | `'div'` | HTML element to render.                            |
-| `class`        | `string`                          | —       | CSS class applied to the element.                  |
-| `style`        | `string`                          | —       | Inline style applied to the element.               |
-| `disabled`     | `boolean`                         | `false` | Whether the item is disabled.                      |
-| `closeOnClick` | `boolean`                         | `true`  | Whether the menu closes when this item is clicked. |
-| `id`           | `string`                          | auto    | Custom element ID.                                 |
-| `default`      | `Slot<{ highlighted, disabled }>` | —       | Item content; receives the item's state.           |
+| Prop           | Type                                       | Default | Description                                        |
+| :------------- | :----------------------------------------- | :------ | :------------------------------------------------- |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                            |
+| `class`        | `string`                                   | —       | CSS class applied to the element.                  |
+| `style`        | `string`                                   | —       | Inline style applied to the element.               |
+| `disabled`     | `boolean`                                  | `false` | Whether the item is disabled.                      |
+| `closeOnClick` | `boolean`                                  | `true`  | Whether the menu closes when this item is clicked. |
+| `id`           | `string`                                   | auto    | Custom element ID.                                 |
+| `default`      | `Slot<{ highlighted, disabled }>`          | —       | Item content; receives the item's state.           |
 
 ::
 
@@ -567,15 +567,15 @@ Renders an `<a>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop           | Type                          | Default | Description                                        |
-| :------------- | :---------------------------- | :------ | :------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap` | `'a'`   | HTML element to render.                            |
-| `href`         | `string`                      | —       | URL the link points to.                            |
-| `class`        | `string`                      | —       | CSS class applied to the element.                  |
-| `style`        | `string`                      | —       | Inline style applied to the element.               |
-| `closeOnClick` | `boolean`                     | `false` | Whether the menu closes when this item is clicked. |
-| `id`           | `string`                      | auto    | Custom element ID.                                 |
-| `default`      | `Slot<{ highlighted }>`       | —       | Item content; receives the item's state.           |
+| Prop           | Type                                       | Default | Description                                        |
+| :------------- | :----------------------------------------- | :------ | :------------------------------------------------- |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'a'`   | HTML element to render.                            |
+| `href`         | `string`                                   | —       | URL the link points to.                            |
+| `class`        | `string`                                   | —       | CSS class applied to the element.                  |
+| `style`        | `string`                                   | —       | Inline style applied to the element.               |
+| `closeOnClick` | `boolean`                                  | `false` | Whether the menu closes when this item is clicked. |
+| `id`           | `string`                                   | auto    | Custom element ID.                                 |
+| `default`      | `Slot<{ highlighted }>`                    | —       | Item content; receives the item's state.           |
 
 ::
 
@@ -611,17 +611,17 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                                    | Default | Description                                         |
-| :------------ | :-------------------------------------- | :------ | :-------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`           | `'div'` | HTML element to render.                             |
-| `class`       | `string`                                | —       | CSS class applied to the element.                   |
-| `style`       | `string`                                | —       | Inline style applied to the element.                |
-| `disabled`    | `boolean`                               | `false` | Whether the trigger is disabled.                    |
-| `openOnHover` | `boolean`                               | `true`  | Whether the submenu opens on hover.                 |
-| `delay`       | `number`                                | `100`   | Delay in ms before the submenu opens on hover.      |
-| `closeDelay`  | `number`                                | `0`     | Delay in ms before the submenu closes on hover-out. |
-| `id`          | `string`                                | auto    | Custom element ID.                                  |
-| `default`     | `Slot<{ disabled, highlighted, open }>` | —       | Trigger content; receives the trigger's state.      |
+| Prop          | Type                                       | Default | Description                                         |
+| :------------ | :----------------------------------------- | :------ | :-------------------------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                             |
+| `class`       | `string`                                   | —       | CSS class applied to the element.                   |
+| `style`       | `string`                                   | —       | Inline style applied to the element.                |
+| `disabled`    | `boolean`                                  | `false` | Whether the trigger is disabled.                    |
+| `openOnHover` | `boolean`                                  | `true`  | Whether the submenu opens on hover.                 |
+| `delay`       | `number`                                   | `100`   | Delay in ms before the submenu opens on hover.      |
+| `closeDelay`  | `number`                                   | `0`     | Delay in ms before the submenu closes on hover-out. |
+| `id`          | `string`                                   | auto    | Custom element ID.                                  |
+| `default`     | `Slot<{ disabled, highlighted, open }>`    | —       | Trigger content; receives the trigger's state.      |
 
 ::
 
@@ -638,11 +638,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -653,12 +653,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
-| `id`    | `string`                      | auto    | Custom element ID.                   |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
+| `id`    | `string`                                   | auto    | Custom element ID.                   |
 
 ::
 
@@ -669,15 +669,15 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop           | Type                          | Default | Description                                |
-| :------------- | :---------------------------- | :------ | :----------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                    |
-| `class`        | `string`                      | —       | CSS class applied to the element.          |
-| `style`        | `string`                      | —       | Inline style applied to the element.       |
-| `value`        | `unknown`                     | —       | Selected value. Use `v-model:value`.       |
-| `update:value` | `(value: unknown) => void`    | —       | Emitted when the value changes.            |
-| `disabled`     | `boolean`                     | `false` | Whether the radio group is disabled.       |
-| `default`      | `Slot<{ disabled }>`          | —       | Group content; receives the group's state. |
+| Prop           | Type                                       | Default | Description                                |
+| :------------- | :----------------------------------------- | :------ | :----------------------------------------- |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                    |
+| `class`        | `string`                                   | —       | CSS class applied to the element.          |
+| `style`        | `string`                                   | —       | Inline style applied to the element.       |
+| `value`        | `unknown`                                  | —       | Selected value. Use `v-model:value`.       |
+| `update:value` | `(value: unknown) => void`                 | —       | Emitted when the value changes.            |
+| `disabled`     | `boolean`                                  | `false` | Whether the radio group is disabled.       |
+| `default`      | `Slot<{ disabled }>`                       | —       | Group content; receives the group's state. |
 
 ::
 
@@ -694,7 +694,7 @@ Renders a `<div>` element.
 
 | Prop           | Type                                       | Default  | Description                                        |
 | :------------- | :----------------------------------------- | :------- | :------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap`              | `'div'`  | HTML element to render.                            |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'div'`  | HTML element to render.                            |
 | `class`        | `string`                                   | —        | CSS class applied to the element.                  |
 | `style`        | `string`                                   | —        | Inline style applied to the element.               |
 | `value`        | `unknown`                                  | required | Value of this radio item.                          |
@@ -721,7 +721,7 @@ Renders a `<span>` element.
 
 | Prop          | Type                                                         | Default  | Description                                           |
 | :------------ | :----------------------------------------------------------- | :------- | :---------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                                | `'span'` | HTML element to render.                               |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                   | `'span'` | HTML element to render.                               |
 | `class`       | `string`                                                     | —        | CSS class applied to the element.                     |
 | `style`       | `string`                                                     | —        | Inline style applied to the element.                  |
 | `keepMounted` | `boolean`                                                    | `false`  | Whether to keep the indicator mounted when unchecked. |
@@ -747,7 +747,7 @@ Renders a `<div>` element.
 
 | Prop             | Type                                       | Default | Description                                        |
 | :--------------- | :----------------------------------------- | :------ | :------------------------------------------------- |
-| `as`             | `keyof HTMLElementTagNameMap`              | `'div'` | HTML element to render.                            |
+| `as`             | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                            |
 | `class`          | `string`                                   | —       | CSS class applied to the element.                  |
 | `style`          | `string`                                   | —       | Inline style applied to the element.               |
 | `checked`        | `boolean`                                  | `false` | Checked state. Use `v-model:checked`.              |
@@ -775,7 +775,7 @@ Renders a `<span>` element.
 
 | Prop          | Type                                                         | Default  | Description                                           |
 | :------------ | :----------------------------------------------------------- | :------- | :---------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                                | `'span'` | HTML element to render.                               |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                   | `'span'` | HTML element to render.                               |
 | `class`       | `string`                                                     | —        | CSS class applied to the element.                     |
 | `style`       | `string`                                                     | —        | Inline style applied to the element.                  |
 | `keepMounted` | `boolean`                                                    | `false`  | Whether to keep the indicator mounted when unchecked. |
@@ -799,12 +799,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                          | Default        | Description                          |
-| :------------ | :---------------------------- | :------------- | :----------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap` | `'div'`        | HTML element to render.              |
-| `class`       | `string`                      | —              | CSS class applied to the element.    |
-| `style`       | `string`                      | —              | Inline style applied to the element. |
-| `orientation` | `'horizontal' \| 'vertical'`  | `'horizontal'` | The orientation of the separator.    |
+| Prop          | Type                                       | Default        | Description                          |
+| :------------ | :----------------------------------------- | :------------- | :----------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'`        | HTML element to render.              |
+| `class`       | `string`                                   | —              | CSS class applied to the element.    |
+| `style`       | `string`                                   | —              | Inline style applied to the element. |
+| `orientation` | `'horizontal' \| 'vertical'`               | `'horizontal'` | The orientation of the separator.    |
 
 ::
 

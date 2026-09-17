@@ -97,15 +97,61 @@ Every part picks the element that's correct for its role, and the `as` prop swap
 </template>
 ```
 
-`as` takes an HTML tag name — `'a'`, `'button'`, `'span'`, and so on — not a component. Reach for it only when a case like the anchor above calls for a different tag.
+Reach for a tag only when a case like the anchor above calls for a different one.
 
-A plain `<a href>` navigates with a full page load. To route on the client, keep the anchor and hand the click to your router — `@click.prevent="router.push('/pricing')"` — so the element stays a real link for the browser and assistive tech. `<NavigationMenu.Link>` renders an `<a>` to begin with:
+## Rendering a component of your own
 
-```vue title="Navigation menu link"
+`as` also takes a component, for when the element belongs to your design system or to your router:
+
+```vue title="Trigger as your own button"
+<script setup>
+import { Menu } from '@shardsui/vue/menu'
+import MyButton from './MyButton.vue'
+</script>
+
 <template>
-  <NavigationMenu.Link href="/pricing">Pricing</NavigationMenu.Link>
+  <!-- [!code word::as="MyButton"] -->
+  <Menu.Trigger :as="MyButton" size="md">Song</Menu.Trigger>
 </template>
 ```
+
+Props the part doesn't declare go through to your component — `size` above lands on `MyButton` — and so do the part's own attributes, its `data-*` state and its event handlers. Two things are asked of the component: it renders a single root element, and it lets the attributes it receives reach that element. Vue already does the second unless the component sets `inheritAttrs: false`. Give a part a component with two root nodes and there's no element for it to drive — Vue warns that it could not apply the attributes.
+
+A part keeps the semantics of the tag it documents, whatever you render it as. `<Menu.Trigger>` renders a `<button>`, so it keeps `type="button"` and a button's keyboard behavior — right when your component renders a button, wrong when it renders something else, and the part warns in development when the element it ends up with disagrees. Parts that render an `<a>` or a `<div>` — `<NavigationMenu.Link>`, `<Menu.LinkItem>`, `<Menu.Item>` — take a router's link directly:
+
+```vue title="Link as a router link"
+<template>
+  <!-- [!code word::as="RouterLink"] -->
+  <NavigationMenu.Link :as="RouterLink" to="/docs">Docs</NavigationMenu.Link>
+</template>
+```
+
+One part can render another, which is how a single element carries two behaviors — a toolbar button that also opens a menu:
+
+```vue title="A trigger inside a toolbar"
+<template>
+  <Menu.Root>
+    <Toolbar.Root>
+      <!-- [!code word::as="Menu.Trigger"] -->
+      <Toolbar.Button :as="Menu.Trigger">Open</Toolbar.Button>
+    </Toolbar.Root>
+    ...
+  </Menu.Root>
+</template>
+```
+
+Where the part renders a `<button>` and you need a link, pass the tag instead and keep your component's behavior around it, so the element stays a real anchor and the part's semantics follow the tag:
+
+```vue title="Router link in a part that renders a button"
+<template>
+  <!-- [!code word:custom] -->
+  <RouterLink v-slot="{ href, navigate }" to="/overview" custom>
+    <Tabs.Tab as="a" :href="href" value="overview" @click="navigate">Overview</Tabs.Tab>
+  </RouterLink>
+</template>
+```
+
+A plain `<a href>` navigates with a full page load, so reach for one of these whenever the destination is inside your app.
 
 ## Merging your own attributes
 
@@ -167,7 +213,7 @@ Every part that renders its own element exposes it as `$el`. Pure providers like
 
 ## Wrapping a part in your own component
 
-There's no render prop: to build a styled component out of a part, render the part and let your attributes fall through. A single-root component forwards everything it doesn't declare, and a caller's `class` merges with yours rather than replacing it:
+To build a styled component out of a part, render the part and let your attributes fall through — `as` is for handing a part an element, not for wrapping one. A single-root component forwards everything it doesn't declare, and a caller's `class` merges with yours rather than replacing it:
 
 ```vue title="MenuLink.vue"
 <script setup lang="ts">

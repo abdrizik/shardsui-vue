@@ -171,18 +171,18 @@ Renders an `<a>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop         | Type                          | Default | Description                                                                            |
-| :----------- | :---------------------------- | :------ | :------------------------------------------------------------------------------------- |
-| `as`         | `keyof HTMLElementTagNameMap` | `'a'`   | HTML element to render.                                                                |
-| `class`      | `string`                      | —       | CSS class applied to the element.                                                      |
-| `style`      | `string`                      | —       | Inline style applied to the element.                                                   |
-| `id`         | `string`                      | auto    | Custom element ID.                                                                     |
-| `href`       | `string`                      | —       | Link destination when rendering as an `<a>`.                                           |
-| `delay`      | `number`                      | `600`   | How long to wait before the preview card opens. Specified in milliseconds.             |
-| `closeDelay` | `number`                      | `300`   | How long to wait before closing the preview card. Specified in milliseconds.           |
-| `handle`     | `PreviewCard.Handle<Payload>` | —       | A handle to associate the trigger with a preview card.                                 |
-| `payload`    | `Payload`                     | —       | Data passed to the `<PreviewCard.Root>` default slot when this trigger opens the card. |
-| `default`    | `Slot<{ open }>`              | —       | Trigger content; receives the trigger state.                                           |
+| Prop         | Type                                       | Default | Description                                                                            |
+| :----------- | :----------------------------------------- | :------ | :------------------------------------------------------------------------------------- |
+| `as`         | `keyof HTMLElementTagNameMap \| Component` | `'a'`   | HTML element to render.                                                                |
+| `class`      | `string`                                   | —       | CSS class applied to the element.                                                      |
+| `style`      | `string`                                   | —       | Inline style applied to the element.                                                   |
+| `id`         | `string`                                   | auto    | Custom element ID.                                                                     |
+| `href`       | `string`                                   | —       | Link destination when rendering as an `<a>`.                                           |
+| `delay`      | `number`                                   | `600`   | How long to wait before the preview card opens. Specified in milliseconds.             |
+| `closeDelay` | `number`                                   | `300`   | How long to wait before closing the preview card. Specified in milliseconds.           |
+| `handle`     | `PreviewCard.Handle<Payload>`              | —       | A handle to associate the trigger with a preview card.                                 |
+| `payload`    | `Payload`                                  | —       | Data passed to the `<PreviewCard.Root>` default slot when this trigger opens the card. |
+| `default`    | `Slot<{ open }>`                           | —       | Trigger content; receives the trigger state.                                           |
 
 ::
 
@@ -197,12 +197,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                               | Default | Description                           |
-| :-------- | :--------------------------------- | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`      | `'div'` | HTML element to render.               |
-| `class`   | `string`                           | —       | CSS class applied to the element.     |
-| `style`   | `string`                           | —       | Inline style applied to the element.  |
-| `default` | `Slot<{ open, transitionStatus }>` | —       | Content; receives the backdrop state. |
+| Prop      | Type                                       | Default | Description                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.     |
+| `style`   | `string`                                   | —       | Inline style applied to the element.  |
+| `default` | `Slot<{ open, transitionStatus }>`         | —       | Content; receives the backdrop state. |
 
 ::
 
@@ -237,7 +237,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                    | Description                                                       |
 | :---------------------- | :------------------------------------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                    | HTML element to render.                                           |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                    | HTML element to render.                                           |
 | `class`                 | `string`                                                                   | —                                                          | CSS class applied to the element.                                 |
 | `style`                 | `string`                                                                   | —                                                          | Inline style applied to the element.                              |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'bottom'`                                                 | Side to position the popup on.                                    |
@@ -284,7 +284,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                     | Default | Description                              |
 | :-------- | :------------------------------------------------------- | :------ | :--------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                            | `'div'` | HTML element to render.                  |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`               | `'div'` | HTML element to render.                  |
 | `class`   | `string`                                                 | —       | CSS class applied to the element.        |
 | `style`   | `string`                                                 | —       | Inline style applied to the element.     |
 | `default` | `Slot<{ open, side, align, instant, transitionStatus }>` | —       | Popup content; receives the popup state. |
@@ -317,7 +317,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                    | Default | Description                           |
 | :-------- | :------------------------------------------------------ | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`                           | `'div'` | HTML element to render.               |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`              | `'div'` | HTML element to render.               |
 | `class`   | `string`                                                | —       | CSS class applied to the element.     |
 | `style`   | `string`                                                | —       | Inline style applied to the element.  |
 | `default` | `Slot<{ activationDirection, transitioning, instant }>` | —       | Content; receives the viewport state. |
@@ -348,12 +348,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                      | Default | Description                          |
-| :-------- | :---------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`             | `'div'` | HTML element to render.              |
-| `class`   | `string`                                  | —       | CSS class applied to the element.    |
-| `style`   | `string`                                  | —       | Inline style applied to the element. |
-| `default` | `Slot<{ open, side, align, uncentered }>` | —       | Content; receives the arrow state.   |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ open, side, align, uncentered }>`  | —       | Content; receives the arrow state.   |
 
 ::
 

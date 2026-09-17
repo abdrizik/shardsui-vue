@@ -99,7 +99,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                                                                        | Default | Description                                                                                                          |
 | :---------------------- | :-------------------------------------------------------------------------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                                                                               | `'div'` | HTML element to render.                                                                                              |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                                                                  | `'div'` | HTML element to render.                                                                                              |
 | `class`                 | `string`                                                                                                                    | —       | CSS class applied to the element.                                                                                    |
 | `style`                 | `string`                                                                                                                    | —       | Inline style applied to the element, after the built-in `position` and corner variables.                             |
 | `overflowEdgeThreshold` | `number \| { xStart?: number; xEnd?: number; yStart?: number; yEnd?: number }`                                              | `0`     | Pixels an edge must be scrolled past before its `data-overflow-*` attribute appears. One number sets all four edges. |
@@ -131,7 +131,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                                                                                        | Default | Description                                                       |
 | :-------- | :-------------------------------------------------------------------------------------------------------------------------- | :------ | :---------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                                                                               | `'div'` | HTML element to render.                                           |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                                                                                  | `'div'` | HTML element to render.                                           |
 | `class`   | `string`                                                                                                                    | —       | CSS class applied to the element.                                 |
 | `style`   | `string`                                                                                                                    | —       | Inline style applied before the built-in `overflow`.              |
 | `default` | `Slot<{ scrolling, hasOverflowX, hasOverflowY, overflowXStart, overflowXEnd, overflowYStart, overflowYEnd, cornerHidden }>` | —       | Content; receives the scroll area's scrolling and overflow state. |
@@ -164,7 +164,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                                                                                        | Default | Description                                                          |
 | :-------- | :-------------------------------------------------------------------------------------------------------------------------- | :------ | :------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                                                                               | `'div'` | HTML element to render.                                              |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                                                                                  | `'div'` | HTML element to render.                                              |
 | `class`   | `string`                                                                                                                    | —       | CSS class applied to the element.                                    |
 | `style`   | `string`                                                                                                                    | —       | Inline style applied to the element, after the built-in `min-width`. |
 | `default` | `Slot<{ scrolling, hasOverflowX, hasOverflowY, overflowXStart, overflowXEnd, overflowYStart, overflowYEnd, cornerHidden }>` | —       | Content; receives the scroll area's scrolling and overflow state.    |
@@ -190,7 +190,7 @@ Renders a `<div>` element.
 
 | Prop          | Type                                                                                                                                               | Default      | Description                                                                                       |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :------------------------------------------------------------------------------------------------ |
-| `as`          | `keyof HTMLElementTagNameMap`                                                                                                                      | `'div'`      | HTML element to render.                                                                           |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                                                                                                         | `'div'`      | HTML element to render.                                                                           |
 | `class`       | `string`                                                                                                                                           | —            | CSS class applied to the element.                                                                 |
 | `style`       | `string`                                                                                                                                           | —            | Inline style applied to the element, after the built-in positioning.                              |
 | `orientation` | `'horizontal' \| 'vertical'`                                                                                                                       | `'vertical'` | Whether the scrollbar controls vertical or horizontal scroll.                                     |
@@ -223,12 +223,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                               | Default | Description                                                                           |
-| :-------- | :--------------------------------- | :------ | :------------------------------------------------------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`      | `'div'` | HTML element to render.                                                               |
-| `class`   | `string`                           | —       | CSS class applied to the element.                                                     |
-| `style`   | `string`                           | —       | Inline style applied to the element, before the built-in `visibility` and thumb size. |
-| `default` | `Slot<{ scrolling, orientation }>` | —       | Content; receives the thumb's scrolling and orientation state.                        |
+| Prop      | Type                                       | Default | Description                                                                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------------------------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                                                     |
+| `style`   | `string`                                   | —       | Inline style applied to the element, before the built-in `visibility` and thumb size. |
+| `default` | `Slot<{ scrolling, orientation }>`         | —       | Content; receives the thumb's scrolling and orientation state.                        |
 
 ::
 
@@ -244,11 +244,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `default` | `Slot`                        | —       | Content.                             |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot`                                     | —       | Content.                             |
 
 ::

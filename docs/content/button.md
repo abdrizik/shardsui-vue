@@ -51,13 +51,13 @@ When a button becomes disabled after a click — while it loads — a native `Bu
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                          | Default    | Description                                                                                                       |
-| :--------- | :---------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap` | `'button'` | Element to render. `"button"` uses native button semantics; other tags get `role="button"` and keyboard handlers. |
-| `class`    | `string`                      | —          | CSS class applied to the element.                                                                                 |
-| `style`    | `string`                      | —          | Inline style applied to the element.                                                                              |
-| `disabled` | `boolean`                     | `false`    | Whether the button should ignore user interaction.                                                                |
-| `default`  | `Slot<{ disabled }>`          | —          | Content; receives the button's `disabled` state.                                                                  |
+| Prop       | Type                                       | Default    | Description                                                                                                       |
+| :--------- | :----------------------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | Element to render. `"button"` uses native button semantics; other tags get `role="button"` and keyboard handlers. |
+| `class`    | `string`                                   | —          | CSS class applied to the element.                                                                                 |
+| `style`    | `string`                                   | —          | Inline style applied to the element.                                                                              |
+| `disabled` | `boolean`                                  | `false`    | Whether the button should ignore user interaction.                                                                |
+| `default`  | `Slot<{ disabled }>`                       | —          | Content; receives the button's `disabled` state.                                                                  |
 
 ::
 

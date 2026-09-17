@@ -106,7 +106,7 @@ Combine Field and Fieldset to label the group and hook it into a form:
 
 | Prop               | Type                                                         | Default | Description                                                                                         |
 | :----------------- | :----------------------------------------------------------- | :------ | :-------------------------------------------------------------------------------------------------- |
-| `as`               | `keyof HTMLElementTagNameMap`                                | `'div'` | HTML element to render.                                                                             |
+| `as`               | `keyof HTMLElementTagNameMap \| Component`                   | `'div'` | HTML element to render.                                                                             |
 | `class`            | `string`                                                     | —       | CSS class applied to the element.                                                                   |
 | `style`            | `string`                                                     | —       | Inline style applied to the element.                                                                |
 | `id`               | `string`                                                     | —       | Custom element ID.                                                                                  |

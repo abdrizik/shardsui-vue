@@ -34,17 +34,17 @@ Renders a `<div>` element with `role="meter"`.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                                                                                              |
-| :-------- | :---------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                                                                                  |
-| `class`   | `string`                      | —       | CSS class applied to the element.                                                                                        |
-| `style`   | `string`                      | —       | Inline style applied to the element.                                                                                     |
-| `value`   | `number`                      | —       | Required. The current value. Clamped to `min` and `max` for `aria-valuenow`, the indicator width and the displayed text. |
-| `format`  | `Intl.NumberFormatOptions`    | —       | Options to format the value. Without it, the value is displayed as its percentage position in the range.                 |
-| `locale`  | `Intl.LocalesArgument`        | —       | The locale used by `Intl.NumberFormat` when formatting the value. Defaults to the user's runtime locale.                 |
-| `min`     | `number`                      | `0`     | The minimum value.                                                                                                       |
-| `max`     | `number`                      | `100`   | The maximum value.                                                                                                       |
-| `default` | `Slot`                        | —       | Content.                                                                                                                 |
+| Prop      | Type                                       | Default | Description                                                                                                              |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                                                                  |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                                                                                        |
+| `style`   | `string`                                   | —       | Inline style applied to the element.                                                                                     |
+| `value`   | `number`                                   | —       | Required. The current value. Clamped to `min` and `max` for `aria-valuenow`, the indicator width and the displayed text. |
+| `format`  | `Intl.NumberFormatOptions`                 | —       | Options to format the value. Without it, the value is displayed as its percentage position in the range.                 |
+| `locale`  | `Intl.LocalesArgument`                     | —       | The locale used by `Intl.NumberFormat` when formatting the value. Defaults to the user's runtime locale.                 |
+| `min`     | `number`                                   | `0`     | The minimum value.                                                                                                       |
+| `max`     | `number`                                   | `100`   | The maximum value.                                                                                                       |
+| `default` | `Slot`                                     | —       | Content.                                                                                                                 |
 
 ::
 
@@ -55,12 +55,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `default` | `Slot`                        | —       | Content.                             |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot`                                     | —       | Content.                             |
 
 ::
 
@@ -72,12 +72,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                                      |
-| :-------- | :---------------------------- | :------ | :--------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                          |
-| `class`   | `string`                      | —       | CSS class applied to the element.                                |
-| `style`   | `string`                      | —       | Inline style applied to the element, after the built-in `width`. |
-| `default` | `Slot`                        | —       | Content.                                                         |
+| Prop      | Type                                       | Default | Description                                                      |
+| :-------- | :----------------------------------------- | :------ | :--------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                          |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                                |
+| `style`   | `string`                                   | —       | Inline style applied to the element, after the built-in `width`. |
+| `default` | `Slot`                                     | —       | Content.                                                         |
 
 ::
 
@@ -91,7 +91,7 @@ Renders a `<span>` element.
 
 | Prop      | Type                                              | Default  | Description                                                                             |
 | :-------- | :------------------------------------------------ | :------- | :-------------------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                     | `'span'` | HTML element to render.                                                                 |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`        | `'span'` | HTML element to render.                                                                 |
 | `class`   | `string`                                          | —        | CSS class applied to the element.                                                       |
 | `style`   | `string`                                          | —        | Inline style applied to the element.                                                    |
 | `default` | `Slot<{ formattedValue: string; value: number }>` | —        | Slot receiving the formatted value and the raw number. Defaults to the formatted value. |
@@ -105,12 +105,12 @@ Renders a `<span>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default  | Description                                                         |
-| :-------- | :---------------------------- | :------- | :------------------------------------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap` | `'span'` | HTML element to render.                                             |
-| `class`   | `string`                      | —        | CSS class applied to the element.                                   |
-| `style`   | `string`                      | —        | Inline style applied to the element.                                |
-| `id`      | `string`                      | auto     | Custom element ID. Associated with the meter via `aria-labelledby`. |
-| `default` | `Slot`                        | —        | Content.                                                            |
+| Prop      | Type                                       | Default  | Description                                                         |
+| :-------- | :----------------------------------------- | :------- | :------------------------------------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.                                             |
+| `class`   | `string`                                   | —        | CSS class applied to the element.                                   |
+| `style`   | `string`                                   | —        | Inline style applied to the element.                                |
+| `id`      | `string`                                   | auto     | Custom element ID. Associated with the meter via `aria-labelledby`. |
+| `default` | `Slot`                                     | —        | Content.                                                            |
 
 ::

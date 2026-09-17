@@ -192,19 +192,19 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop           | Type                          | Default           | Description                                                                                   |
-| :------------- | :---------------------------- | :---------------- | :-------------------------------------------------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap` | `'button'`        | HTML element to render.                                                                       |
-| `class`        | `string`                      | —                 | CSS class applied to the element.                                                             |
-| `style`        | `string`                      | —                 | Inline style applied to the element.                                                          |
-| `disabled`     | `boolean`                     | Root's `disabled` | Stops the tooltip opening from this trigger. Does not set the element's `disabled` attribute. |
-| `id`           | `string`                      | auto              | Custom element ID.                                                                            |
-| `delay`        | `number`                      | `600`             | Delay in ms before opening the tooltip. Falls back to `<Tooltip.Provider delay>`.             |
-| `closeDelay`   | `number`                      | `0`               | Delay in ms before closing the tooltip. Falls back to `<Tooltip.Provider closeDelay>`.        |
-| `closeOnClick` | `boolean`                     | `true`            | Whether clicking the trigger closes the tooltip.                                              |
-| `handle`       | `Tooltip.Handle<Payload>`     | —                 | Associates a detached trigger with a tooltip.                                                 |
-| `payload`      | `Payload`                     | —                 | Data passed to the `<Tooltip.Root>` default slot when this trigger opens the tooltip.         |
-| `default`      | `Slot<{ open }>`              | —                 | Trigger content; receives the trigger state.                                                  |
+| Prop           | Type                                       | Default           | Description                                                                                   |
+| :------------- | :----------------------------------------- | :---------------- | :-------------------------------------------------------------------------------------------- |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'button'`        | HTML element to render.                                                                       |
+| `class`        | `string`                                   | —                 | CSS class applied to the element.                                                             |
+| `style`        | `string`                                   | —                 | Inline style applied to the element.                                                          |
+| `disabled`     | `boolean`                                  | Root's `disabled` | Stops the tooltip opening from this trigger. Does not set the element's `disabled` attribute. |
+| `id`           | `string`                                   | auto              | Custom element ID.                                                                            |
+| `delay`        | `number`                                   | `600`             | Delay in ms before opening the tooltip. Falls back to `<Tooltip.Provider delay>`.             |
+| `closeDelay`   | `number`                                   | `0`               | Delay in ms before closing the tooltip. Falls back to `<Tooltip.Provider closeDelay>`.        |
+| `closeOnClick` | `boolean`                                  | `true`            | Whether clicking the trigger closes the tooltip.                                              |
+| `handle`       | `Tooltip.Handle<Payload>`                  | —                 | Associates a detached trigger with a tooltip.                                                 |
+| `payload`      | `Payload`                                  | —                 | Data passed to the `<Tooltip.Root>` default slot when this trigger opens the tooltip.         |
+| `default`      | `Slot<{ open }>`                           | —                 | Trigger content; receives the trigger state.                                                  |
 
 ::
 
@@ -236,7 +236,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                    | Description                                                       |
 | :---------------------- | :------------------------------------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                    | HTML element to render.                                           |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                    | HTML element to render.                                           |
 | `class`                 | `string`                                                                   | —                                                          | CSS class applied to the element.                                 |
 | `style`                 | `string`                                                                   | —                                                          | Inline style applied to the element.                              |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'top'`                                                    | Side to position the popup on.                                    |
@@ -283,7 +283,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                     | Default | Description                              |
 | :-------- | :------------------------------------------------------- | :------ | :--------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                            | `'div'` | HTML element to render.                  |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`               | `'div'` | HTML element to render.                  |
 | `class`   | `string`                                                 | —       | CSS class applied to the element.        |
 | `style`   | `string`                                                 | —       | Inline style applied to the element.     |
 | `default` | `Slot<{ open, side, align, instant, transitionStatus }>` | —       | Popup content; receives the popup state. |
@@ -314,7 +314,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                               | Default | Description                          |
 | :-------- | :------------------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                      | `'div'` | HTML element to render.              |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`         | `'div'` | HTML element to render.              |
 | `class`   | `string`                                           | —       | CSS class applied to the element.    |
 | `style`   | `string`                                           | —       | Inline style applied to the element. |
 | `default` | `Slot<{ open, side, align, uncentered, instant }>` | —       | Content; receives the arrow state.   |
@@ -341,7 +341,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                    | Default | Description                           |
 | :-------- | :------------------------------------------------------ | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`                           | `'div'` | HTML element to render.               |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`              | `'div'` | HTML element to render.               |
 | `class`   | `string`                                                | —       | CSS class applied to the element.     |
 | `style`   | `string`                                                | —       | Inline style applied to the element.  |
 | `default` | `Slot<{ activationDirection, transitioning, instant }>` | —       | Content; receives the viewport state. |

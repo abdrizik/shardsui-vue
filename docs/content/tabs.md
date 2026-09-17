@@ -49,6 +49,17 @@ When a tab navigates to a URL instead of toggling a panel, set `as="a"` on `<Tab
 </template>
 ```
 
+`<Tabs.Tab>` renders a `<button>`, and it keeps a button's semantics for whatever component `as` names — so for client-side routing pass the tag and wrap the router's link around it, rather than rendering the link through `as`:
+
+```vue title="Tabs as router links"
+<template>
+  <!-- [!code word:custom] -->
+  <RouterLink v-slot="{ href, navigate }" to="/overview" custom>
+    <Tabs.Tab as="a" :href="href" value="overview" @click="navigate">Overview</Tabs.Tab>
+  </RouterLink>
+</template>
+```
+
 ## API reference
 
 ### Root
@@ -60,7 +71,7 @@ Renders a `<div>` element.
 
 | Prop           | Type                                         | Default        | Description                                                                                                                                                                                                             |
 | :------------- | :------------------------------------------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap`                | `'div'`        | HTML element to render.                                                                                                                                                                                                 |
+| `as`           | `keyof HTMLElementTagNameMap \| Component`   | `'div'`        | HTML element to render.                                                                                                                                                                                                 |
 | `class`        | `string`                                     | —              | CSS class applied to the element.                                                                                                                                                                                       |
 | `style`        | `string`                                     | —              | Inline style applied to the element.                                                                                                                                                                                    |
 | `value`        | `string \| number \| null`                   | —              | Value of the active tab. Use `v-model:value` to control it. `null` leaves every tab inactive. When the prop is omitted, the uncontrolled fallback `0` falls back to the first enabled tab if no enabled tab carries it. |
@@ -84,7 +95,7 @@ Renders a `<div>` element with `role="tablist"`.
 
 | Prop              | Type                                         | Default | Description                                                                                                |
 | :---------------- | :------------------------------------------- | :------ | :--------------------------------------------------------------------------------------------------------- |
-| `as`              | `keyof HTMLElementTagNameMap`                | `'div'` | HTML element to render.                                                                                    |
+| `as`              | `keyof HTMLElementTagNameMap \| Component`   | `'div'` | HTML element to render.                                                                                    |
 | `class`           | `string`                                     | —       | CSS class applied to the element.                                                                          |
 | `style`           | `string`                                     | —       | Inline style applied to the element.                                                                       |
 | `activateOnFocus` | `boolean`                                    | `false` | Activates each tab as arrow keys focus it. When `false`, the focused tab is activated with Enter or Space. |
@@ -107,7 +118,7 @@ Renders a `<button>` element.
 
 | Prop       | Type                                                           | Default    | Description                                                                                                               |
 | :--------- | :------------------------------------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------ |
-| `as`       | `keyof HTMLElementTagNameMap`                                  | `'button'` | Element to render as. Use `'a'` for link tabs.                                                                            |
+| `as`       | `keyof HTMLElementTagNameMap \| Component`                     | `'button'` | Element to render as. Use `'a'` for link tabs.                                                                            |
 | `class`    | `string`                                                       | —          | CSS class applied to the element.                                                                                         |
 | `style`    | `string`                                                       | —          | Inline style applied to the element.                                                                                      |
 | `value`    | `string \| number \| null`                                     | —          | Required. Identifies which Panel this Tab controls.                                                                       |
@@ -133,7 +144,7 @@ Renders a `<span>` element; nothing renders while the active value is `null`.
 
 | Prop      | Type                                                                           | Default  | Description                                                                                                      |
 | :-------- | :----------------------------------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                                  | `'span'` | HTML element to render.                                                                                          |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                                     | `'span'` | HTML element to render.                                                                                          |
 | `class`   | `string`                                                                       | —        | CSS class applied to the element.                                                                                |
 | `style`   | `string`                                                                       | —        | Inline style applied to the element. Merged with the CSS variables below.                                        |
 | `default` | `Slot<{ orientation, activationDirection, activeTabPosition, activeTabSize }>` | —        | Content; receives the indicator state. The active tab's position and size are `null` until it has been measured. |
@@ -163,7 +174,7 @@ Renders a `<div>` element.
 
 | Prop          | Type                                                                   | Default | Description                                                                                                                  |
 | :------------ | :--------------------------------------------------------------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                                          | `'div'` | HTML element to render.                                                                                                      |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                             | `'div'` | HTML element to render.                                                                                                      |
 | `class`       | `string`                                                               | —       | CSS class applied to the element.                                                                                            |
 | `style`       | `string`                                                               | —       | Inline style applied to the element.                                                                                         |
 | `value`       | `string \| number \| null`                                             | —       | Matches the controlling Tab's value.                                                                                         |

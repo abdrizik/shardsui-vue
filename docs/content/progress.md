@@ -34,17 +34,17 @@ Renders a `<div>` element with `role="progressbar"`.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                                                                              |
-| :-------- | :---------------------------- | :------ | :------------------------------------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                                                                  |
-| `class`   | `string`                      | —       | CSS class applied to the element.                                                                        |
-| `style`   | `string`                      | —       | Inline style applied to the element.                                                                     |
-| `value`   | `number \| null`              | —       | Required. The current value, or `null` while it is indeterminate.                                        |
-| `format`  | `Intl.NumberFormatOptions`    | —       | Options to format the value. Without it, the value is displayed as its percentage position in the range. |
-| `locale`  | `Intl.LocalesArgument`        | —       | The locale used by `Intl.NumberFormat` when formatting the value. Defaults to the user's runtime locale. |
-| `min`     | `number`                      | `0`     | The minimum value.                                                                                       |
-| `max`     | `number`                      | `100`   | The maximum value. Reaching it puts the progress bar in the `complete` status.                           |
-| `default` | `Slot<{ status }>`            | —       | Content; receives the progress `status`.                                                                 |
+| Prop      | Type                                       | Default | Description                                                                                              |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                                                  |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                                                                        |
+| `style`   | `string`                                   | —       | Inline style applied to the element.                                                                     |
+| `value`   | `number \| null`                           | —       | Required. The current value, or `null` while it is indeterminate.                                        |
+| `format`  | `Intl.NumberFormatOptions`                 | —       | Options to format the value. Without it, the value is displayed as its percentage position in the range. |
+| `locale`  | `Intl.LocalesArgument`                     | —       | The locale used by `Intl.NumberFormat` when formatting the value. Defaults to the user's runtime locale. |
+| `min`     | `number`                                   | `0`     | The minimum value.                                                                                       |
+| `max`     | `number`                                   | `100`   | The maximum value. Reaching it puts the progress bar in the `complete` status.                           |
+| `default` | `Slot<{ status }>`                         | —       | Content; receives the progress `status`.                                                                 |
 
 ::
 
@@ -61,12 +61,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                    |
-| :-------- | :---------------------------- | :------ | :--------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                        |
-| `class`   | `string`                      | —       | CSS class applied to the element.              |
-| `style`   | `string`                      | —       | Inline style applied to the element.           |
-| `default` | `Slot<{ status }>`            | —       | Track content; receives the progress `status`. |
+| Prop      | Type                                       | Default | Description                                    |
+| :-------- | :----------------------------------------- | :------ | :--------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                        |
+| `class`   | `string`                                   | —       | CSS class applied to the element.              |
+| `style`   | `string`                                   | —       | Inline style applied to the element.           |
+| `default` | `Slot<{ status }>`                         | —       | Track content; receives the progress `status`. |
 
 ::
 
@@ -84,12 +84,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                                      |
-| :-------- | :---------------------------- | :------ | :--------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                          |
-| `class`   | `string`                      | —       | CSS class applied to the element.                                |
-| `style`   | `string`                      | —       | Inline style applied to the element, after the built-in `width`. |
-| `default` | `Slot<{ status }>`            | —       | Indicator content; receives the progress `status`.               |
+| Prop      | Type                                       | Default | Description                                                      |
+| :-------- | :----------------------------------------- | :------ | :--------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                          |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                                |
+| `style`   | `string`                                   | —       | Inline style applied to the element, after the built-in `width`. |
+| `default` | `Slot<{ status }>`                         | —       | Indicator content; receives the progress `status`.               |
 
 ::
 
@@ -109,7 +109,7 @@ Renders a `<span>` element.
 
 | Prop      | Type                                                      | Default  | Description                                                                                                                                                                                                          |
 | :-------- | :-------------------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                             | `'span'` | HTML element to render.                                                                                                                                                                                              |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                | `'span'` | HTML element to render.                                                                                                                                                                                              |
 | `class`   | `string`                                                  | —        | CSS class applied to the element.                                                                                                                                                                                    |
 | `style`   | `string`                                                  | —        | Inline style applied to the element.                                                                                                                                                                                 |
 | `default` | `Slot<{ formattedValue: string; value: number \| null }>` | —        | Slot receiving the formatted value and the raw number; `formattedValue` is `'indeterminate'` while the progress is indeterminate. Without it, the part renders the formatted value, and nothing while indeterminate. |
@@ -129,13 +129,13 @@ Renders a `<span>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default  | Description                                                                |
-| :-------- | :---------------------------- | :------- | :------------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'span'` | HTML element to render.                                                    |
-| `class`   | `string`                      | —        | CSS class applied to the element.                                          |
-| `style`   | `string`                      | —        | Inline style applied to the element.                                       |
-| `id`      | `string`                      | auto     | Custom element ID. Associated with the progress bar via `aria-labelledby`. |
-| `default` | `Slot<{ status }>`            | —        | Label content; receives the progress `status`.                             |
+| Prop      | Type                                       | Default  | Description                                                                |
+| :-------- | :----------------------------------------- | :------- | :------------------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.                                                    |
+| `class`   | `string`                                   | —        | CSS class applied to the element.                                          |
+| `style`   | `string`                                   | —        | Inline style applied to the element.                                       |
+| `id`      | `string`                                   | auto     | Custom element ID. Associated with the progress bar via `aria-labelledby`. |
+| `default` | `Slot<{ status }>`                         | —        | Label content; receives the progress `status`.                             |
 
 ::
 
