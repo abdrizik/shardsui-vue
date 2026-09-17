@@ -272,7 +272,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                         | Default | Description                          |
 | :-------- | :----------------------------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                | `'div'` | HTML element to render.              |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                   | `'div'` | HTML element to render.              |
 | `class`   | `string`                                                     | —       | CSS class applied to the element.    |
 | `style`   | `string`                                                     | —       | Inline style applied to the element. |
 | `default` | `Slot<{ touched, dirty, filled, focused, valid, disabled }>` | —       | Content; receives the field state.   |
@@ -297,7 +297,7 @@ Renders a `<div>` element.
 
 | Prop      | Type                                                                                                            | Default | Description                              |
 | :-------- | :-------------------------------------------------------------------------------------------------------------- | :------ | :--------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                                                                   | `'div'` | HTML element to render.                  |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                                                                      | `'div'` | HTML element to render.                  |
 | `class`   | `string`                                                                                                        | —       | CSS class applied to the element.        |
 | `style`   | `string`                                                                                                        | —       | Inline style applied to the element.     |
 | `default` | `Slot<{ touched, dirty, filled, focused, valid, open, disabled, readOnly, popupSide, listEmpty, placeholder }>` | —       | Content; receives the input group state. |
@@ -365,7 +365,7 @@ Renders a `<button>` element.
 
 | Prop       | Type                                                                                                  | Default    | Description                          |
 | :--------- | :---------------------------------------------------------------------------------------------------- | :--------- | :----------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`                                                                         | `'button'` | HTML element to render.              |
+| `as`       | `keyof HTMLElementTagNameMap \| Component`                                                            | `'button'` | HTML element to render.              |
 | `class`    | `string`                                                                                              | —          | CSS class applied to the element.    |
 | `style`    | `string`                                                                                              | —          | Inline style applied to the element. |
 | `disabled` | `boolean`                                                                                             | `false`    | Whether the trigger is disabled.     |
@@ -397,7 +397,7 @@ Renders a `<button>` element.
 
 | Prop          | Type                                                  | Default    | Description                                                              |
 | :------------ | :---------------------------------------------------- | :--------- | :----------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                         | `'button'` | HTML element to render.                                                  |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`            | `'button'` | HTML element to render.                                                  |
 | `class`       | `string`                                              | —          | CSS class applied to the element.                                        |
 | `style`       | `string`                                              | —          | Inline style applied to the element.                                     |
 | `disabled`    | `boolean`                                             | `false`    | Whether the component should ignore user interaction.                    |
@@ -421,11 +421,11 @@ Renders a `<span>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default  | Description                          |
-| :------ | :---------------------------- | :------- | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'span'` | HTML element to render.              |
-| `class` | `string`                      | —        | CSS class applied to the element.    |
-| `style` | `string`                      | —        | Inline style applied to the element. |
+| Prop    | Type                                       | Default  | Description                          |
+| :------ | :----------------------------------------- | :------- | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.              |
+| `class` | `string`                                   | —        | CSS class applied to the element.    |
+| `style` | `string`                                   | —        | Inline style applied to the element. |
 
 ::
 
@@ -436,11 +436,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -451,12 +451,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                         |
-| :-------- | :---------------------------- | :------ | :-------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                             |
-| `class`   | `string`                      | —       | CSS class applied to the element.                   |
-| `style`   | `string`                      | —       | Inline style applied to the element.                |
-| `default` | `Slot<{ disabled }>`          | —       | Content; receives whether the combobox is disabled. |
+| Prop      | Type                                       | Default | Description                                         |
+| :-------- | :----------------------------------------- | :------ | :-------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                             |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                   |
+| `style`   | `string`                                   | —       | Inline style applied to the element.                |
+| `default` | `Slot<{ disabled }>`                       | —       | Content; receives whether the combobox is disabled. |
 
 ::
 
@@ -471,13 +471,13 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                          | Default    | Description                                           |
-| :--------- | :---------------------------- | :--------- | :---------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap` | `'button'` | HTML element to render.                               |
-| `class`    | `string`                      | —          | CSS class applied to the element.                     |
-| `style`    | `string`                      | —          | Inline style applied to the element.                  |
-| `disabled` | `boolean`                     | `false`    | Whether the component should ignore user interaction. |
-| `default`  | `Slot<{ disabled }>`          | —          | Content; receives whether the button is disabled.     |
+| Prop       | Type                                       | Default    | Description                                           |
+| :--------- | :----------------------------------------- | :--------- | :---------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                               |
+| `class`    | `string`                                   | —          | CSS class applied to the element.                     |
+| `style`    | `string`                                   | —          | Inline style applied to the element.                  |
+| `disabled` | `boolean`                                  | `false`    | Whether the component should ignore user interaction. |
+| `default`  | `Slot<{ disabled }>`                       | —          | Content; receives whether the button is disabled.     |
 
 ::
 
@@ -506,12 +506,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                               | Default | Description                           |
-| :-------- | :--------------------------------- | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`      | `'div'` | HTML element to render.               |
-| `class`   | `string`                           | —       | CSS class applied to the element.     |
-| `style`   | `string`                           | —       | Inline style applied to the element.  |
-| `default` | `Slot<{ open, transitionStatus }>` | —       | Content; receives the backdrop state. |
+| Prop      | Type                                       | Default | Description                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.     |
+| `style`   | `string`                                   | —       | Inline style applied to the element.  |
+| `default` | `Slot<{ open, transitionStatus }>`         | —       | Content; receives the backdrop state. |
 
 ::
 
@@ -545,7 +545,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                     | Description                                                                          |
 | :---------------------- | :------------------------------------------------------------------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                     | HTML element to render.                                                              |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                     | HTML element to render.                                                              |
 | `class`                 | `string`                                                                   | —                                                           | CSS class applied to the element.                                                    |
 | `style`                 | `string`                                                                   | —                                                           | Inline style applied to the element.                                                 |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'bottom'`                                                  | Side to position the popup on.                                                       |
@@ -590,7 +590,7 @@ Renders a `<div>` element.
 
 | Prop           | Type                                                                                              | Default | Description                                                                                                         |
 | :------------- | :------------------------------------------------------------------------------------------------ | :------ | :------------------------------------------------------------------------------------------------------------------ |
-| `as`           | `keyof HTMLElementTagNameMap`                                                                     | `'div'` | HTML element to render.                                                                                             |
+| `as`           | `keyof HTMLElementTagNameMap \| Component`                                                        | `'div'` | HTML element to render.                                                                                             |
 | `class`        | `string`                                                                                          | —       | CSS class applied to the element.                                                                                   |
 | `style`        | `string`                                                                                          | —       | Inline style applied to the element.                                                                                |
 | `id`           | `string`                                                                                          | —       | Custom element ID. Defaults to `${rootId}-popup` when the input sits inside the popup, otherwise unset.             |
@@ -618,13 +618,13 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                  |
-| :-------- | :---------------------------- | :------ | :------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                      |
-| `class`   | `string`                      | —       | CSS class applied to the element.            |
-| `style`   | `string`                      | —       | Inline style applied to the element.         |
-| `id`      | `string`                      | auto    | Custom element ID.                           |
-| `default` | `Slot<{ empty }>`             | —       | Content; receives whether the list is empty. |
+| Prop      | Type                                       | Default | Description                                  |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                      |
+| `class`   | `string`                                   | —       | CSS class applied to the element.            |
+| `style`   | `string`                                   | —       | Inline style applied to the element.         |
+| `id`      | `string`                                   | auto    | Custom element ID.                           |
+| `default` | `Slot<{ empty }>`                          | —       | Content; receives whether the list is empty. |
 
 ::
 
@@ -649,7 +649,7 @@ Renders a `<div>` element.
 
 | Prop       | Type                                        | Default | Description                                                                                                                                     |
 | :--------- | :------------------------------------------ | :------ | :---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`               | `'div'` | HTML element to render.                                                                                                                         |
+| `as`       | `keyof HTMLElementTagNameMap \| Component`  | `'div'` | HTML element to render.                                                                                                                         |
 | `class`    | `string`                                    | —       | CSS class applied to the element.                                                                                                               |
 | `style`    | `string`                                    | —       | Inline style applied to the element.                                                                                                            |
 | `value`    | `unknown`                                   | `null`  | The item's value.                                                                                                                               |
@@ -674,11 +674,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -689,13 +689,13 @@ Renders a `<span>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                                   | Default  | Description                                                          |
-| :------------ | :------------------------------------- | :------- | :------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`          | `'span'` | HTML element to render.                                              |
-| `class`       | `string`                               | —        | CSS class applied to the element.                                    |
-| `style`       | `string`                               | —        | Inline style applied to the element.                                 |
-| `keepMounted` | `boolean`                              | `false`  | Whether to keep the indicator mounted when the item is not selected. |
-| `default`     | `Slot<{ selected, transitionStatus }>` | —        | Content; receives the item indicator state.                          |
+| Prop          | Type                                       | Default  | Description                                                          |
+| :------------ | :----------------------------------------- | :------- | :------------------------------------------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.                                              |
+| `class`       | `string`                                   | —        | CSS class applied to the element.                                    |
+| `style`       | `string`                                   | —        | Inline style applied to the element.                                 |
+| `keepMounted` | `boolean`                                  | `false`  | Whether to keep the indicator mounted when the item is not selected. |
+| `default`     | `Slot<{ selected, transitionStatus }>`     | —        | Content; receives the item indicator state.                          |
 
 ::
 
@@ -716,11 +716,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -735,11 +735,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -750,12 +750,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                      | Default | Description                          |
-| :-------- | :---------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`             | `'div'` | HTML element to render.              |
-| `class`   | `string`                                  | —       | CSS class applied to the element.    |
-| `style`   | `string`                                  | —       | Inline style applied to the element. |
-| `default` | `Slot<{ open, side, align, uncentered }>` | —       | Content; receives the arrow state.   |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ open, side, align, uncentered }>`  | —       | Content; receives the arrow state.   |
 
 ::
 
@@ -774,12 +774,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                                                                                          |
-| :------ | :---------------------------- | :------ | :--------------------------------------------------------------------------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                                                              |
-| `class` | `string`                      | —       | CSS class applied to the element.                                                                    |
-| `style` | `string`                      | —       | Inline style applied to the element.                                                                 |
-| `items` | `readonly unknown[]`          | —       | Items belonging to this group. Used with `<Combobox.Collection>` when rendering grouped collections. |
+| Prop    | Type                                       | Default | Description                                                                                          |
+| :------ | :----------------------------------------- | :------ | :--------------------------------------------------------------------------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                                              |
+| `class` | `string`                                   | —       | CSS class applied to the element.                                                                    |
+| `style` | `string`                                   | —       | Inline style applied to the element.                                                                 |
+| `items` | `readonly unknown[]`                       | —       | Items belonging to this group. Used with `<Combobox.Collection>` when rendering grouped collections. |
 
 ::
 
@@ -790,11 +790,11 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop    | Type                          | Default | Description                          |
-| :------ | :---------------------------- | :------ | :----------------------------------- |
-| `as`    | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.              |
-| `class` | `string`                      | —       | CSS class applied to the element.    |
-| `style` | `string`                      | —       | Inline style applied to the element. |
+| Prop    | Type                                       | Default | Description                          |
+| :------ | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`    | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class` | `string`                                   | —       | CSS class applied to the element.    |
+| `style` | `string`                                   | —       | Inline style applied to the element. |
 
 ::
 
@@ -806,12 +806,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                          | Default        | Description                          |
-| :------------ | :---------------------------- | :------------- | :----------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap` | `'div'`        | HTML element to render.              |
-| `class`       | `string`                      | —              | CSS class applied to the element.    |
-| `style`       | `string`                      | —              | Inline style applied to the element. |
-| `orientation` | `'horizontal' \| 'vertical'`  | `'horizontal'` | The orientation of the separator.    |
+| Prop          | Type                                       | Default        | Description                          |
+| :------------ | :----------------------------------------- | :------------- | :----------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'`        | HTML element to render.              |
+| `class`       | `string`                                   | —              | CSS class applied to the element.    |
+| `style`       | `string`                                   | —              | Inline style applied to the element. |
+| `orientation` | `'horizontal' \| 'vertical'`               | `'horizontal'` | The orientation of the separator.    |
 
 ::
 

@@ -20,12 +20,12 @@ import { Separator } from '@shardsui/vue/separator'
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop          | Type                          | Default        | Description                          |
-| :------------ | :---------------------------- | :------------- | :----------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap` | `'div'`        | HTML element to render.              |
-| `class`       | `string`                      | —              | CSS class applied to the element.    |
-| `style`       | `string`                      | —              | Inline style applied to the element. |
-| `orientation` | `'horizontal' \| 'vertical'`  | `'horizontal'` | The orientation of the separator.    |
+| Prop          | Type                                       | Default        | Description                          |
+| :------------ | :----------------------------------------- | :------------- | :----------------------------------- |
+| `as`          | `keyof HTMLElementTagNameMap \| Component` | `'div'`        | HTML element to render.              |
+| `class`       | `string`                                   | —              | CSS class applied to the element.    |
+| `style`       | `string`                                   | —              | Inline style applied to the element. |
+| `orientation` | `'horizontal' \| 'vertical'`               | `'horizontal'` | The orientation of the separator.    |
 
 ::
 

@@ -40,18 +40,18 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop               | Type                          | Default | Description                                                                                                                                                                                             |
-| :----------------- | :---------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `as`               | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                                                                                                                                                                                 |
-| `class`            | `string`                      | —       | CSS class applied to the element.                                                                                                                                                                       |
-| `style`            | `string`                      | —       | Inline style applied to the element.                                                                                                                                                                    |
-| `value`            | `Value[]`                     | `[]`    | The value of the item(s) that should be expanded (use `v-model:value`). `Value` is generic and defaults to `unknown`.                                                                                   |
-| `disabled`         | `boolean`                     | `false` | Whether the component should ignore user interaction.                                                                                                                                                   |
-| `hiddenUntilFound` | `boolean`                     | `false` | Allows the browser's built-in page search to find and expand the panel contents. Overrides the `keepMounted` prop and uses `hidden="until-found"` to hide the element without removing it from the DOM. |
-| `multiple`         | `boolean`                     | `false` | Whether multiple items can be open at the same time.                                                                                                                                                    |
-| `keepMounted`      | `boolean`                     | `false` | Whether to keep the element in the DOM while the panel is closed. This prop is ignored when `hiddenUntilFound` is used.                                                                                 |
-| `update:value`     | `(value: Value[]) => void`    | —       | Emitted when an accordion item is expanded or collapsed. Provides the new value as an argument.                                                                                                         |
-| `default`          | `Slot<{ value, disabled }>`   | —       | Content; receives the accordion state.                                                                                                                                                                  |
+| Prop               | Type                                       | Default | Description                                                                                                                                                                                             |
+| :----------------- | :----------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `as`               | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                                                                                                                                                 |
+| `class`            | `string`                                   | —       | CSS class applied to the element.                                                                                                                                                                       |
+| `style`            | `string`                                   | —       | Inline style applied to the element.                                                                                                                                                                    |
+| `value`            | `Value[]`                                  | `[]`    | The value of the item(s) that should be expanded (use `v-model:value`). `Value` is generic and defaults to `unknown`.                                                                                   |
+| `disabled`         | `boolean`                                  | `false` | Whether the component should ignore user interaction.                                                                                                                                                   |
+| `hiddenUntilFound` | `boolean`                                  | `false` | Allows the browser's built-in page search to find and expand the panel contents. Overrides the `keepMounted` prop and uses `hidden="until-found"` to hide the element without removing it from the DOM. |
+| `multiple`         | `boolean`                                  | `false` | Whether multiple items can be open at the same time.                                                                                                                                                    |
+| `keepMounted`      | `boolean`                                  | `false` | Whether to keep the element in the DOM while the panel is closed. This prop is ignored when `hiddenUntilFound` is used.                                                                                 |
+| `update:value`     | `(value: Value[]) => void`                 | —       | Emitted when an accordion item is expanded or collapsed. Provides the new value as an argument.                                                                                                         |
+| `default`          | `Slot<{ value, disabled }>`                | —       | Content; receives the accordion state.                                                                                                                                                                  |
 
 ::
 
@@ -66,15 +66,15 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop         | Type                                      | Default | Description                                                      |
-| :----------- | :---------------------------------------- | :------ | :--------------------------------------------------------------- |
-| `as`         | `keyof HTMLElementTagNameMap`             | `'div'` | HTML element to render.                                          |
-| `class`      | `string`                                  | —       | CSS class applied to the element.                                |
-| `style`      | `string`                                  | —       | Inline style applied to the element.                             |
-| `value`      | `unknown`                                 | —       | A unique value identifying this item. Auto-generated if omitted. |
-| `disabled`   | `boolean`                                 | `false` | Disables this item (inherits from Root if set there).            |
-| `openChange` | `(open: boolean) => void`                 | —       | Emitted when this item's panel is opened or closed.              |
-| `default`    | `Slot<{ value, disabled, hidden, open }>` | —       | Content; receives the item state.                                |
+| Prop         | Type                                       | Default | Description                                                      |
+| :----------- | :----------------------------------------- | :------ | :--------------------------------------------------------------- |
+| `as`         | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                          |
+| `class`      | `string`                                   | —       | CSS class applied to the element.                                |
+| `style`      | `string`                                   | —       | Inline style applied to the element.                             |
+| `value`      | `unknown`                                  | —       | A unique value identifying this item. Auto-generated if omitted. |
+| `disabled`   | `boolean`                                  | `false` | Disables this item (inherits from Root if set there).            |
+| `openChange` | `(open: boolean) => void`                  | —       | Emitted when this item's panel is opened or closed.              |
+| `default`    | `Slot<{ value, disabled, hidden, open }>`  | —       | Content; receives the item state.                                |
 
 ::
 
@@ -92,12 +92,12 @@ Renders an `<h3>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                      | Default | Description                          |
-| :-------- | :---------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`             | `'h3'`  | HTML element to render.              |
-| `class`   | `string`                                  | —       | CSS class applied to the element.    |
-| `style`   | `string`                                  | —       | Inline style applied to the element. |
-| `default` | `Slot<{ value, disabled, hidden, open }>` | —       | Content; receives the item state.    |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'h3'`  | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ value, disabled, hidden, open }>`  | —       | Content; receives the item state.    |
 
 ::
 
@@ -115,14 +115,14 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                                      | Default    | Description                                                     |
-| :--------- | :---------------------------------------- | :--------- | :-------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`             | `'button'` | HTML element to render.                                         |
-| `class`    | `string`                                  | —          | CSS class applied to the element.                               |
-| `style`    | `string`                                  | —          | Inline style applied to the element.                            |
-| `id`       | `string`                                  | auto       | Custom element ID. Referenced by the panel's `aria-labelledby`. |
-| `disabled` | `boolean`                                 | —          | Disables this trigger (also disabled when Item or Root is).     |
-| `default`  | `Slot<{ value, disabled, hidden, open }>` | —          | Content; receives the item state.                               |
+| Prop       | Type                                       | Default    | Description                                                     |
+| :--------- | :----------------------------------------- | :--------- | :-------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                                         |
+| `class`    | `string`                                   | —          | CSS class applied to the element.                               |
+| `style`    | `string`                                   | —          | Inline style applied to the element.                            |
+| `id`       | `string`                                   | auto       | Custom element ID. Referenced by the panel's `aria-labelledby`. |
+| `disabled` | `boolean`                                  | —          | Disables this trigger (also disabled when Item or Root is).     |
+| `default`  | `Slot<{ value, disabled, hidden, open }>`  | —          | Content; receives the item state.                               |
 
 ::
 
@@ -141,7 +141,7 @@ Renders a `<div>` element.
 
 | Prop               | Type                                                        | Default | Description                                                                                             |
 | :----------------- | :---------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------ |
-| `as`               | `keyof HTMLElementTagNameMap`                               | `'div'` | HTML element to render.                                                                                 |
+| `as`               | `keyof HTMLElementTagNameMap \| Component`                  | `'div'` | HTML element to render.                                                                                 |
 | `class`            | `string`                                                    | —       | CSS class applied to the element.                                                                       |
 | `style`            | `string`                                                    | —       | Inline style applied to the element.                                                                    |
 | `id`               | `string`                                                    | auto    | Custom element ID.                                                                                      |

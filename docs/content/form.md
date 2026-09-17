@@ -56,17 +56,17 @@ is cancelled and focus moves to the first invalid control, selecting its text wh
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop             | Type                                   | Default      | Description                                                                                                                                  |
-| :--------------- | :------------------------------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`             | `keyof HTMLElementTagNameMap`          | `'form'`     | HTML element to render.                                                                                                                      |
-| `class`          | `string`                               | —            | CSS class applied to the element.                                                                                                            |
-| `style`          | `string`                               | —            | Inline style applied to the element.                                                                                                         |
-| `novalidate`     | `boolean`                              | `true`       | Disables native browser validation. Set `false` to re-enable it.                                                                             |
-| `validationMode` | `'onSubmit' \| 'onBlur' \| 'onChange'` | `'onSubmit'` | When fields are validated. `validationMode` on `Field.Root` overrides it.                                                                    |
-| `errors`         | `Record<string, string \| string[]>`   | —            | Errors supplied from outside, typically by a server or a form action. Keyed by field `name`; an error clears when its field's value changes. |
-| `onSubmit`       | `(event: SubmitEvent) => void`         | —            | Native submit handler. Runs only after validation passes.                                                                                    |
-| `formSubmit`     | `(values: FormValues) => void`         | —            | Emitted with every registered field's value as a plain object. Calls `preventDefault()` on the native submit event.                          |
-| `default`        | `Slot`                                 | —            | Content.                                                                                                                                     |
+| Prop             | Type                                       | Default      | Description                                                                                                                                  |
+| :--------------- | :----------------------------------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`             | `keyof HTMLElementTagNameMap \| Component` | `'form'`     | HTML element to render.                                                                                                                      |
+| `class`          | `string`                                   | —            | CSS class applied to the element.                                                                                                            |
+| `style`          | `string`                                   | —            | Inline style applied to the element.                                                                                                         |
+| `novalidate`     | `boolean`                                  | `true`       | Disables native browser validation. Set `false` to re-enable it.                                                                             |
+| `validationMode` | `'onSubmit' \| 'onBlur' \| 'onChange'`     | `'onSubmit'` | When fields are validated. `validationMode` on `Field.Root` overrides it.                                                                    |
+| `errors`         | `Record<string, string \| string[]>`       | —            | Errors supplied from outside, typically by a server or a form action. Keyed by field `name`; an error clears when its field's value changes. |
+| `onSubmit`       | `(event: SubmitEvent) => void`             | —            | Native submit handler. Runs only after validation passes.                                                                                    |
+| `formSubmit`     | `(values: FormValues) => void`             | —            | Emitted with every registered field's value as a plain object. Calls `preventDefault()` on the native submit event.                          |
+| `default`        | `Slot`                                     | —            | Content.                                                                                                                                     |
 
 ::
 

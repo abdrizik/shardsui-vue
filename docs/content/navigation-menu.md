@@ -61,16 +61,14 @@ For second-level navigation that stays inside the same panel, give the nested ro
 </template>
 ```
 
-`as` takes an HTML tag name, not a component, so the router's own link can't be rendered through
-it. For client-side navigation, render `<RouterLink>` as a renderless component and hand its `href`
-and `navigate` to the part, so the element stays a real `<a>` for the browser and assistive tech:
+For client-side navigation, give `as` the router's own link. The part renders it in place of its
+`<a>`, and everything the part applies — `aria-current`, `data-active`, focus tracking — lands on
+the anchor the router renders:
 
 ```vue title="Router link"
 <template>
-  <!-- [!code word:custom] -->
-  <RouterLink v-slot="{ href, navigate }" to="/docs" custom>
-    <NavigationMenu.Link :href="href" @click="navigate">Docs</NavigationMenu.Link>
-  </RouterLink>
+  <!-- [!code word::as="RouterLink"] -->
+  <NavigationMenu.Link :as="RouterLink" to="/docs">Docs</NavigationMenu.Link>
 </template>
 ```
 
@@ -111,18 +109,18 @@ Renders a `<nav>` element at the root, or a `<div>` element when nested.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop                 | Type                          | Default        | Description                                                                        |
-| :------------------- | :---------------------------- | :------------- | :--------------------------------------------------------------------------------- |
-| `as`                 | `keyof HTMLElementTagNameMap` | `'nav'`        | HTML element to render. Renders `'div'` when nested.                               |
-| `class`              | `string`                      | —              | CSS class applied to the element.                                                  |
-| `style`              | `string`                      | —              | Inline style applied to the element.                                               |
-| `value`              | `unknown`                     | `null`         | Value of the item whose content is open, `null` when closed (use `v-model:value`). |
-| `update:value`       | `(value: unknown) => void`    | —              | Emitted when the open item changes.                                                |
-| `delay`              | `number`                      | `50`           | How long the pointer must rest on a trigger before it opens, in ms.                |
-| `closeDelay`         | `number`                      | `50`           | How long the menu stays open after the pointer leaves, in ms.                      |
-| `orientation`        | `'horizontal' \| 'vertical'`  | `'horizontal'` | Which arrow keys move focus through the list and open a trigger.                   |
-| `openChangeComplete` | `(open: boolean) => void`     | —              | Fires after the open/close animation completes.                                    |
-| `default`            | `Slot<{ open, nested }>`      | —              | Content; receives the navigation menu state.                                       |
+| Prop                 | Type                                       | Default        | Description                                                                        |
+| :------------------- | :----------------------------------------- | :------------- | :--------------------------------------------------------------------------------- |
+| `as`                 | `keyof HTMLElementTagNameMap \| Component` | `'nav'`        | HTML element to render. Renders `'div'` when nested.                               |
+| `class`              | `string`                                   | —              | CSS class applied to the element.                                                  |
+| `style`              | `string`                                   | —              | Inline style applied to the element.                                               |
+| `value`              | `unknown`                                  | `null`         | Value of the item whose content is open, `null` when closed (use `v-model:value`). |
+| `update:value`       | `(value: unknown) => void`                 | —              | Emitted when the open item changes.                                                |
+| `delay`              | `number`                                   | `50`           | How long the pointer must rest on a trigger before it opens, in ms.                |
+| `closeDelay`         | `number`                                   | `50`           | How long the menu stays open after the pointer leaves, in ms.                      |
+| `orientation`        | `'horizontal' \| 'vertical'`               | `'horizontal'` | Which arrow keys move focus through the list and open a trigger.                   |
+| `openChangeComplete` | `(open: boolean) => void`                  | —              | Fires after the open/close animation completes.                                    |
+| `default`            | `Slot<{ open, nested }>`                   | —              | Content; receives the navigation menu state.                                       |
 
 ::
 
@@ -138,12 +136,12 @@ Renders a `<ul>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                          |
-| :-------- | :---------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'ul'`  | HTML element to render.              |
-| `class`   | `string`                      | —       | CSS class applied to the element.    |
-| `style`   | `string`                      | —       | Inline style applied to the element. |
-| `default` | `Slot<{ open }>`              | —       | Content; receives the list state.    |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'ul'`  | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ open }>`                           | —       | Content; receives the list state.    |
 
 ::
 
@@ -158,13 +156,13 @@ Renders a `<li>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default        | Description                          |
-| :-------- | :---------------------------- | :------------- | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'li'`         | HTML element to render.              |
-| `class`   | `string`                      | —              | CSS class applied to the element.    |
-| `style`   | `string`                      | —              | Inline style applied to the element. |
-| `value`   | `unknown`                     | auto-generated | Identifies this item in `value`.     |
-| `default` | `Slot`                        | —              | Content.                             |
+| Prop      | Type                                       | Default        | Description                          |
+| :-------- | :----------------------------------------- | :------------- | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'li'`         | HTML element to render.              |
+| `class`   | `string`                                   | —              | CSS class applied to the element.    |
+| `style`   | `string`                                   | —              | Inline style applied to the element. |
+| `value`   | `unknown`                                  | auto-generated | Identifies this item in `value`.     |
+| `default` | `Slot`                                     | —              | Content.                             |
 
 ::
 
@@ -175,13 +173,13 @@ Renders a `<button>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                          | Default    | Description                                                           |
-| :--------- | :---------------------------- | :--------- | :-------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap` | `'button'` | HTML element to render.                                               |
-| `class`    | `string`                      | —          | CSS class applied to the element.                                     |
-| `style`    | `string`                      | —          | Inline style applied to the element.                                  |
-| `disabled` | `boolean`                     | `false`    | Disables the trigger; it stays focusable and reports `aria-disabled`. |
-| `default`  | `Slot<{ open }>`              | —          | Content; receives the trigger state.                                  |
+| Prop       | Type                                       | Default    | Description                                                           |
+| :--------- | :----------------------------------------- | :--------- | :-------------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'button'` | HTML element to render.                                               |
+| `class`    | `string`                                   | —          | CSS class applied to the element.                                     |
+| `style`    | `string`                                   | —          | Inline style applied to the element.                                  |
+| `disabled` | `boolean`                                  | `false`    | Disables the trigger; it stays focusable and reports `aria-disabled`. |
+| `default`  | `Slot<{ open }>`                           | —          | Content; receives the trigger state.                                  |
 
 ::
 
@@ -197,12 +195,12 @@ Renders a `<span>` element, hidden from assistive technology, falling back to a 
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default  | Description                          |
-| :-------- | :---------------------------- | :------- | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'span'` | HTML element to render.              |
-| `class`   | `string`                      | —        | CSS class applied to the element.    |
-| `style`   | `string`                      | —        | Inline style applied to the element. |
-| `default` | `Slot<{ open }>`              | —        | Content; receives the icon state.    |
+| Prop      | Type                                       | Default  | Description                          |
+| :-------- | :----------------------------------------- | :------- | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.              |
+| `class`   | `string`                                   | —        | CSS class applied to the element.    |
+| `style`   | `string`                                   | —        | Inline style applied to the element. |
+| `default` | `Slot<{ open }>`                           | —        | Content; receives the icon state.    |
 
 ::
 
@@ -219,7 +217,7 @@ Renders a `<div>` element.
 
 | Prop          | Type                                                    | Default | Description                                              |
 | :------------ | :------------------------------------------------------ | :------ | :------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                           | `'div'` | HTML element to render.                                  |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`              | `'div'` | HTML element to render.                                  |
 | `class`       | `string`                                                | —       | CSS class applied to the element.                        |
 | `style`       | `string`                                                | —       | Inline style applied to the element.                     |
 | `keepMounted` | `boolean`                                               | `false` | Keeps the panel mounted while inactive, rendered hidden. |
@@ -242,15 +240,15 @@ Renders an `<a>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop           | Type                          | Default | Description                                                     |
-| :------------- | :---------------------------- | :------ | :-------------------------------------------------------------- |
-| `as`           | `keyof HTMLElementTagNameMap` | `'a'`   | HTML element to render.                                         |
-| `class`        | `string`                      | —       | CSS class applied to the element.                               |
-| `style`        | `string`                      | —       | Inline style applied to the element.                            |
-| `href`         | `string`                      | —       | Destination of the link.                                        |
-| `active`       | `boolean`                     | `false` | Marks the link as the current page; sets `aria-current="page"`. |
-| `closeOnClick` | `boolean`                     | `false` | Closes the menu when the link is clicked.                       |
-| `default`      | `Slot<{ active }>`            | —       | Content; receives the link state.                               |
+| Prop           | Type                                       | Default | Description                                                     |
+| :------------- | :----------------------------------------- | :------ | :-------------------------------------------------------------- |
+| `as`           | `keyof HTMLElementTagNameMap \| Component` | `'a'`   | HTML element to render.                                         |
+| `class`        | `string`                                   | —       | CSS class applied to the element.                               |
+| `style`        | `string`                                   | —       | Inline style applied to the element.                            |
+| `href`         | `string`                                   | —       | Destination of the link.                                        |
+| `active`       | `boolean`                                  | `false` | Marks the link as the current page; sets `aria-current="page"`. |
+| `closeOnClick` | `boolean`                                  | `false` | Closes the menu when the link is clicked.                       |
+| `default`      | `Slot<{ active }>`                         | —       | Content; receives the link state.                               |
 
 ::
 
@@ -265,12 +263,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                               | Default | Description                           |
-| :-------- | :--------------------------------- | :------ | :------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`      | `'div'` | HTML element to render.               |
-| `class`   | `string`                           | —       | CSS class applied to the element.     |
-| `style`   | `string`                           | —       | Inline style applied to the element.  |
-| `default` | `Slot<{ open, transitionStatus }>` | —       | Content; receives the backdrop state. |
+| Prop      | Type                                       | Default | Description                           |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.               |
+| `class`   | `string`                                   | —       | CSS class applied to the element.     |
+| `style`   | `string`                                   | —       | Inline style applied to the element.  |
+| `default` | `Slot<{ open, transitionStatus }>`         | —       | Content; receives the backdrop state. |
 
 ::
 
@@ -305,7 +303,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                                             | Description                                                       |
 | :---------------------- | :------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                                             | HTML element to render.                                           |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                                             | HTML element to render.                                           |
 | `class`                 | `string`                                                                   | —                                                                                   | CSS class applied to the element.                                 |
 | `style`                 | `string`                                                                   | —                                                                                   | Inline style applied to the element.                              |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'bottom'`                                                                          | Side to position the popup on.                                    |
@@ -352,7 +350,7 @@ Renders a `<nav>` element.
 
 | Prop      | Type                                                          | Default | Description                          |
 | :-------- | :------------------------------------------------------------ | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`                                 | `'nav'` | HTML element to render.              |
+| `as`      | `keyof HTMLElementTagNameMap \| Component`                    | `'nav'` | HTML element to render.              |
 | `class`   | `string`                                                      | —       | CSS class applied to the element.    |
 | `style`   | `string`                                                      | —       | Inline style applied to the element. |
 | `id`      | `string`                                                      | auto    | Custom element ID.                   |
@@ -382,13 +380,13 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                  |
-| :-------- | :---------------------------- | :------ | :------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                      |
-| `class`   | `string`                      | —       | CSS class applied to the element.            |
-| `style`   | `string`                      | —       | Inline style applied to the element.         |
-| `id`      | `string`                      | auto    | Custom element ID.                           |
-| `default` | `Slot`                        | —       | Content rendered alongside the active panel. |
+| Prop      | Type                                       | Default | Description                                  |
+| :-------- | :----------------------------------------- | :------ | :------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                      |
+| `class`   | `string`                                   | —       | CSS class applied to the element.            |
+| `style`   | `string`                                   | —       | Inline style applied to the element.         |
+| `id`      | `string`                                   | auto    | Custom element ID.                           |
+| `default` | `Slot`                                     | —       | Content rendered alongside the active panel. |
 
 ::
 
@@ -402,12 +400,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                                      | Default | Description                          |
-| :-------- | :---------------------------------------- | :------ | :----------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`             | `'div'` | HTML element to render.              |
-| `class`   | `string`                                  | —       | CSS class applied to the element.    |
-| `style`   | `string`                                  | —       | Inline style applied to the element. |
-| `default` | `Slot<{ open, side, align, uncentered }>` | —       | Content; receives the arrow state.   |
+| Prop      | Type                                       | Default | Description                          |
+| :-------- | :----------------------------------------- | :------ | :----------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.              |
+| `class`   | `string`                                   | —       | CSS class applied to the element.    |
+| `style`   | `string`                                   | —       | Inline style applied to the element. |
+| `default` | `Slot<{ open, side, align, uncentered }>`  | —       | Content; receives the arrow state.   |
 
 ::
 

@@ -118,7 +118,7 @@ Renders a `<div>` element.
 
 | Prop               | Type                                                                             | Default | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------ |
-| `as`               | `keyof HTMLElementTagNameMap`                                                    | `'div'` | HTML element to render.                                                                                 |
+| `as`               | `keyof HTMLElementTagNameMap \| Component`                                       | `'div'` | HTML element to render.                                                                                 |
 | `class`            | `string`                                                                         | —       | CSS class applied to the element.                                                                       |
 | `style`            | `string`                                                                         | —       | Inline style applied to the element.                                                                    |
 | `value`            | `Value`                                                                          | —       | The selected radio value. Pass an initial value for uncontrolled use, or `v-model:value` to control it. |
@@ -193,7 +193,7 @@ Renders a `<span>` element.
 
 | Prop          | Type                                                                                                        | Default  | Description                                                                  |
 | :------------ | :---------------------------------------------------------------------------------------------------------- | :------- | :--------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                                                                               | `'span'` | HTML element to render.                                                      |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                                                                  | `'span'` | HTML element to render.                                                      |
 | `class`       | `string`                                                                                                    | —        | CSS class applied to the element.                                            |
 | `style`       | `string`                                                                                                    | —        | Inline style applied to the element.                                         |
 | `keepMounted` | `boolean`                                                                                                   | `false`  | Keep in DOM when unchecked (for exit animations).                            |

@@ -210,16 +210,16 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop       | Type                              | Default | Description                                                                                                                                               |
-| :--------- | :-------------------------------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`       | `keyof HTMLElementTagNameMap`     | `'div'` | HTML element to render.                                                                                                                                   |
-| `class`    | `string`                          | —       | CSS class applied to the element.                                                                                                                         |
-| `style`    | `string`                          | —       | Inline style applied to the element.                                                                                                                      |
-| `value`    | `unknown`                         | `null`  | The item's value.                                                                                                                                         |
-| `disabled` | `boolean`                         | `false` | Disables interaction for this item.                                                                                                                       |
-| `index`    | `number`                          | —       | Explicit index when items are virtualized.                                                                                                                |
-| `onClick`  | `(event: MouseEvent) => void`     | —       | Click handler for the item. Fires when clicking the item, as well as when pressing `Enter` while the item is highlighted and the input or list has focus. |
-| `default`  | `Slot<{ highlighted, disabled }>` | —       | Content; receives the item state.                                                                                                                         |
+| Prop       | Type                                       | Default | Description                                                                                                                                               |
+| :--------- | :----------------------------------------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`       | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                                                                                                                                   |
+| `class`    | `string`                                   | —       | CSS class applied to the element.                                                                                                                         |
+| `style`    | `string`                                   | —       | Inline style applied to the element.                                                                                                                      |
+| `value`    | `unknown`                                  | `null`  | The item's value.                                                                                                                                         |
+| `disabled` | `boolean`                                  | `false` | Disables interaction for this item.                                                                                                                       |
+| `index`    | `number`                                   | —       | Explicit index when items are virtualized.                                                                                                                |
+| `onClick`  | `(event: MouseEvent) => void`              | —       | Click handler for the item. Fires when clicking the item, as well as when pressing `Enter` while the item is highlighted and the input or list has focus. |
+| `default`  | `Slot<{ highlighted, disabled }>`          | —       | Content; receives the item state.                                                                                                                         |
 
 ::
 

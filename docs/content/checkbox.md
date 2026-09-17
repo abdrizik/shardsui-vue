@@ -132,7 +132,7 @@ Renders a `<span>` element.
 
 | Prop          | Type                                                                                                                       | Default  | Description                                                                   |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------- | :------- | :---------------------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                                                                                              | `'span'` | HTML element to render.                                                       |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`                                                                                 | `'span'` | HTML element to render.                                                       |
 | `class`       | `string`                                                                                                                   | —        | CSS class applied to the element.                                             |
 | `style`       | `string`                                                                                                                   | —        | Inline style applied to the element.                                          |
 | `keepMounted` | `boolean`                                                                                                                  | `false`  | Keep in DOM when unchecked (for exit animations).                             |

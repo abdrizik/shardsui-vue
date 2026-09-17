@@ -62,7 +62,7 @@ Each menu is a full [Menu](/menu) — its parts (`Trigger`, `Positioner`, `Popup
 
 | Prop          | Type                                           | Default        | Description                                                    |
 | :------------ | :--------------------------------------------- | :------------- | :------------------------------------------------------------- |
-| `as`          | `keyof HTMLElementTagNameMap`                  | `'div'`        | HTML element to render.                                        |
+| `as`          | `keyof HTMLElementTagNameMap \| Component`     | `'div'`        | HTML element to render.                                        |
 | `class`       | `string`                                       | —              | CSS class applied to the element.                              |
 | `style`       | `string`                                       | —              | Inline style applied to the element.                           |
 | `id`          | `string`                                       | auto           | Custom element ID.                                             |

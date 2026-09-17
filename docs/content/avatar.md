@@ -27,12 +27,12 @@ Groups the image and its fallback. Renders a `<span>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                           | Default  | Description                                 |
-| :-------- | :----------------------------- | :------- | :------------------------------------------ |
-| `as`      | `keyof HTMLElementTagNameMap`  | `'span'` | HTML element to render.                     |
-| `class`   | `string`                       | —        | CSS class applied to the element.           |
-| `style`   | `string`                       | —        | Inline style applied to the element.        |
-| `default` | `Slot<{ imageLoadingStatus }>` | —        | Content; receives the image loading status. |
+| Prop      | Type                                       | Default  | Description                                 |
+| :-------- | :----------------------------------------- | :------- | :------------------------------------------ |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.                     |
+| `class`   | `string`                                   | —        | CSS class applied to the element.           |
+| `style`   | `string`                                   | —        | Inline style applied to the element.        |
+| `default` | `Slot<{ imageLoadingStatus }>`             | —        | Content; receives the image loading status. |
 
 ::
 
@@ -44,18 +44,18 @@ The component preloads the image — applying the same `src`, `srcset`, `sizes`,
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop                  | Type                                     | Default | Description                                                                     |
-| :-------------------- | :--------------------------------------- | :------ | :------------------------------------------------------------------------------ |
-| `as`                  | `keyof HTMLElementTagNameMap`            | `'img'` | HTML element to render.                                                         |
-| `class`               | `string`                                 | —       | CSS class applied to the element.                                               |
-| `style`               | `string`                                 | —       | Inline style applied to the element.                                            |
-| `src`                 | `string`                                 | —       | Image URL.                                                                      |
-| `srcset`              | `string`                                 | —       | Responsive image source set. Enough on its own — `src` may be omitted.          |
-| `sizes`               | `string`                                 | —       | Layout widths the browser matches `srcset` against.                             |
-| `crossorigin`         | `'anonymous' \| 'use-credentials' \| ''` | —       | CORS mode used to fetch the image.                                              |
-| `referrerpolicy`      | `ReferrerPolicy`                         | —       | Referrer sent when fetching the image.                                          |
-| `alt`                 | `string`                                 | —       | Alternative text. Use `alt=""` when the user's name already appears next to it. |
-| `loadingStatusChange` | `(status: ImageLoadingStatus) => void`   | —       | Emitted when the loading status changes. Never emitted with `'idle'`.           |
+| Prop                  | Type                                       | Default | Description                                                                     |
+| :-------------------- | :----------------------------------------- | :------ | :------------------------------------------------------------------------------ |
+| `as`                  | `keyof HTMLElementTagNameMap \| Component` | `'img'` | HTML element to render.                                                         |
+| `class`               | `string`                                   | —       | CSS class applied to the element.                                               |
+| `style`               | `string`                                   | —       | Inline style applied to the element.                                            |
+| `src`                 | `string`                                   | —       | Image URL.                                                                      |
+| `srcset`              | `string`                                   | —       | Responsive image source set. Enough on its own — `src` may be omitted.          |
+| `sizes`               | `string`                                   | —       | Layout widths the browser matches `srcset` against.                             |
+| `crossorigin`         | `'anonymous' \| 'use-credentials' \| ''`   | —       | CORS mode used to fetch the image.                                              |
+| `referrerpolicy`      | `ReferrerPolicy`                           | —       | Referrer sent when fetching the image.                                          |
+| `alt`                 | `string`                                   | —       | Alternative text. Use `alt=""` when the user's name already appears next to it. |
+| `loadingStatusChange` | `(status: ImageLoadingStatus) => void`     | —       | Emitted when the loading status changes. Never emitted with `'idle'`.           |
 
 ::
 
@@ -70,13 +70,13 @@ Rendered while the image is missing, still loading, or failed. Renders a `<span>
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                           | Default  | Description                                                              |
-| :-------- | :----------------------------- | :------- | :----------------------------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap`  | `'span'` | HTML element to render.                                                  |
-| `class`   | `string`                       | —        | CSS class applied to the element.                                        |
-| `style`   | `string`                       | —        | Inline style applied to the element.                                     |
-| `delay`   | `number`                       | `0`      | How long to wait before showing the fallback. Specified in milliseconds. |
-| `default` | `Slot<{ imageLoadingStatus }>` | —        | Content; receives the image loading status.                              |
+| Prop      | Type                                       | Default  | Description                                                              |
+| :-------- | :----------------------------------------- | :------- | :----------------------------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'span'` | HTML element to render.                                                  |
+| `class`   | `string`                                   | —        | CSS class applied to the element.                                        |
+| `style`   | `string`                                   | —        | Inline style applied to the element.                                     |
+| `delay`   | `number`                                   | `0`      | How long to wait before showing the fallback. Specified in milliseconds. |
+| `default` | `Slot<{ imageLoadingStatus }>`             | —        | Content; receives the image loading status.                              |
 
 ::
 

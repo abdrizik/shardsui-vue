@@ -94,12 +94,12 @@ Renders a `<div>` element.
 
 ::table{columns="Prop,Type,Default"}
 
-| Prop      | Type                          | Default | Description                                         |
-| :-------- | :---------------------------- | :------ | :-------------------------------------------------- |
-| `as`      | `keyof HTMLElementTagNameMap` | `'div'` | HTML element to render.                             |
-| `class`   | `string`                      | —       | CSS class applied to the element.                   |
-| `style`   | `string`                      | —       | Inline style applied to the element.                |
-| `default` | `Slot<{ open }>`              | —       | Content; receives whether the context menu is open. |
+| Prop      | Type                                       | Default | Description                                         |
+| :-------- | :----------------------------------------- | :------ | :-------------------------------------------------- |
+| `as`      | `keyof HTMLElementTagNameMap \| Component` | `'div'` | HTML element to render.                             |
+| `class`   | `string`                                   | —       | CSS class applied to the element.                   |
+| `style`   | `string`                                   | —       | Inline style applied to the element.                |
+| `default` | `Slot<{ open }>`                           | —       | Content; receives whether the context menu is open. |
 
 ::
 
@@ -117,7 +117,7 @@ Renders a `<div>` element.
 
 | Prop                    | Type                                                                       | Default                                                  | Description                                                                      |
 | :---------------------- | :------------------------------------------------------------------------- | :------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| `as`                    | `keyof HTMLElementTagNameMap`                                              | `'div'`                                                  | HTML element to render.                                                          |
+| `as`                    | `keyof HTMLElementTagNameMap \| Component`                                 | `'div'`                                                  | HTML element to render.                                                          |
 | `class`                 | `string`                                                                   | —                                                        | CSS class applied to the element.                                                |
 | `style`                 | `string`                                                                   | —                                                        | Inline style applied to the element.                                             |
 | `side`                  | `'top' \| 'bottom' \| 'left' \| 'right' \| 'inline-start' \| 'inline-end'` | `'bottom'`                                               | Side to position the popup on.                                                   |
