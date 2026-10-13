@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   useId,
   useTemplateRef,
@@ -13,6 +12,7 @@ import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { FieldContext } from './context'
 import { getFieldAriaInvalid, getFieldStateAttrs } from './field'
 

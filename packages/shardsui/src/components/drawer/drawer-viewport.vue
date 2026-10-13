@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { mergeProps } from 'vue'
 import { DialogContext, type DialogViewportState } from '@/components/dialog/context'
 import DialogViewport from '@/components/dialog/dialog-viewport.vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { DrawerContext, DrawerProviderContext, DrawerViewportContext } from './context'
 import { useDrawerSwipe } from './swipe'

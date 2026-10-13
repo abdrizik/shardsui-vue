@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="Value extends string = string">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { ToolbarContext, ToolbarGroupContext } from '@/components/toolbar/context'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeRoot } from '@/internal/floating/composite'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { ToggleGroupContext, type ToggleGroupState } from './context'

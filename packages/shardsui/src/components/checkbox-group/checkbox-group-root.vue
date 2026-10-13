@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId } from 'vue'
+import { computed, useId } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { dataAttrs } from '@/internal/data-attrs'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { useCheckboxGroupRoot } from './checkbox-group'
 import { CheckboxGroupContext, type CheckboxGroupState } from './context'

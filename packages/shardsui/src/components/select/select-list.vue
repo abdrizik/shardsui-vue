@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchEffect, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchEffect, watchPostEffect } from 'vue'
 import { listen } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { SelectContext } from './context'

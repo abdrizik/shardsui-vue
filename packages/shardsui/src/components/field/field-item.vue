@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { createLabelable } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { FieldContext, FieldItemContext, type FieldRootState } from './context'
 import { getFieldState, getFieldStateAttrs } from './field'

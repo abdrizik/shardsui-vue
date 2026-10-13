@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId } from 'vue'
+import { computed, useId } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { registerLabelId } from '@/internal/register-label-id'
 import type { PartProps } from '@/internal/types'
 import { ComboboxGroupContext } from './context'

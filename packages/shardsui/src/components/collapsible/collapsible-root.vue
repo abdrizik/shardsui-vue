@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { useCollapsibleRoot, type CollapsibleState } from './collapsible'
 import { CollapsibleContext } from './context'

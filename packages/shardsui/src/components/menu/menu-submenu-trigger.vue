@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   shallowRef,
   useId,
@@ -17,6 +16,7 @@ import { DirectionContext } from '@/internal/direction-context'
 import { isVirtualPointerEvent } from '@/internal/floating/event'
 import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { safePolygon } from '@/internal/floating/safe-polygon'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'

@@ -1,11 +1,12 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, useId, watchPostEffect } from 'vue'
+import { computed, useId, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { createFocusReference } from '@/internal/floating/focus-reference'
 import { getDelay } from '@/internal/floating/hover/predicates'
 import { hoverReferenceInteraction } from '@/internal/floating/hover/reference'
 import { safePolygon } from '@/internal/floating/safe-polygon'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { useTriggerRegistration } from '@/internal/trigger-registration'
 import type { PartProps } from '@/internal/types'

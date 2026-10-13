@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mergeProps } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import type { AccordionItemState } from './accordion'
 import { AccordionItemContext } from './context'

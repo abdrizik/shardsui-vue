@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, watch } from 'vue'
+import { computed, watch } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext } from './context'

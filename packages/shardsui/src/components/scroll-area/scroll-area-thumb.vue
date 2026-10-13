@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext, ScrollAreaScrollbarContext, type ScrollAreaThumbState } from './context'

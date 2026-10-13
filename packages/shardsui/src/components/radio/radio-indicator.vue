@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { TransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'

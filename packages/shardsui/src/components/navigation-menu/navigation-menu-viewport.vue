@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   useId,
   useTemplateRef,
@@ -18,6 +17,7 @@ import {
   isOutsideEvent
 } from '@/internal/floating/tabbable'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { NavigationMenuContext, NavigationMenuPositionerContext } from './context'

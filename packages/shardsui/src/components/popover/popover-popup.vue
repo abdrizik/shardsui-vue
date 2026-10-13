@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   shallowRef,
   useId,
@@ -19,6 +18,7 @@ import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-man
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'

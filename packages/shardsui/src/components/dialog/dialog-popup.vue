@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   useId,
   watchEffect,
@@ -12,6 +11,7 @@ import { chain } from '@/internal/chain'
 import { listen } from '@/internal/dom'
 import { COMPOSITE_KEYS } from '@/internal/composite'
 import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-manager'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'

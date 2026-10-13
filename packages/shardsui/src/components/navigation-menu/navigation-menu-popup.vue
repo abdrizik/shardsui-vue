@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, useId, watchPostEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {

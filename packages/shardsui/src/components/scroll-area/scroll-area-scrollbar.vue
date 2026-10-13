@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
 import { chain } from '@/internal/chain'
 import { clamp } from '@/internal/clamp'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { contains, getTarget } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import {

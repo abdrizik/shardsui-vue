@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useId,
-  watchPostEffect,
-  watchSyncEffect
-} from 'vue'
+import { computed, onWatcherCleanup, useId, watchPostEffect, watchSyncEffect } from 'vue'
 import { DialogContext, DialogPortalContext } from '@/components/dialog/context'
 import { chain } from '@/internal/chain'
 import { COMPOSITE_KEYS } from '@/internal/composite'
 import { dataAttrs } from '@/internal/data-attrs'
 import { listen } from '@/internal/dom'
 import type { FocusTarget } from '@/internal/floating/focus-manager'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DrawerContext, DrawerViewportContext, type DrawerPopupState } from './context'

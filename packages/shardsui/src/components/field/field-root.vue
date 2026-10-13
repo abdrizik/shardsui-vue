@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { FieldsetContext } from '@/components/fieldset/context'
 import { FormContext } from '@/components/form/context'
 import type { FormValidationMode } from '@/components/form/form'
 import { createLabelable } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { FieldContext, type FieldRootState } from './context'
 import { getFieldState, useFieldRoot, type FieldValidator } from './field'

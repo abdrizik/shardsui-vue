@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget } from '@/internal/dom'
 import { useCompositeRoot } from '@/internal/floating/composite'
 import { useDismiss } from '@/internal/floating/dismiss'
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import type { PartProps } from '@/internal/types'

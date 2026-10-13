@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, shallowRef, watchPostEffect } from 'vue'
+import { computed, shallowRef, watchPostEffect } from 'vue'
 import { getCssDimensions } from '@/internal/get-css-dimensions'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import {
   TabsContext,

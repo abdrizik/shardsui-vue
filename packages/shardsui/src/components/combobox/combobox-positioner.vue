@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watch, watchEffect } from 'vue'
+import { computed, onWatcherCleanup, watch, watchEffect } from 'vue'
 import { AnchoredPortalContext } from '@/internal/anchored-portal'
 import { anchoredPositionerAttrs } from '@/internal/anchored-state'
 import { DROPDOWN_COLLISION_AVOIDANCE } from '@/internal/constants'
@@ -10,6 +10,7 @@ import {
 } from '@/internal/floating/anchor-positioning'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
 import InternalBackdrop from '@/internal/internal-backdrop.vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { useScrollLock } from '@/internal/scroll-lock'
 import type { PartProps } from '@/internal/types'

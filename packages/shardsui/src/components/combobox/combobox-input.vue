@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId, useTemplateRef } from 'vue'
+import { computed, useId, useTemplateRef } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldStateAttrs } from '@/components/field/field'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import ComboboxInternalDismissButton from './combobox-internal-dismiss-button.vue'
 import { ComboboxContext, ComboboxPositionerContext } from './context'
 import { useComboboxInput } from './input'

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   nextTick,
   onWatcherCleanup,
   useId,
@@ -21,6 +20,7 @@ import { dispatchClickWithModifiers } from '@/internal/dispatch-click-with-modif
 import { useFallbackAriaLabelledBy } from '@/internal/fallback-aria-labelled-by'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { visuallyHidden, visuallyHiddenInput } from '@/internal/visually-hidden'
 import { SwitchContext, type SwitchState } from './context'
 

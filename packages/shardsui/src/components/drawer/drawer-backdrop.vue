@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import { DialogContext } from '@/components/dialog/context'
 import type { AnchoredBackdropState } from '@/internal/anchored-state'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DRAWER_SWIPE_PROGRESS_VAR } from './constants'

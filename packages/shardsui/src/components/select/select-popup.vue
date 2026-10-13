@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onScopeDispose,
   onWatcherCleanup,
   watchEffect,
@@ -17,6 +16,7 @@ import { listen } from '@/internal/dom'
 import { useFocusManager, type FocusTarget } from '@/internal/floating/focus-manager'
 import { createTypeahead } from '@/internal/floating/typeahead'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'

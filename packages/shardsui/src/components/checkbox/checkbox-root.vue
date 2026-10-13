@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   useId,
   useTemplateRef,
@@ -21,6 +20,7 @@ import { makeEventPreventable } from '@/internal/event-preventable'
 import { useFallbackAriaLabelledBy } from '@/internal/fallback-aria-labelled-by'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { visuallyHidden, visuallyHiddenInput } from '@/internal/visually-hidden'
 import { CheckboxContext, type CheckboxState } from './context'
 

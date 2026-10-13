@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId } from 'vue'
+import { computed, useId } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { focusElementWithVisible, labelInteraction } from '@/internal/label-interaction'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import { registerLabelId } from '@/internal/register-label-id'

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId } from 'vue'
+import { computed, useId } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import type { ToastTitleState } from './context'
 import { useToastLabelPart } from './label-part'

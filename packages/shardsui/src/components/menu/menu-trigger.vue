@@ -1,10 +1,11 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, onWatcherCleanup, useId, useTemplateRef, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, useId, useTemplateRef, watchPostEffect } from 'vue'
 import { MenubarContext } from '@/components/menubar/context'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'

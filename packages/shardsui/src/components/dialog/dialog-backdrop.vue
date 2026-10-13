@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import type { AnchoredBackdropState } from '@/internal/anchored-state'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DialogContext } from './context'

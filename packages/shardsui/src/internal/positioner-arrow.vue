@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect, type CSSProperties } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import type { Align, Side } from '@/internal/floating/anchor-positioning'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import type { Ref } from 'vue'

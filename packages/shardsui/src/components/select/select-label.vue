@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { FieldContext, type FieldRootState } from '@/components/field/context'
 import { getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { focusElementWithVisible, labelInteraction } from '@/internal/label-interaction'
+import { mergeProps } from '@/internal/merge-props'
 import { registerLabelId } from '@/internal/register-label-id'
 import type { PartProps } from '@/internal/types'
 import { SelectContext } from './context'

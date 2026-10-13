@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   nextTick,
   onWatcherCleanup,
   useId,
@@ -20,6 +19,7 @@ import { useFallbackAriaLabelledBy } from '@/internal/fallback-aria-labelled-by'
 import { useCompositeItem } from '@/internal/floating/composite'
 import { mergeDescribedBy } from '@/internal/labelable'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { serializeValue } from '@/internal/serialize-value'
 import { visuallyHidden, visuallyHiddenInput } from '@/internal/visually-hidden'
 import { RadioContext, type RadioState } from './context'

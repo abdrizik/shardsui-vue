@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, type CSSProperties } from 'vue'
+import { computed, type CSSProperties } from 'vue'
 import { chain } from '@/internal/chain'
 import { DirectionContext } from '@/internal/direction-context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext } from './context'
 import {

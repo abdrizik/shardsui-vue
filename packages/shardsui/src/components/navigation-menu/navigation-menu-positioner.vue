@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  shallowRef,
-  watchPostEffect,
-  watchSyncEffect
-} from 'vue'
+import { computed, onWatcherCleanup, shallowRef, watchPostEffect, watchSyncEffect } from 'vue'
 import { AnchoredPortalContext } from '@/internal/anchored-portal'
 import { anchoredPositionerAttrs } from '@/internal/anchored-state'
 import { DROPDOWN_COLLISION_AVOIDANCE, POPUP_COLLISION_AVOIDANCE } from '@/internal/constants'
@@ -19,6 +12,7 @@ import {
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { disableFocusInside, enableFocusInside, isOutsideEvent } from '@/internal/floating/tabbable'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { useTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'

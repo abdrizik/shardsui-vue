@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watch, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watch, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { useTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'

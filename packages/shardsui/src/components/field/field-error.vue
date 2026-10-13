@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  shallowRef,
-  useId,
-  watchEffect,
-  watchPostEffect
-} from 'vue'
+import { computed, onWatcherCleanup, shallowRef, useId, watchEffect, watchPostEffect } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import { useTransitionStatus } from '@/internal/transition-status'

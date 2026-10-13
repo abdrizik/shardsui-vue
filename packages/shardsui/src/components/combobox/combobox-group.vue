@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, shallowRef } from 'vue'
+import { computed, shallowRef } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { ComboboxGroupContext, ComboboxGroupItemsContext } from './context'
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onScopeDispose,
   onWatcherCleanup,
   useTemplateRef,
@@ -21,6 +20,7 @@ import { createTypeahead } from '@/internal/floating/typeahead'
 import FocusGuard from '@/internal/focus-guard.vue'
 import { LabelableContext } from '@/internal/labelable-context'
 import { mergeDescribedBy } from '@/internal/labelable'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'

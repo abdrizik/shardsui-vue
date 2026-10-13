@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import { AnchoredPortalContext } from '@/internal/anchored-portal'
 import { anchoredPositionerAttrs } from '@/internal/anchored-state'
 import {
@@ -8,6 +8,7 @@ import {
 } from '@/internal/floating/anchor-positioning'
 import { createInlineMiddleware } from '@/internal/floating/inline-rect'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {

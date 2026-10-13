@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { mergeProps, useId } from 'vue'
+import { useId } from 'vue'
 import { CollapsibleContext } from '@/components/collapsible/context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { useAccordionItem, type AccordionItemState } from './accordion'
 import { AccordionContext, AccordionItemContext } from './context'

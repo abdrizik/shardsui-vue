@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, useTemplateRef } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useCompositeItem } from '@/internal/floating/composite'
+import { mergeProps } from '@/internal/merge-props'
 import { ToolbarContext, ToolbarGroupContext } from './context'
 
 type Props = {

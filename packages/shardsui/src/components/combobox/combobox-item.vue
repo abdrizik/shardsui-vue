@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { isElement } from '@floating-ui/utils/dom'
-import { computed, mergeProps, nextTick, watch, watchPostEffect } from 'vue'
+import { computed, nextTick, watch, watchPostEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { getTarget } from '@/internal/dom'
 import { findItemIndex } from '@/internal/item-equality'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'

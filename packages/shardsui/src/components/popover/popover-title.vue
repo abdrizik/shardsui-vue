@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, watchEffect } from 'vue'
+import { computed, onWatcherCleanup, useId, watchEffect } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { PopoverContext } from './context'
 

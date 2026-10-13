@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { onWatcherCleanup, watchPostEffect } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ScrollAreaContext } from './context'

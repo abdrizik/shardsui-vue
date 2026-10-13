@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onScopeDispose } from 'vue'
+import { computed, onScopeDispose } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import {
   getMaxScrollOffset,

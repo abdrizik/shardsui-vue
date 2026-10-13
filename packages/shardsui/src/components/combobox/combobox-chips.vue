@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps, shallowRef, watch, watchEffect } from 'vue'
+import { computed, shallowRef, watch, watchEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { observeDocumentOrder } from '@/internal/document-order'
 import { sortByDocumentPosition } from '@/internal/document-position'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxChipsContext, ComboboxContext } from './context'

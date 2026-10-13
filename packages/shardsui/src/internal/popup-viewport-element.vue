@@ -1,7 +1,6 @@
 <script setup lang="ts" generic="Instant extends string">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   useTemplateRef,
   watchPostEffect,
@@ -10,6 +9,7 @@ import {
 import type { AnchoredViewportState } from '@/internal/anchored-state'
 import { dataAttrs } from '@/internal/data-attrs'
 import type { Side } from '@/internal/floating/anchor-positioning'
+import { mergeProps } from '@/internal/merge-props'
 import { usePopupAutoResize } from '@/internal/popup-auto-resize'
 import { usePopupViewport } from '@/internal/popup-viewport'
 import type { PartProps } from '@/internal/types'

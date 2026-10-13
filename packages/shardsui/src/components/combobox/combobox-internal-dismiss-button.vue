@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { mergeProps, useTemplateRef, watch, type ShallowRef } from 'vue'
+import { useTemplateRef, watch, type ShallowRef } from 'vue'
 import { useButton } from '@/internal/button'
+import { mergeProps } from '@/internal/merge-props'
 import { REASONS } from '@/internal/reasons'
 import { visuallyHiddenInput } from '@/internal/visually-hidden'
 import { ComboboxContext } from './context'

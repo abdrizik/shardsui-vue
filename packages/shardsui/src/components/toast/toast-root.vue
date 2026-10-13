@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   computed,
-  mergeProps,
   onWatcherCleanup,
   watch,
   watchEffect,
@@ -11,6 +10,7 @@ import {
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, listen } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import type { SwipeDirection } from '@/internal/swipe-dismiss'

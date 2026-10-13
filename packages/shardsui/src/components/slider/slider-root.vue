@@ -3,7 +3,8 @@
   lang="ts"
   generic="Value extends number | readonly number[] = number | readonly number[]"
 >
-import { computed, mergeProps, shallowRef, useId, watchSyncEffect } from 'vue'
+import { computed, shallowRef, useId, watchSyncEffect } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { Orientation, PartProps } from '@/internal/types'
 import { SliderContext } from './context'

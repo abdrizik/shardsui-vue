@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { ProgressContext } from './context'
 import type { ProgressValueSlotState } from './progress'

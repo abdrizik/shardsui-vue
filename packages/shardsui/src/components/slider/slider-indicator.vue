@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, mergeProps, type CSSProperties } from 'vue'
+import { computed, type CSSProperties } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { valueToPercent } from '@/internal/value-to-percent'
 import { SliderContext } from './context'

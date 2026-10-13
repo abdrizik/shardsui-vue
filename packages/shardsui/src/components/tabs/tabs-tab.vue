@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, watch, watchEffect } from 'vue'
+import { computed, onWatcherCleanup, useId, watch, watchEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains } from '@/internal/dom'
 import { useCompositeItem } from '@/internal/floating/composite'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'

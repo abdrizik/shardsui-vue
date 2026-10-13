@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, listen } from '@/internal/dom'
 import { matchesFocusVisible } from '@/internal/floating/element'
 import FocusGuard from '@/internal/focus-guard.vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { useTimeout } from '@/internal/timeout'
 import type { PartProps } from '@/internal/types'

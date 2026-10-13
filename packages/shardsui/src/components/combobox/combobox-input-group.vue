@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, watch } from 'vue'
+import { computed, watch } from 'vue'
 import { FieldContext } from '@/components/field/context'
 import { getFieldState, getFieldStateAttrs } from '@/components/field/field'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext, type ComboboxInputGroupState } from './context'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, shallowRef, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, shallowRef, watchPostEffect } from 'vue'
 import { cancelAnimationFrameTick, requestAnimationFrameTick } from '@/internal/animation-frame'
 import { createAnimationsFinished } from '@/internal/animations-finished'
 import { chain } from '@/internal/chain'
@@ -8,6 +8,7 @@ import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, isElement } from '@/internal/dom'
 import { useCompositeRoot } from '@/internal/floating/composite'
 import { portalTo } from '@/internal/floating/portal'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {

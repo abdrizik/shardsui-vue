@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onWatcherCleanup, watchPostEffect } from 'vue'
 import { anchoredPopupAttrs } from '@/internal/anchored-state'
 import { hoverFloatingInteraction } from '@/internal/floating/hover/floating'
 import { publishCloseGuardContext } from '@/internal/floating/publish-close-guard-context'
 import { getDisabledMountTransitionStyles } from '@/internal/get-disabled-mount-transition-styles'
+import { mergeProps } from '@/internal/merge-props'
 import { openChangeComplete } from '@/internal/open-change-complete'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'

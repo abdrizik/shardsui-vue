@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, type CSSProperties, type Ref } from 'vue'
+import { computed, type CSSProperties, type Ref } from 'vue'
 import type { AnchoredBackdropState } from '@/internal/anchored-state'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { TransitionStatus } from '@/internal/transition-status'
 import type { PartProps } from '@/internal/types'

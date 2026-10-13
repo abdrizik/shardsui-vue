@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { POPUP_COLLISION_AVOIDANCE } from '@/internal/constants'
 import { dataAttrs } from '@/internal/data-attrs'
 import {
@@ -9,6 +9,7 @@ import {
   type Side
 } from '@/internal/floating/anchor-positioning'
 import { usePositionerStyle } from '@/internal/floating/positioner-style'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ToastPositionerContext, ToastProviderContext, type ToastPositionerState } from './context'

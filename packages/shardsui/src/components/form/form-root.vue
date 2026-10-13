@@ -3,7 +3,8 @@
   lang="ts"
   generic="FormValues extends Record<string, unknown> = Record<string, unknown>"
 >
-import { computed, getCurrentInstance, mergeProps } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { FormContext } from './context'

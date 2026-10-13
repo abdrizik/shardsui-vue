@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, useId } from 'vue'
+import { computed, useId } from 'vue'
 import { DialogContext } from '@/components/dialog/context'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { DrawerContext, DrawerProviderContext, type DrawerSwipeAreaState } from './context'

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, mergeProps, onScopeDispose, onWatcherCleanup, watchPostEffect } from 'vue'
+import { computed, onScopeDispose, onWatcherCleanup, watchPostEffect } from 'vue'
 import { MenuContext } from '@/components/menu/context'
 import { findRootOwnerId } from '@/components/menu/find-root-owner-id'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { contains, getTarget, listen } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { REASONS } from '@/internal/reasons'
 import { useTimeout } from '@/internal/timeout'

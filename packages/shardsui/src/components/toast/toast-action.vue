@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import type { PartProps } from '@/internal/types'

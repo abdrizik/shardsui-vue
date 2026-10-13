@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import {
-  computed,
-  mergeProps,
-  onWatcherCleanup,
-  useId,
-  watch,
-  watchEffect,
-  watchSyncEffect
-} from 'vue'
+import { computed, onWatcherCleanup, useId, watch, watchEffect, watchSyncEffect } from 'vue'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
 import { DirectionContext } from '@/internal/direction-context'
 import { listen } from '@/internal/dom'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxContext, ComboboxPositionerContext, type ComboboxListState } from './context'

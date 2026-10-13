@@ -1,8 +1,9 @@
 <script setup lang="ts" generic="Payload = unknown">
-import { computed, mergeProps, useId, watch, watchPostEffect } from 'vue'
+import { computed, useId, watch, watchPostEffect } from 'vue'
 import { useButton } from '@/internal/button'
 import { chain } from '@/internal/chain'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import { usePartTag } from '@/internal/part-tag'
 import { REASONS } from '@/internal/reasons'

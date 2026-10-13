@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { useItemIndicator } from '@/internal/item-indicator'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { ComboboxItemContext, type ComboboxItemIndicatorState } from './context'

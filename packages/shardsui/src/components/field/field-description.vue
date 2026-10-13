@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, mergeProps, onWatcherCleanup, useId, watchEffect } from 'vue'
+import { computed, onWatcherCleanup, useId, watchEffect } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import type { PartProps } from '@/internal/types'
 import { FieldContext, FieldItemContext, type FieldRootState } from './context'
 import { getFieldState, getFieldStateAttrs } from './field'

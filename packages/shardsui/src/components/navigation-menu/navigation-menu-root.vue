@@ -1,6 +1,7 @@
 <script setup lang="ts" generic="Value = unknown">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { dataAttrs } from '@/internal/data-attrs'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import {

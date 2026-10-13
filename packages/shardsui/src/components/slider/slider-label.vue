@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, mergeProps } from 'vue'
+import { computed } from 'vue'
 import { chain } from '@/internal/chain'
 import { focusElementWithVisible, labelInteraction } from '@/internal/label-interaction'
 import { LabelableContext } from '@/internal/labelable-context'
+import { mergeProps } from '@/internal/merge-props'
 import { registerLabelId } from '@/internal/register-label-id'
 import type { PartProps } from '@/internal/types'
 import { SliderContext } from './context'

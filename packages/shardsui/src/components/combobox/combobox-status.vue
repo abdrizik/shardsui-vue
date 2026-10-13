@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mergeProps } from 'vue'
+import { mergeProps } from '@/internal/merge-props'
 import { usePartElement } from '@/internal/part-element'
 import type { PartProps } from '@/internal/types'
 import { useInitialLiveRegionTextMutation } from './initial-live-region-text-mutation'
